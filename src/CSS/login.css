@@ -1,0 +1,39 @@
+.login-wrapper {
+    background-color: #1c2740 ;
+    background-image: url("../Images/loginbgImg.png");
+    height: 100vh;
+}
+
+.login-wrapper .login-card {  
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+
+}
+.login-wrapper .login-card img {
+    height: 50px;
+}
+.login-wrapper .login-card p {
+    font-size: 40px;
+}
+
+.login-wrapper .card {
+    /* background-color: rgb(80, 83, 83); */
+    padding: 15px;
+}
+
+.login-wrapper .btn {
+    width: 100%;
+    background-color: #1c2740;
+    color: #fff;
+}
+.login-wrapper label {
+    font-weight: 600;
+}
+.login-wrapper span {
+    font-size: 14px;
+}
+.card-header {
+    border-bottom: none !important;
+    background: none !important;
+}

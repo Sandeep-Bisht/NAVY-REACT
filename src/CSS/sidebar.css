@@ -1,0 +1,33 @@
+.sidebar-wrapper .sidebar-card aside{
+    height: 100vh;
+    background: #1c2740;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    padding: 120px 0px 0px 0px;
+}
+.sidebar-wrapper .sidebar-card aside ul li {
+    color: #fff;
+}
+
+.sidebar-wrapper .sidebar-card aside .active-blue
+{
+  background: #152036!important;
+  
+}
+.sidebar-wrapper .sidebar-card aside  button{
+  color:#fff!important;
+}
+
+.sidebar-wrapper .sidebar-card aside ul li
+{
+  margin:25px 0;
+  transition: .2s;
+}
+/* .sidebar-wrapper .sidebar-card ul li {
+    list-style: none;
+}
+.sidebar-wrapper .sidebar-card ul li  {
+    text-decoration: none;
+    color: #fff;
+} */

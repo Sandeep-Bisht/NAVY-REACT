@@ -1,0 +1,225 @@
+/* .nav-wrapper {
+    background: #1c2740;
+}
+.nav-wrapper .nav-logo img {
+    height: 50px;
+}
+.card {
+    border-radius : 0px !important
+} */
+
+
+/* -----------custom dashboard css--------- */
+.dashboard-header .navbar-brand img{
+    height:36px;
+  }
+  .accordion-button:focus,.btn-check:focus+.btn, .btn:focus{
+    box-shadow: none;
+  }
+  .dashboard-title
+  {
+    font-family: 'Mulish', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0;    
+    letter-spacing: 2px;
+    font-weight: 600;
+  
+  }
+  .dashboard-header
+  {
+    background:#152036;
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index: 1111;
+    padding:10px;
+    
+  }
+  .dashboard-header .user-text
+  {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 0;
+  }
+  .d-user-toggle
+  {
+    font-size: 13px;
+    color:#fff;
+  }
+  .d-user-toggle:hover{
+    color:#fff;
+  }
+  .dash-user-pic
+  {
+    
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.50);
+    height: 43px!important;
+    width: 43px!important;
+    }
+    .dash-body .left-part{
+      
+      min-height: 100vh;
+      background:#1b2a47;
+  }
+  .dash-body .left-part .accordion-header{
+    background:#1b2a47;
+  }
+  .dash-body .left-part aside{
+    position: sticky;
+      top: 0;
+      z-index: 1020;
+      padding: 120px 0px 0px 0px;
+      
+  }
+  
+  .dash-body .left-part aside .active-blue
+  {
+    background: #152036!important;
+    
+  }
+  .dash-body .left-part aside .active-blue button{
+    color:#fff!important;
+  }
+  
+  .dash-body .left-part aside ul li,.dash-body .left-part .accordion-button
+  {
+    
+  
+    margin:25px 0;
+    transition: .2s;
+  }
+  
+  /* .dash-body .left-part .accordion-button::after
+  {
+    background-image: url(../images/downward-arrow.png);
+    
+  }
+  .dash-body .left-part .accordion-button:not(.collapsed)::after
+  {
+    background-image: url(../images/downward-arrow.png);
+   
+  } 
+  .dash-body .left-part .accordion-button[aria-expanded="false"]::after{
+    transform: rotate(0deg)!important;
+  } */
+  
+  
+  .dash-body .left-part aside ul li:hover,.dash-body .left-part .accordion-button:hover,
+  .dashboard-header .dropdown-item:hover
+  {
+    /* background:#362515!important; */
+    color:#fff;
+  }
+  
+  .dash-body .left-part aside ul li:hover button,.dash-body .left-part .accordion-button:hover{
+    color:#fff!important;
+  }
+  .dashboard-header .dropdown-menu
+  {
+    background: #1b2a47;
+    width: 100%;
+    margin-top: 21px;
+    padding: 0;
+    
+  }
+  .dash-body .left-part aside ul li button,.dash-body .left-part .accordion-button,
+  .dashboard-header .dropdown-item
+  {
+     width: 100%;
+      background: transparent;
+      border:none;
+      text-align:left;
+      padding: 12px 20px!important;
+      font-size: 15px;
+      font-weight:500;
+      color:#fff;
+      box-shadow: none;
+  }
+  .dash-body .accordion .accordion-item
+  {
+    border:0;
+    background: transparent;
+  }
+  
+  .accordion-button:not(.collapsed)
+  {
+    background:transparent;
+    box-shadow: none;
+  }
+  .accordion-button:focus
+  {
+    box-shadow: none;
+  }
+  .dash-body .right-part
+  {
+    padding: 90px 25px 50px 25px;
+    background: rgba(203, 203, 210, 0.15);
+    
+  }
+  .dash-body .right-part .form-label
+  {
+    color: #152036;
+      font-size: 14px;
+      font-weight: 500;
+  }  
+  .form-section textarea
+  {
+      height: 130px;
+  } 
+  
+  .user-icon {
+      font-size: 20px;
+      /* padding-right: 8px; */
+      display: inline-block;
+      width: 44px;
+      height: 43px;
+      BACKGROUND: rgba(255,255,255,.2);
+      border-radius: 50%;
+      /* display: flex; */
+      line-height: 40px;
+      text-align: center;
+      margin-right: 10px;
+  }
+  
+  
+  .toggle-btn label
+  {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 30px;
+    background: #aaa;
+    border-radius: 30px;
+    transition: all 250ms linear;
+  }
+  .toggle-btn label::before
+  {
+    position: relative;
+    content: "";
+    width: 20px;
+    height: 21px;
+    background: #ddd;
+    display: block;
+    border-radius: 50%;
+    top: 5px;
+    left: 6px;
+    transition: all 250ms linear;
+  }
+  /* .toggle-btn input:checked + label
+  {
+    background: #00acee;
+  } */
+  .toggle-btn input:checked + label::before
+  {
+    left:32px;
+  }
+  .toggle-btn input
+  {
+    display: none;
+  }
+  
