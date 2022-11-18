@@ -5,13 +5,10 @@ import "../../CSS/login.css";
 import "../../CSS/common.css";
 
 const Login = () => {
-
-
-
   let [loginPayload, setLoginPayload] = useState({
-    userEmail: '',
-    userPassword: ''
-  })
+    userEmail: "",
+    userPassword: "",
+  });
 
   const [userInfo, setUserInfo] = useState([]);
 
@@ -19,13 +16,13 @@ const Login = () => {
     let loginPayloadCopy = { ...loginPayload };
     loginPayloadCopy[e.target.id] = e.target.value;
     setLoginPayload(loginPayloadCopy);
-  }
+  };
 
   const loginFormSubmit = (e) => {
     e.preventDefault();
-    console.log(loginPayload, "aa gaya jjj")
+    console.log(loginPayload, "aa gaya jjj");
     handleLogin();
-  }
+  };
 
   //  const Get = async (loginPayload) =>{
   //   url = "http://localhost:4001/api/getuser"
@@ -39,20 +36,31 @@ const Login = () => {
   // }
   // };
 
-  const handleLogin = () => {
-    try {
-      axios({
-        method: 'get',
-        url: 'http://localhost:4001/api/getuser',
-        data: loginPayload,
-      }).then(function (response) {
-        console.log(response, 'response is this')
+  const handleLogin = async () => {
+    // try {
+    //   axios({
+    //     method: "GET",
+    //     url: "http://localhost:4001/api/getuser",
+    //     body:raw,
+    //     headers: {"Content-type":"application/json"}
+    //   }).then(function(response) {
+    //     console.log(response, "response is this");
+    //   });
+    // } catch (error) {
+    //   console.log("error", error);
+    // }
+
+    axios
+      .get("http://localhost:4001/api/getuser", {
+        body: JSON.stringify(loginPayload),
       })
-    }
-    catch (error) {
-      console.log("error", error)
-    }
-  }
+      .then(function(response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
 
   return (
     <section className="login-wrapper">
@@ -75,17 +83,15 @@ const Login = () => {
                   <div className="card-body">
                     <form onSubmit={(e) => loginFormSubmit(e)}>
                       <div className="mb-3">
-                        <label
-                          htmlFor="userEmail"
-                          className="form-label"
-                        >
+                        <label htmlFor="userEmail" className="form-label">
                           Email address
                         </label>
                         <input
                           type="email"
                           className="form-control"
                           id="userEmail"
-                          aria-describedby="emailHelp" y
+                          aria-describedby="emailHelp"
+                          y
                           onChange={(e) => onChangeHandler(e)}
                         />
                         <div id="emailHelp" className="form-text">
@@ -93,10 +99,7 @@ const Login = () => {
                         </div>
                       </div>
                       <div className="mb-3">
-                        <label
-                          htmlFor="userPassword"
-                          className="form-label"
-                        >
+                        <label htmlFor="userPassword" className="form-label">
                           Password
                         </label>
                         <input
@@ -106,7 +109,7 @@ const Login = () => {
                           onChange={(e) => onChangeHandler(e)}
                         />
                       </div>
-                      <button type="submit" className="btn" >
+                      <button type="submit" className="btn">
                         Log In
                       </button>
                     </form>
