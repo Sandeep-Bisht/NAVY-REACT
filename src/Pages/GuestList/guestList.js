@@ -2,15 +2,52 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
-import {columns, data} from "../Table/table.js"
+
 import axios from "axios";
 
 const GuestList = () => {
   const [guestList, setGuestList] = useState();
-  const tableData = {
-    columns,
-    data
-  }
+  
+
+   const columns = [
+    {
+      name: "Guest Name",
+      selector: "guestName",
+      sortable: true
+    },
+    {
+      name: "Designation",
+      selector: "guestDesignation",
+      sortable: true
+    },
+    {
+      name: "Department",
+      selector: "guestDepartment",
+      sortable: true,
+      // cell: d => <span>{d.genres.join(", ")}</span>
+    },
+    {
+      name: "Personal No",
+      selector: "guestNumber",
+      sortable: true
+    },
+    {
+        name: "Office No",
+        selector: "guestOfficeNumber",
+        sortable: true
+      },
+      {
+        name: "guestEmail",
+        selector: "guestEmail",
+        sortable: true
+      },
+      {
+        name: "Address",
+        selector: "guestAddress",
+        sortable: true
+      }
+  ];
+
 
   useEffect(() => {
     getGuestList();
@@ -30,18 +67,18 @@ const GuestList = () => {
   };
   return(
     <>
+    
       <div className="main">
-      <DataTableExtensions {...tableData}>
-        <DataTable
+       <DataTable
           columns={columns}
-          data={data}
+          data={guestList}
           noHeader
           defaultSortField="id"
           defaultSortAsc={false}
           pagination
           highlightOnHover
         />
-      </DataTableExtensions>
+      
     </div>
     </>
   );
