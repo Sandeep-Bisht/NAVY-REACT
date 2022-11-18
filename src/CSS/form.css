@@ -1,0 +1,31 @@
+.common-form label{
+    font-weight: 600;
+    font-size:1rem;
+    color:#212529;
+}
+.form-control:focus{
+    box-shadow: none!important;
+}
+.common-form textarea{
+    resize: none;
+}
+
+
+.common-form .common-form-btn{
+    
+    background-color: #1c2740;
+    color: #fff;
+    padding:5px 28px;
+}
+.common-form .common-form-btn:hover{
+    color: #fff;
+}
+.common-form 
+{
+    box-shadow: 0 10px 20px -5px rgb(0 0 0 / 20%);
+    background: #fff;
+    padding: 40px;
+}
+.common-form input,.common-form textarea{
+    background: rgb(232, 240, 254);
+}

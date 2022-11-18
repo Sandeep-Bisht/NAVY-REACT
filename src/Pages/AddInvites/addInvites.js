@@ -1,130 +1,152 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PhoneInput from "react-phone-input-2";
+import "../../CSS/form.css";
 
 const AddInvites = () => {
-  return (
+  let [guestInfo, setGuestInfo] = useState({
+    guestName: '',
+    guestDesignation: '',
+    guestPhoneNumber: '',
+    officialPhoneNumber: '',
+    guestEmail: '',
+    department: '',
+    address: ''
+
+
+  })
+
+  const onChangeHandler = (e) => {
+    let guestInfoCopy = { ...guestInfo };
+    guestInfoCopy[e.target.id] = e.target.value;
+    setGuestInfo(guestInfo);
+  }
+  const loginFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(guestInfo, "aa gaya jjj");
+  }
+
+return (
     <>
-    <div>Hello</div>
+      <section className='guest-form p-5'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-10 mx-auto'>
+              <form
+                className='common-form row'
+                onSubmit={(e) => loginFormSubmit(e)}
+              >
+                <div className="mb-3 col-lg-6">
+                  <label
+                    htmlFor="guestName"
+                    className="form-label"
+                  >
+                    Guest Name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="guestName"
+                    aria-describedby="emailHelp"
+                    onChange={(e) => onChangeHandler(e)}
+                  />
+
+                </div>
+                <div className="mb-3 col-lg-6">
+                  <label
+                    htmlFor="guestDesignation"
+                    className="form-label"
+                  >
+                    Guest Designation
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="guestDesignation"
+                    onChange={(e) => onChangeHandler(e)}
+                  />
+                </div>
+                <div className="mb-3 col-lg-6">
+                  <label
+                    htmlFor="guestPhoneNumber"
+                    className="form-label"
+                  >
+                    Guest PhoneNumber
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="guestPhoneNumber"
+                    onChange={(e) => onChangeHandler(e)}
+                  />
+                </div>
+                <div className="mb-3 col-lg-6">
+                  <label
+                    htmlFor="officialPhoneNumber"
+                    className="form-label"
+                  >
+                    Official Phone Number
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="officialPhoneNumber"
+                    onChange={(e) => onChangeHandler(e)}
+                  />
+                </div>
+
+
+                <div className="mb-3 col-lg-6">
+                  <label
+                    htmlFor="guestEmail"
+                    className="form-label"
+                  >
+                    Guest Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="guestEmail"
+                    onChange={(e) => onChangeHandler(e)}
+                  />
+                </div>
+                <div className="mb-3 col-lg-6">
+                  <label
+                    htmlFor="department"
+                    className="form-label"
+                  >
+                    Department
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="department"
+                    onChange={(e) => onChangeHandler(e)}
+                  />
+                </div>
+                <div className="mb-3 col-lg-12">
+                  <label for="address" class="form-label">Address</label>
+                  <textarea class="form-control"
+                    id="address"
+                    rows="3"
+                    onChange={(e) => onChangeHandler(e)}
+
+                  >
+
+                  </textarea>
+                </div>
+                <div className='mt-4 col-lg-12'>
+                  <button type="submit" className="btn common-form-btn">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
-    // <>
-    //  <div className="main">
-    //   <div className="form-section">
-    //     <form
-    //       // onSubmit={(e) => {onSubmitHandler(e);
-    //       // }}
-    //       noValidate
-    //     >
-    //       <div className="container">
-    //         <div className="row mt-2 mb-5">
-    //           <div className="col-md-4">
-    //             <label htmlFor="InputName" className="form-label asterisk">
-    //               Name
-    //             </label>
-    //             <input
-    //               type="text"
-    //               // onChange={(e) => userInformationOnchangeHandler(e)}
-    //               // className={
-    //               //   isError && isError.name.length > 0
-    //               //     ? "is-invalid form-control"
-    //               //     : "form-control"
-    //               // }
-    //               // value={userInformation && userInformation.name}
-    //               // disabled={
-    //               //   loggedInUser && userInformation && userInformation.name
-    //               // }
-    //               id="name"
-    //             />
-    //             {/* {isError && isError.name && (
-    //               <p className="text-danger">{isError.name}</p>
-    //             )} */}
-    //           </div>
-    //           <div className="col-md-4">
-    //             <label htmlFor="InputPosition" className="form-label">
-    //               Designation/Position
-    //             </label>
-    //             <input
-    //               type="text"
-    //               // className={"form-control"}
-    //               // onChange={(e) => userInformationOnchangeHandler(e)}
-    //               // value={userInformation && userInformation.designation}
-    //               // disabled={isDisabled}
-    //               id="designation"
-    //             />
-    //           </div>              
-    //         </div>
 
-    //         <div className="row mb-5">
-    //           <div className="col-md-4">
-    //             <label htmlFor="InputAddress" className="form-label asterisk">
-    //               Address
-    //             </label>
-    //             <textarea
-    //               // className={
-    //               //   isError && isError.address.length > 0
-    //               //     ? "is-invalid form-control"
-    //               //     : "form-control"
-    //               // }
-    //               // onChange={(e) => userInformationOnchangeHandler(e)}
-    //               // value={userInformation && userInformation.address}
-    //               // disabled={isDisabled}
-    //               id="address"
-    //             ></textarea>
-    //             {/* {isError && isError.address && (
-    //               <p className="text-danger">{isError.address}</p>
-    //             )} */}
-    //           </div>
 
-    //           <div className="col-md-4">
-    //             <div className="row">
-    //               <div className="col-md-12">
-    //                 <label htmlFor="InputPhone" className="form-label">
-    //                   Phone
-    //                 </label>
-    //                 <PhoneInput
-    //                   country="in"
-    //                   // value={phoneNumber}
-    //                   // disabled={loggedInUser && userInformation && phoneNumber}
-    //                   placeholder=""
-    //                   // onChange={(phone) => phoneNumberInputHandler(phone)}
-    //                 />
-    //               </div>
-    //             </div>
-    //           </div>
-
-    //           <div className="col-md-4">
-    //             <div className="row">               
-
-    //               <div className="col-md-12">
-    //                 <label htmlFor="InputEmail" className="form-label asterisk">
-    //                   Email
-    //                 </label>
-    //                 <input
-    //                   type="email"
-    //                   id="email"
-    //                   // disabled={
-    //                   //   loggedInUser && userInformation && userInformation.email
-    //                   // }
-    //                   // value={userInformation && userInformation.email}
-    //                   // onChange={(e) => userInformationOnchangeHandler(e)}
-    //                   // className={
-    //                   //   isError && isError.email.length > 0
-    //                   //     ? "is-invalid form-control"
-    //                   //     : "form-control"
-    //                   // }
-    //                 />
-    //                 {/* {isError && isError.email && (
-    //                   <p className="text-danger">{isError.email}</p>
-    //                 )} */}
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </form>
-    //   </div>
-    // </div>
-    // </>
-    
   )
 }
 

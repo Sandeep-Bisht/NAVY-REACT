@@ -42,9 +42,9 @@ const navigate = useNavigate();
                       <li>
                         <button
                           className="common-blue btn"
-                        //   onClick={() =>
-                        //     navigate("/dashboard/transaction_details")
-                        //   }
+                          onClick={() =>
+                            navigate("/dashboard/guestList")
+                          }
                         >
                           <span className="me-2">
                             <i className="fa-solid fa-user-plus"></i>
