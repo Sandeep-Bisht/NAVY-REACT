@@ -1,6 +1,7 @@
 import React from "react";
 import "../../CSS/navbar.css";
 import Logo from "../../Images/nhoLogo.png";
+import UserLogo from "../../Images/user-logo.png";
 
 const Navbar = () => {
   return (
@@ -41,7 +42,8 @@ const Navbar = () => {
                     aria-expanded="false"
                   >
                     <span className="user-icon">
-                      <i className="fa-solid fa-user"></i>
+                      {/* <i className="fa-solid fa-user"></i> */}
+                      <img src={UserLogo} className="img-fluid w-75" />
                     </span>
 
                     {/* <img
