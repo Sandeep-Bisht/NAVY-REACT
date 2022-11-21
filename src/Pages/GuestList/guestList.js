@@ -1,26 +1,136 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import DataTable from "react-data-table-component";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 
 const GuestList = () => {
-  const [guestList, setGuestList] = useState();
+  const [guestList, setGuestList] = useState([]);
+  const [tableData, setTableData] = useState([]);
 
-  useEffect(() => {
-    getGuestList();
-  }, []);
-
-  let getGuestList = async () => {
-    let url = "http://localhost:4001/api/getGuestList";
+  const sendInvitation = async (inviteData) => {
+    delete inviteData.data;
+    console.log("button clicked", inviteData);
+    //let payload = JSON.stringify(inviteData)
+    let url = "http://localhost:4001/api/sendInvitation";
     try {
-      let response = await axios.get(url);
-      if (response && response.data) {
-        console.log("response guestlist", response.data);
-        setGuestList(response.data);
+      let response = await axios.post(url, inviteData);
+      if (response) {
+        console.log("invitation response", response);
       }
     } catch (error) {
       console.log("error", error);
     }
   };
-  return <div>GuestList</div>;
+
+  const sendToAll = async (list) => {    
+    console.log("button clicked send to all", list);
+    let inviteList = {};
+    inviteList.list = list;
+    let url = "http://localhost:4001/api/sendInvitationToAll";
+    try {
+      let response = await axios.post(url, inviteList);
+      if (response) {
+        console.log("invitation response", response);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  useEffect(() => {
+    getGuestList();
+  }, []);
+
+  const getGuestList = async () => {
+    let url = "http://localhost:4001/api/getGuestList";
+    
+    try {
+      let response = await axios.get(url);
+      
+      console.log("response guestlist 7657", response);
+
+      if (response && response.data) {
+        console.log("response guestlist", response);
+        setGuestList(response.data);
+        setTableData(response.data)
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  const columns = [
+    {
+      name: "Guest Name",
+      selector: "guestName",
+      sortable: true,
+    },
+    {
+      name: "Designation",
+      selector: "guestDesignation",
+      sortable: true,
+    },
+    {
+      name: "Department",
+      selector: "guestDepartment",
+      sortable: true,
+      // cell: d => <span>{d.genres.join(", ")}</span>
+    },
+    {
+      name: "Personal No",
+      selector: "guestNumber",
+      sortable: true,
+    },
+    {
+      name: "Office No",
+      selector: "guestOfficeNumber",
+      sortable: true,
+    },
+    {
+      name: "guestEmail",
+      selector: "guestEmail",
+      sortable: true,
+    },
+    {
+      name: "Address",
+      selector: "guestAddress",
+      sortable: true,
+    },
+    {
+      name: "Action",
+      selector: (row) =>
+        (row.data = (
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => sendInvitation(row)}
+          >
+            Send Invitation
+          </button>
+        )),
+        sortable: false,
+    },
+  ];
+
+  return (
+    <>
+    <div>
+    <button className="btn btn-primary" onClick={()=>sendToAll("sendToAll")}>Send 2 All</button>
+    </div>
+      <div className="main">        
+        <DataTable
+          columns={columns}
+          data={tableData}
+          noHeader
+          defaultSortField="id"
+          defaultSortAsc={false}
+          pagination
+          highlightOnHover
+        />
+      </div>
+    </>
+  );
 };
 
 export default GuestList;

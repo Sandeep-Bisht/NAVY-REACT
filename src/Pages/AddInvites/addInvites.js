@@ -3,17 +3,7 @@ import PhoneInput from "react-phone-input-2";
 import "../../CSS/form.css";
 
 const AddInvites = () => {
-  let [guestInfo, setGuestInfo] = useState({
-    guestName: '',
-    guestDesignation: '',
-    guestPhoneNumber: '',
-    officialPhoneNumber: '',
-    guestEmail: '',
-    department: '',
-    address: ''
-
-
-  })
+  let [guestInfo, setGuestInfo] = useState({})
 
   const onChangeHandler = (e) => {
     let guestInfoCopy = { ...guestInfo };

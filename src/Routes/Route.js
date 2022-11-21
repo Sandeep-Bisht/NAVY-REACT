@@ -5,13 +5,16 @@ import Login from "../Pages/Authantication/login.js";
 import Dashboard from "../Pages/Dashboard/dashboard.js";
 import GuestList from "../Pages/GuestList/guestList.js";
 import Sidebar  from "../Pages/Sidebar/sidebar.js";
+//  import Table from "../Pages/Table/table.js";
+
 
 const AppRoute = () => {
   let routes = useRoutes([
     { path: "/", element: <Login /> },
     { path: "/dashboard", element: < Dashboard /> },
     { path : "/dashboard/addInvites", element : <AddInvites /> },
-    { path : "/dashboard/guestList", element : <GuestList /> }
+    { path : "/dashboard/guestList", element : <GuestList /> },
+    // {path:"/table",element : <Table/>}
   ]);
   return routes;
 };

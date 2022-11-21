@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import logo from "../../Images/nhoLogo.png";
 import "../../CSS/login.css";
 import "../../CSS/common.css";
 
 const Login = () => {
   let [loginPayload, setLoginPayload] = useState({
-    userEmail: "",
-    userPassword: "",
+   
   });
+  const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState([]);
 
@@ -21,7 +22,7 @@ const Login = () => {
   const loginFormSubmit = (e) => {
     e.preventDefault();
     console.log(loginPayload, "aa gaya jjj");
-    handleLogin();
+    handleLogin(loginPayload);
   };
 
   //  const Get = async (loginPayload) =>{
@@ -36,30 +37,19 @@ const Login = () => {
   // }
   // };
 
-  const handleLogin = async () => {
-    // try {
-    //   axios({
-    //     method: "GET",
-    //     url: "http://localhost:4001/api/getuser",
-    //     body:raw,
-    //     headers: {"Content-type":"application/json"}
-    //   }).then(function(response) {
-    //     console.log(response, "response is this");
-    //   });
-    // } catch (error) {
-    //   console.log("error", error);
-    // }
-
-    axios
-      .get("http://localhost:4001/api/getuser", {
-        body: JSON.stringify(loginPayload),
-      })
-      .then(function(response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+  const handleLogin = async (payload) => {
+    let url = "http://localhost:4001/api/getuser";
+    try {
+      let response = await axios.post(url, payload);
+      if (response) {
+        console.log("response guestlist", response);
+        if(response.status == 200){
+          navigate("/dashboard")
+        }
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   return (
