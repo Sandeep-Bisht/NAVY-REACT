@@ -92,6 +92,7 @@ export function DashboardNew({children}){
                     </span>
 
                     <span className="user-text me-2">
+                      Admin
                     </span>
                   </a>
                   <ul
@@ -174,7 +175,7 @@ export function DashboardNew({children}){
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button class="custom-accordion-btn my-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Guests <RiArrowDropDownLine/>
+      <div><span className="me-2"><i class="fa-solid fa-users"></i></span>Guests</div> <RiArrowDropDownLine/>
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">

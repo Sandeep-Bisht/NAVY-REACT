@@ -1,0 +1,44 @@
+/* card css */
+
+.default-dashboard-view {
+    padding-top: 50px;
+}
+.default-dashboard-view .conter-card{
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 30px 25px;
+    background-color: #fff;
+    display: flex;
+    box-shadow: 0 0 20px rgb(0 0 0 / 8%);
+    justify-content: space-between;
+    align-items: center;
+}
+.default-dashboard-view .conter-card i{
+   font-size: 40px;
+}
+.default-dashboard-view .conter-card.one i{
+    color:#00c292;
+} 
+.default-dashboard-view .conter-card.two i{
+    color:#ab8ce4;
+}
+.default-dashboard-view .conter-card.three i{
+    color: #03a9f3;
+}
+
+.default-dashboard-view .conter-card.five i{
+    color:#ed558e;
+}
+.default-dashboard-view .conter-card .counter-card-number{
+    color: #455a64;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 35px;
+}
+.default-dashboard-view .conter-card .counter-card-title{
+    margin-bottom: 5px;
+    color:#99abb4;
+}
+
+
+/* end card css */
