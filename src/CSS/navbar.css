@@ -73,10 +73,31 @@
     position: sticky;
       top: 0;
       z-index: 1020;
-      padding: 120px 0px 0px 0px;
+      height: 100vh;
+      overflow-y: scroll;
+      padding: 70px 0px 0px 0px;
       
   }
-  
+
+  .dash-body .left-part aside::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dash-body .left-part aside .custom-accordion-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dash-body .left-part aside .custom-accordion-btn svg{
+    font-size: 18px;
+    transition: all ease .2s;
+  }
+
+  .dash-body .left-part aside .custom-accordion-btn[aria-expanded="true"] svg{
+    transform: rotate(180deg);
+  }
+
   .dash-body .left-part aside .active-blue
   {
     background: #152036!important;
@@ -157,7 +178,7 @@
   }
   .dash-body .right-part
   {
-    padding: 90px 25px 50px 25px;
+    padding: 80px 25px 50px 25px;
     background: rgba(203, 203, 210, 0.15);
     
   }

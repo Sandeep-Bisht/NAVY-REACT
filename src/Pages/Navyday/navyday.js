@@ -8,6 +8,7 @@ import Sidepic2 from "../../Images/sidepic2.png";
 import Sidepic3 from "../../Images/sidepic3.png";
 import Inner from "../../Images/inner.jpg";
 import Map from "../../Images/map.jpg";
+import {apiBaseUrl} from "../../util.js"
 
 const Navyday = () => {
 
