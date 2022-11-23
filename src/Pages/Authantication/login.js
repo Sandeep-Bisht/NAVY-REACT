@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState([]);
-
+  const [errorMsg,setErrorMsg] = useState(null)
   const onChangeHandler = (e) => {
     let loginPayloadCopy = { ...loginPayload };
     loginPayloadCopy[e.target.id] = e.target.value;
@@ -48,7 +48,8 @@ const Login = () => {
         }
       }
     } catch (error) {
-      console.log("error", error);
+      console.log("error", error)
+      setErrorMsg("Invalid User Name and Password");
     }
   };
 
@@ -102,6 +103,13 @@ const Login = () => {
                       <button type="submit" className="btn">
                         Log In
                       </button>
+
+                      {errorMsg && (
+                        <div>
+                        <p className="text-danger fs-6 text-center mb-0 mt-3">{errorMsg}</p>
+                     </div>
+                      )}
+                      
                     </form>
                   </div>
                 </div>

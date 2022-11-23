@@ -178,12 +178,12 @@
       display: inline-block;
       width: 44px;
       height: 43px;
-      BACKGROUND: rgba(255,255,255,.2);
+      /* BACKGROUND: rgba(255,255,255,.2); */
       border-radius: 50%;
       /* display: flex; */
       line-height: 40px;
       text-align: center;
-      margin-right: 10px;
+      /* margin-right: 10px; */
   }
   
   
