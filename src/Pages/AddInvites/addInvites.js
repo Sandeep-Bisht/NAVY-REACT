@@ -7,7 +7,10 @@ import "../../CSS/form.css";
 import Navbar from '../NavBar/navbar.js';
 
 const AddInvites = () => {
-  let [guestInfo, setGuestInfo] = useState({})
+  let [guestInfo, setGuestInfo] = useState({
+    invitationStatus : "null",
+    availability : "null"
+  })
 
   const onChangeHandler = (e) => {
     let guestInfoCopy = { ...guestInfo };
@@ -32,15 +35,7 @@ const AddInvites = () => {
   }
   const navigate = useNavigate();
   
-
-
-
-
-
-
-
-
-  return (
+return (
     <>
       <Navbar />
       <section className="dash-body">
