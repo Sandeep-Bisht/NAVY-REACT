@@ -6,6 +6,7 @@ import Confirmation from "../Pages/Confirmation.js/confirmation.js";
 import Dashboard from "../Pages/Dashboard/dashboard.js";
 import GuestList from "../Pages/GuestList/guestList.js";
 import Sidebar  from "../Pages/Sidebar/sidebar.js";
+import Navyday from "../Pages/Navyday/navyday.js";
 //  import Table from "../Pages/Table/table.js";
 
 
@@ -16,6 +17,9 @@ const AppRoute = () => {
     { path: "/dashboard", element: < Dashboard /> },
     { path : "/dashboard/addInvites", element : <AddInvites /> },
     { path : "/dashboard/guestList", element : <GuestList /> },
+    {
+      path :"/navyday", element : <Navyday/>
+    }
     // {path:"/table",element : <Table/>}
   ]);
   return routes;
