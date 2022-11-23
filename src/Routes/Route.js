@@ -4,7 +4,7 @@ import AddInvites from "../Pages/AddInvites/addInvites.js";
 import Login from "../Pages/Authantication/login.js";
 import Dashboard from "../Pages/Dashboard/dashboard.js";
 import GuestList from "../Pages/GuestList/guestList.js";
-import Sidebar  from "../Pages/Sidebar/sidebar.js";
+import CreateCategory from "../Pages/Category/create.js";
 //  import Table from "../Pages/Table/table.js";
 
 
@@ -14,6 +14,9 @@ const AppRoute = () => {
     { path: "/dashboard", element: < Dashboard /> },
     { path : "/dashboard/addInvites", element : <AddInvites /> },
     { path : "/dashboard/guestList", element : <GuestList /> },
+    { path : "/dashboard/guestList/:categoryId", element : <GuestList /> },
+    { path : "/dashboard/createCategory", element : <CreateCategory /> },
+    
     // {path:"/table",element : <Table/>}
   ]);
   return routes;

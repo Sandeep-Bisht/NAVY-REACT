@@ -1,13 +1,12 @@
 import React from 'react';
-import Navbar from '../NavBar/navbar.js';
-import Sidebar from "../Sidebar/sidebar.js"
+import { DashboardNew } from '../../Component/Dashboard';
 
 const Dashboard = () => {
   return (
     <>
-    
-    <Sidebar></Sidebar>
-    <Navbar></Navbar>
+    <DashboardNew>
+      <h2>Welcome to new dynamic dashboard</h2>
+    </DashboardNew>
     </>
   )
 }
