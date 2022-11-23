@@ -2,6 +2,28 @@
 {
   background-color: #151632; 
   min-height: 100vh;
+  position: relative;
+}
+.navyday .muiltiple-pics{
+
+  position: absolute;
+  right: 0;
+  width: 180px;
+  height: 100%;
+  bottom: 0;
+  background-color:#D3CA6D;
+}
+.navyday .muiltiple-pics .single-pic-wrapper{
+  margin-top: 140px;
+}
+.navyday .muiltiple-pics .single-pic-wrapper .single-pic{
+  margin: 25px 0;
+}
+.navyday .muiltiple-pics .single-pic{
+  text-align: center;
+}
+.navyday .muiltiple-pics img{
+  width: 65%;
 }
 .navyday-main-pic img{
    height: 400px;
@@ -15,15 +37,16 @@
   height: 70px;
 }
 .top-wrapper .title{
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 45px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0;
 }
 .top-wrapper .date{
   color: #fff;
-  font-size: 20px;
+  font-size: 22px;
   text-align: center;
   font-weight: 500;
   opacity: .75;
@@ -59,15 +82,43 @@
 /* ------------------------navyday-second-area------------------------- */
 .navyday-second-area .navyday-second-area-card{
   text-align: center;
+  position: relative;
+  padding: 0;
 
 }
+/* .navyday-second-area  .navyday-second-area-card::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  display: block;
+  right: 0;
+  top:0;
+  height: 100px;
+  background-color:#008dd2;
+} */
 .navyday-second-area .navyday-second-area-card .one{
   margin-bottom: 40px;
 }
+.navyday-second-area .navyday-second-area-card .one img{
+  width: 100%;
+}
+.navyday-second-area .navyday-second-area-card .two{
+  /* padding-top: 80px; */
+}
 .navyday-second-area .navyday-second-area-card .navyday-second-area-card-title{
-  margin-bottom: 5px;
-  font-size: 20px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #41378e;
+    line-height: 1.3;
+}
+.navyday-second-area .navyday-second-area-card .highlight-one{
   font-weight: 600;
+}
+.navyday-second-area .navyday-second-area-card .highlight-second{
+  font-weight: 700;
+  color: #41378e;
+  font-size: 22px;
 }
 .navyday-second-area .navyday-second-area-card .bordered-line{
   border-bottom: 2px dotted #000;
@@ -88,6 +139,10 @@
 .navyday-second-area .navyday-second-area-card .four{
   display:flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  
+    /* padding-top: 40px; */
+    padding: 40px 60px 40px 60px;
 }
 .navyday-second-area .navyday-second-area-card .four .left-box{
   text-align: left;
@@ -95,7 +150,8 @@
 .navyday-second-area .navyday-second-area-card .four .general-info{
   margin-bottom: 2px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
+  color: #41378e;
 }
 .navyday-second-area .navyday-second-area-card .four .general-info-title{
   font-size: 18px;
@@ -103,6 +159,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 3px;
+  color: #41378e;
 }
 .navyday-second-area .navyday-second-area-card .four .right-box .general-info-wrapper{
   display: flex;
@@ -143,8 +200,12 @@
 .navyday-third-area-card-wrapper .right{
   padding-left: 100px;
 }
-
-
+.navyday-third-area-card-wrapper.first{
+  color: #9a3749;
+}
+.navyday-third-area-card-wrapper.second{
+  color: #3b3187;
+}
 
 /* --------------------------navyday-fourth-area------------------------ */
 .navyday-fourth-area .map-box {
@@ -168,4 +229,212 @@
     /* margin-bottom: 39px; */
     line-height: 1;
    
+}
+
+
+
+
+
+
+/* -----common responsive css---- */
+
+@media only screen and (max-width : 1920px){
+ 
+}
+
+
+
+@media only screen and (max-width : 1399px){
+ 
+
+}
+@media only screen and (max-width : 1199px)
+{
+  
+}
+
+
+
+
+
+@media only screen and (max-width : 1024px) {
+
+  .navyday-main-pic img{
+    height: 300px;
+  }
+  .navyday .muiltiple-pics img{
+    width: 50%;
+  }
+
+}
+
+@media only screen and (max-width :991px) {
+  .navyday-main-pic img{
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .navyday-third-area-card-wrapper .right{
+    padding-left: 10px;
+  }
+  .navyday-third-area-card{
+    padding: 20px 15px;
+  }
+  
+}
+@media only screen and (max-width : 680px){
+  .navyday-main-pic img{
+    height: 200px;
+  }
+}
+@media only screen and (max-width : 575.98px) {
+  .navyday-common-padding{
+    padding: 20px;
+  }
+  .top-wrapper img{
+    height: 50px;
+  }
+  .navyday{
+   min-height: 70vh;
+    padding: 20px!important;
+  }
+
+  .navyday-main-pic img{
+    height: 130px;
+  }  
+  .top-wrapper .title{
+    font-size: 28px;
+  }
+  .top-wrapper .date{
+    font-size: 15px;
+  }
+  .navyday .muiltiple-pics{
+    width: 110px;
+  }
+  .navyday .muiltiple-pics img{
+    width:50%;
+  }
+  .navyday .muiltiple-pics .single-pic-wrapper {
+    margin-top: 115px;
+}
+.navyday-second-area .navyday-second-area-card{
+  padding: 20px 20px;
+  position: relative;
+}
+
+.navyday-second-area .navyday-second-area-card .navyday-second-area-card-title{
+  font-size: 18px;
+}
+.navyday-second-area .navyday-second-area-card .three .subheading{
+  font-size: 16px;
+}
+.navyday-second-area .navyday-second-area-card .three .mainheading{
+  font-size: 20px;
+}
+.navyday-second-area .navyday-second-area-card .four .general-info-title{
+  font-size: 14px;
+}
+.navyday-second-area .navyday-second-area-card .four .general-info{
+  font-size: 12px;
+}
+
+
+}
+@media only screen and (max-width : 537px){
+  .time-duration-right {
+    padding-left: 5px;
+}
+.navycard-common-title-content{
+  font-size: 11px;
+}
+}
+
+
+@media only screen and (max-width : 480px) {
+         
+  
+
+}
+@media only screen and (max-width : 464px) {
+  .navyday-second-area .navyday-second-area-card .navyday-second-area-card-title{
+    font-size: 14px;
+  }
+  .navyday-second-area .navyday-second-area-card .highlight-second{
+    font-size:15px;
+  }
+  .navyday-third-area-card, .navyday-second-area-card{
+    padding: 20px 20px;
+  }
+  .navyday-second-area .navyday-second-area-card .four{
+    padding: 20px 0;
+  }
+  .navyday-second-area .navyday-second-area-card .four .right-box
+  {
+    margin-top: 15px;
+  }
+  .navyday-third-area-card h2{
+    font-size: 15px;
+  }
+  .navyday-third-area-card .navycard-common-title{
+   font-size: 13px;
+  }
+  .navyday-third-area-card .navycard-common-title-content{
+    font-size: 12px;
+  }
+  .navyday-third-area-card-wrapper.second{
+    margin-top: 20px;
+  }
+  .navyday-common-padding{
+    padding: 10px 5px;
+  }
+  
+  .navyday-third-area-card-wrapper .right{
+    padding-left: 10px;
+  }  
+  .navyday-fourth-area .map-title{
+    font-size: 17px;
+    
+  }
+  .navyday-fourth-area{
+    padding-top: 30px;
+  }
+  .navyday-fourth-area .map-box img{
+    height: auto;
+  }
+  .navyday-fourth-area .map-box{
+    margin-top: 20px;
+  }
+  
+}
+
+@media only screen and (max-width : 420px)
+{ 
+  .navyday .muiltiple-pics
+  {
+    width: 95px;
+  }
+  .navyday-main-pic img{
+    height: 110px;
+  }
+  .navyday .muiltiple-pics img {
+  width: 45%;
+
+}
+.navyday-third-area-card-wrapper .right{
+  padding-left: 10px;
+}
+.navyday-third-area-card{
+  padding: 10px 8px;
+}
+.navyday-third-area-card .navycard-common-title-content {
+  font-size: 10px;
+}
+.time-duration-right{
+  padding-left: 4px;
+}
+
+}
+@media only screen and (max-width : 320px){
+
 }

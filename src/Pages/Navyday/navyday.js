@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import "../../CSS/navyday.css";
-import Logoright from "../../Images/navydaylogo2.jpg";
-import Logoleft from "../../Images/navydaylogo1.jpg";
-import Logomain from "../../Images/navydaymain.jpg";
+import Logoright from "../../Images/navydaylogo2.png";
+import Logoleft from "../../Images/navydaylogo1.png";
+import Logomain from "../../Images/navydaymain.png";
+import Sidepic1 from "../../Images/sidepic1.png";
+import Sidepic2 from "../../Images/sidepic2.png";
+import Sidepic3 from "../../Images/sidepic3.png";
+import Inner from "../../Images/inner.jpg";
 import Map from "../../Images/map.jpg";
 
 const Navyday = () => {
@@ -10,7 +14,20 @@ const Navyday = () => {
   return (
     <>
 
-      <section className='navyday navyday-common-padding'>
+      <section className='navyday navyday-common-padding pt-3'>
+          <div className='muiltiple-pics'>
+              <div className='single-pic-wrapper'>
+                 <div className='single-pic'>
+                   <img src={Sidepic1} className="img-fluid " />
+                 </div>
+                 <div className='single-pic'>
+                 <img src={Sidepic2} className="img-fluid " />
+                 </div>
+                 <div className='single-pic'>
+                 <img src={Sidepic3} className="img-fluid " />
+                 </div>
+              </div>
+          </div>
         <div className='container-fluid'>
           <div className='row'>
             <div className='col-md-12'>
@@ -19,10 +36,10 @@ const Navyday = () => {
                   <img src={Logoleft} className="img-fluid " />
                 </div>
                 <div className='two'>
-                  <h2 className='title'>Navy day</h2>
-                  <p className='date'>04 December 2022</p>
+                  <h2 className='title f2'>Navy day</h2>
+                  <p className='date f2'>04 December 2022</p>
                 </div>
-                <div className='three'>
+                <div className='three position-relative'>
                   <img src={Logoright} className="img-fluid " />
                 </div>
               </div>
@@ -43,29 +60,41 @@ const Navyday = () => {
               <div className='navyday-second-area-card'>
                 <div className='row'>
                   <div className='col-md-12'>
-                    <div className='one'></div>
+                    <div className='one'>
+                        <img src={Inner} className="img-fluid" alt=''/>
+                    </div>
                     <div className='two'>
-                      <p className='navyday-second-area-card-title'>
+                      <p className='navyday-second-area-card-title f2'>
                         Vice Admiral Adhir Arora, NM
                       </p>
-                      <p className='navyday-second-area-card-title'>
+                      <p className='navyday-second-area-card-title f2'>
                         and staff of the
                       </p>
-                      <p className='navyday-second-area-card-title'>
+                      <p className='navyday-second-area-card-title f2'>
                         National Hydrographic Office
                       </p>
-                      <p className='navyday-second-area-card-title'>
+                      <p className='navyday-second-area-card-title f2'>
                         requests the pleasure of the company of
                       </p>
                       <p className='bordered-line'></p>
                     </div>
                     <div className='three'>
-                      <p className='subheading'>
+                      {/* <p className='subheading'>
                         on the occassion of
                       </p>
                       <p className='mainheading'>
                         Navy Day Celebration
-                      </p>
+                      </p> */}
+                       <p className='navyday-second-area-card-title f2'>for <span className='highlight-one'>" At Home function"</span> on 
+                       <span className='highlight-one '>
+                         04 Dec 2022
+                        </span> at 4:40 pm</p>
+                        <p className='navyday-second-area-card-title f2'>at National Hydrographic Office, 107-A Rajpur Road, Dehradun</p>
+                        <p className='highlight-second'>
+                          Lt Gen Gurmit Singh, PVSM, UYSM, AVSM, VSM (Retd)
+                        </p>
+                        <p className='navyday-second-area-card-title f2'>Hon'ble Governor of Uttarakhand</p>
+                        <p className='navyday-second-area-card-title f2'>has Kindly consented to be the Chief Guest</p>
                     </div>
                     <div className='four'>
                       <div className='left-box'>
@@ -76,7 +105,7 @@ const Navyday = () => {
                           Staff Officer
                         </p>
                         <p className='general-info'>
-                          Tel:2747365 Ext. 201 / 203
+                          Tel: 8104685364
                         </p>
                         <p className='general-info'>
                           (to be seated by.........P.M.)
@@ -115,7 +144,7 @@ const Navyday = () => {
                           </div>
                           <div className='right'>
                             <p className='general-info'>
-                              : Winter Ceremonial/Equivalent (without Sword)
+                              : Winter Ceremonial/Equivalent (Without Sword)
                             </p>
                           </div>
                         </div>
@@ -156,7 +185,7 @@ const Navyday = () => {
                   <div className='col-md-6'>
                     <div className='row'>
                       <div className='col-md-12'>
-                        <div className='navyday-third-area-card-wrapper'>
+                        <div className='navyday-third-area-card-wrapper first'>
                           <div className='left'>
                             <h2 className='navycard-common-title text-decoration-underline'>
                               समय
@@ -167,6 +196,7 @@ const Navyday = () => {
                                   1640
                                 </p>
                               </div>
+                              <div className='time-duration-right'> - </div>
 
                             </div>
                             <div className='time-duration-wrapper'>
@@ -246,7 +276,7 @@ const Navyday = () => {
                               <div className='time-duration-left'>
                                 --
                               </div>
-                              <div className='time-duration-right'>  </div>
+                              <div className='time-duration-right'> - </div>
                             </div>
 
                           </div>
@@ -275,7 +305,7 @@ const Navyday = () => {
                   <div className='col-md-6'>
                     <div className='row'>
                       <div className='col-md-12'>
-                        <div className='navyday-third-area-card-wrapper'>
+                        <div className='navyday-third-area-card-wrapper second'>
                           <div className='left'>
                             <h2 className='navycard-common-title text-decoration-underline'>
                               Time
@@ -286,6 +316,7 @@ const Navyday = () => {
                                   1640
                                 </p>
                               </div>
+                              <div className='time-duration-right'> - </div>
 
                             </div>
                             <div className='time-duration-wrapper'>
@@ -365,7 +396,7 @@ const Navyday = () => {
                               <div className='time-duration-left'>
                                 --
                               </div>
-                              <div className='time-duration-right'>  </div>
+                              <div className='time-duration-right'> - </div>
                             </div>
 
                           </div>
