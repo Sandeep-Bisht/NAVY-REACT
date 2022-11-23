@@ -25,7 +25,6 @@ const Login = () => {
   };
 
   const handleLogin = async (payload) => {
-    // let url = "http://localhost:4001/api/getuser";
     let url = `${apiBaseUrl}getuser`
     try {
       let response = await axios.post(url, payload);
