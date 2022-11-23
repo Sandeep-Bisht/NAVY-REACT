@@ -6,7 +6,12 @@ import "../../CSS/form.css";
 import { DashboardNew } from '../../Component/Dashboard';
 
 const AddInvites = () => {
-  let [guestInfo, setGuestInfo] = useState({})
+  
+  let [guestInfo, setGuestInfo] = useState({
+    invitationStatus : "null",
+    availability : "null"
+  })
+
   let [allCategories, setAllCategories] = useState([])
 
   const getCategoryList = async () => {

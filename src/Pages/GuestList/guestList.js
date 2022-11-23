@@ -14,27 +14,26 @@ const GuestList = () => {
   const [tableData, setTableData] = useState([]);
 
   const sendInvitation = async (inviteData) => {
-    delete inviteData.data;
-    console.log("button clicked", inviteData);
+    //console.log("invite data", inviteData);
+    //delete inviteData.data;
+    //console.log("button clicked", inviteData);
     //let payload = JSON.stringify(inviteData)
     let url = "http://localhost:4001/api/sendInvitation";
     try {
       let response = await axios.post(url, inviteData);
       if (response) {
-        console.log("invitation response", response);
+        //console.log("invitation response", response);
       }
     } catch (error) {
       console.log("error", error);
     }
   };
 
-  const sendToAll = async (list) => {    
+  const sendToAll = async (list) => {
     console.log("button clicked send to all", list);
-    let inviteList = {};
-    inviteList.list = list;
     let url = "http://localhost:4001/api/sendInvitationToAll";
     try {
-      let response = await axios.post(url, inviteList);
+      let response = await axios.post(url, list);
       if (response) {
         console.log("invitation response", response);
       }
@@ -49,16 +48,16 @@ const GuestList = () => {
 
   const getGuestList = async () => {
     let url = "http://localhost:4001/api/getGuestList";
-    
+
     try {
       let response = await axios.get(url);
-      
-      console.log("response guestlist 7657", response);
+
+      // console.log("response guestlist 7657", response);
 
       if (response && response.data) {
         console.log("response guestlist", response);
         setGuestList(response.data);
-        setTableData(response.data)
+        setTableData(response.data);
       }
     } catch (error) {
       console.log("error", error);
@@ -74,6 +73,16 @@ const GuestList = () => {
     {
       name: "Designation",
       selector: "guestDesignation",
+      sortable: true,
+    },
+    {
+      name: "Invitation",
+      selector: "invitationStatus",
+      sortable: true,
+    },
+    {
+      name: "Availablity",
+      selector: "availability",
       sortable: true,
     },
     {
@@ -104,17 +113,20 @@ const GuestList = () => {
     },
     {
       name: "Action",
-      selector: (row) =>
-        (row.data = (
-          <button
-            type="button"
-            className="btn btn-primary invite-btn"
-            onClick={() => sendInvitation(row)}
-          >
-            Send Invitation
-          </button>
-        )),
-        sortable: false,
+      selector: (row) => (        
+        <button
+          type="button"
+          className="btn btn-primary invite-btn"
+          onClick={() => sendInvitation(row)}
+        >{ row && row.invitationStatus == "Invitation Sent" ? 
+        (
+          "Resend Invitation"
+          ) : 
+          "Send Invitation"
+        }
+        </button>
+      ),
+      sortable: false,
     },
   ];
 
