@@ -21,21 +21,8 @@ const Login = () => {
 
   const loginFormSubmit = (e) => {
     e.preventDefault();
-    console.log(loginPayload, "aa gaya jjj");
     handleLogin(loginPayload);
   };
-
-  //  const Get = async (loginPayload) =>{
-  //   url = "http://localhost:4001/api/getuser"
-  //   try{
-  //     const response = await axios(url);
-  //     console.log("response.data",response.data)
-  //     setUserInfo(response.data);
-  // }
-  // catch(err){
-  //   console.error(err);
-  // }
-  // };
 
   const handleLogin = async (payload) => {
     let url = "http://localhost:4001/api/getuser";
@@ -64,11 +51,10 @@ const Login = () => {
                   <div className="card-header text-center">
                     <img src={logo} alt="logo" className="img-fluid" />
                     <p>
-                      <b>Admin</b>Portal
+                      <b>INHO</b> E-Invite Portal
                     </p>
                     <span class="text-muted text-center">
-                      Enter your email address and password to access admin
-                      panel.
+                      Enter your email address and password to access E-Invite Portal.
                     </span>
                   </div>
                   <div className="card-body">
