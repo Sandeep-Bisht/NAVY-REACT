@@ -47,7 +47,7 @@ const AddInvites = () => {
       if (response) {
         console.log("response guestlist", response);
         if(response.status == 200){
-          // navigate("/dashboard/guestList")
+          navigate("/dashboard/guestList")
         }
       }
     } catch (error) {

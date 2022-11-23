@@ -153,13 +153,13 @@ const columns = [
                           <h4 className='fw-bold text-center mb-4'>Add Category</h4>
                        </div>
                        <div className='col-md-4'>
-                          <button type='button' className='btn btn-success' onClick={()=>changeMode('List')}> <BiCategory className='me-2'/> All Category</button>
+                          <button type='button' className='btn common-category-btn' onClick={()=>changeMode('List')}> <BiCategory className='me-2'/> All Category</button>
                        </div>
                     </div>
-                        <div className='row'>
+                        <div className='row mt-2'>
                         <div className='col-md-12'>
                             <form
-                            className='row'
+                            className='row common-form'
                             onSubmit={(e) => handlesubmit(e)}
                             >
                             <div className="mb-3 col-lg-6">
@@ -195,7 +195,7 @@ const columns = [
                             </div>
                             
                             <div className='mt-4 col-lg-12'>
-                                <button type="submit" className="btn btn-success common-form-btn">
+                                <button type="submit" className="common-form-btn">
                                 Submit
                                 </button>
                             </div>
@@ -212,13 +212,13 @@ const columns = [
                           <h4 className='fw-bold text-center mb-4'>Update Category</h4>
                        </div>
                        <div className='col-md-4'>
-                          <button type='button' className='btn btn-success' onClick={()=>changeMode('List')}> <IoMdArrowRoundBack className='me-2'/> Back</button>
+                          <button type='button' className='common-category-btn' onClick={()=>changeMode('List')}> <IoMdArrowRoundBack className='me-2'/> Back</button>
                        </div>
                     </div>
-                    <div className='row'>
+                    <div className='row mt-2'>
                         <div className='col-md-12'>
                             <form
-                            className='row'
+                            className='row common-form'
                             onSubmit={(e) => updateUser(e)}
                             >
                             <div className="mb-3 col-lg-6">
@@ -254,7 +254,7 @@ const columns = [
                             </div>
                             
                             <div className='mt-4 col-lg-12'>
-                                <button type="submit" className="btn btn-success common-form-btn">
+                                <button type="submit" className="common-form-btn">
                                 Update
                                 </button>
                             </div>
@@ -270,7 +270,7 @@ const columns = [
                           <h4 className='fw-bold text-center mb-4'>All Category</h4>
                        </div>
                        <div className='col-md-4'>
-                          <button type='button' className='btn btn-success' onClick={()=>changeMode('Create')}> <IoIosAdd className='me-2'/> Add Category</button>
+                          <button type='button' className='common-category-btn' onClick={()=>changeMode('Create')}> <IoIosAdd className='me-2'/> Add Category</button>
                        </div>
                     </div>
                     <div className='row'>
