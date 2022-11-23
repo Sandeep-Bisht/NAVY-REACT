@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "../../Images/nhoLogo.png";
+import {apiBaseUrl} from "../../util.js"
 import "../../CSS/login.css";
 import "../../CSS/common.css";
 
 const Login = () => {
-  let [loginPayload, setLoginPayload] = useState({
-   
+  let [loginPayload, setLoginPayload] = useState({  
   });
   const navigate = useNavigate();
 
@@ -25,7 +25,8 @@ const Login = () => {
   };
 
   const handleLogin = async (payload) => {
-    let url = "http://localhost:4001/api/getuser";
+    // let url = "http://localhost:4001/api/getuser";
+    let url = `${apiBaseUrl}getuser`
     try {
       let response = await axios.post(url, payload);
       if (response) {

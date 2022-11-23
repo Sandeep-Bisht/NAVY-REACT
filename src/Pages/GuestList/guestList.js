@@ -5,6 +5,7 @@ import "react-data-table-component-extensions/dist/index.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../../CSS/guestList.css"
 import { DashboardNew } from "../../Component/Dashboard/index.js";
+import {apiBaseUrl} from "../../util.js"
 
 
 const GuestList = () => {
@@ -18,7 +19,9 @@ const GuestList = () => {
     //delete inviteData.data;
     //console.log("button clicked", inviteData);
     //let payload = JSON.stringify(inviteData)
-    let url = "http://localhost:4001/api/sendInvitation";
+    // let url = "http://localhost:4001/api/sendInvitation";
+    let url = `${apiBaseUrl}sendInvitation`
+
     try {
       let response = await axios.post(url, inviteData);
       if (response) {
@@ -31,7 +34,9 @@ const GuestList = () => {
 
   const sendToAll = async (list) => {
     console.log("button clicked send to all", list);
-    let url = "http://localhost:4001/api/sendInvitationToAll";
+    // let url = "http://localhost:4001/api/sendInvitationToAll";
+    let url = `${apiBaseUrl}sendInvitationToAll`
+    
     try {
       let response = await axios.post(url, list);
       if (response) {
@@ -47,7 +52,9 @@ const GuestList = () => {
   }, []);
 
   const getGuestList = async () => {
-    let url = "http://localhost:4001/api/getGuestList";
+    // let url = "http://localhost:4001/api/getGuestList";
+    let url = `${apiBaseUrl}getGuestList`
+
 
     try {
       let response = await axios.get(url);
