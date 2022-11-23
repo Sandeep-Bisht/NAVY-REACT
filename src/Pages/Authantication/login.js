@@ -7,8 +7,7 @@ import "../../CSS/login.css";
 import "../../CSS/common.css";
 
 const Login = () => {
-  let [loginPayload, setLoginPayload] = useState({
-   
+  let [loginPayload, setLoginPayload] = useState({  
   });
   const navigate = useNavigate();
 

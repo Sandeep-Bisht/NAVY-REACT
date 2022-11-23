@@ -20,7 +20,6 @@ export function DashboardNew({ children }) {
 
   const getCategoryList = async () => {
     // let url = "http://localhost:4001/api/getcategories";
-
     let url = `${apiBaseUrl}getcategories`;
     console.log("api url check", url);
 
