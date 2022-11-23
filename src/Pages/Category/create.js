@@ -7,6 +7,7 @@ import {IoIosAdd , IoMdArrowRoundBack} from 'react-icons/io'
 import { BiCategory} from 'react-icons/bi'
 import "../../CSS/form.css";
 import { DashboardNew } from '../../Component/Dashboard';
+import {apiBaseUrl} from "../../util.js"
 
 const CreateCategory = () => {
   
@@ -18,7 +19,7 @@ const CreateCategory = () => {
     let [currentMode,setCurrentMode] = useState('List')
 
     const getCategoryList = async () => {
-        let url = "http://localhost:4001/api/getcategories";
+        let url = `${apiBaseUrl}getcategories`;
         
         try {
           let response = await axios.get(url);
@@ -90,7 +91,7 @@ const columns = [
   const handlesubmit = async (e) => {
     e.preventDefault();
 
-    let url = "http://localhost:4001/api/createcategory";
+    let url = `${apiBaseUrl}createcategory`;
     try {
       let response = await axios.post(url, categoryPayload);
       if (response) {
@@ -110,7 +111,7 @@ const columns = [
   const updateUser =  async (e) => {
     e.preventDefault();
 
-    let url = "http://localhost:4001/api/updatecategory";
+    let url = `${apiBaseUrl}updatecategory`;
     try {
       let response = await axios.patch(url, updatePayload);
       if (response) {

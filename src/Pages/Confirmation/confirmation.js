@@ -15,11 +15,10 @@ const Confirmation = () => {
     return stringToken;
   };
 
-  const verifyGuest = async (token) => {
-    console.log("token on api call", token);
-    // let url = "http://localhost:4001/api/verifyGuestByToken";
-    let url = `${apiBaseUrl}verifyGuestByToken`;
-    console.log("this is url", url)
+  const verifyGuest = async (stringToken) => {
+    console.log("stringToken on api call", stringToken);
+    let url = `${apiBaseUrl}verifyGuestByToken`
+
     try {
       let response = await axios.get(url, {
         params: {
@@ -48,7 +47,6 @@ const Confirmation = () => {
     };
      console.log("Guest Response", obj);
 
-    // let url = "http://localhost:4001/api/markAvailability";
     let url = `${apiBaseUrl}markAvailability`
 
     
