@@ -4,6 +4,7 @@ import Logoright from "../../Images/navydaylogo2.jpg";
 import Logoleft from "../../Images/navydaylogo1.jpg";
 import Logomain from "../../Images/navydaymain.jpg";
 import Map from "../../Images/map.jpg";
+import {apiBaseUrl} from "../../util.js"
 
 const Navyday = () => {
 
