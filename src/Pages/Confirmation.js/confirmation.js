@@ -102,8 +102,8 @@ const Confirmation = () => {
               </div>
               </>
             ) : <div className="card">
-            <p className="text-center">You had already repond for the Event</p> 
-            <p><h4 className="text-center text-success">Thankyu</h4></p>           
+            <p className="text-center">You had already respond for the Event.</p> 
+            <p><h4 className="text-center text-success">Thank you</h4></p>           
           </div>
             }
             </div>

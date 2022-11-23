@@ -48,8 +48,8 @@ const AddInvites = () => {
       let response = await axios.post(url, guestInfo);
       if (response) {
         console.log("response guestlist", response);
-        if (response.status == 200) {
-          // navigate("/dashboard/guestList")
+        if(response.status == 200){
+          navigate("/dashboard/guestList")
         }
       }
     } catch (error) {
