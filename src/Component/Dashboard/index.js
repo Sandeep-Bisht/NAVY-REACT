@@ -7,6 +7,8 @@ import "../../CSS/sidebar.css";
 import "../../CSS/navbar.css";
 import Logo from "../../Images/nhoLogo.png";
 import UserLogo from "../../Images/user-logo.png";
+import {apiBaseUrl} from "../../util.js"
+
 
 export function DashboardNew({children}){
 
@@ -19,7 +21,7 @@ export function DashboardNew({children}){
     const [windowSize,setWindowSize] = useState(window.innerWidth)
 
     const getCategoryList = async () => {
-      let url = "http://localhost:4001/api/getcategories";
+      let url =  `${apiBaseUrl}getcategories`;
       
       try {
         let response = await axios.get(url);

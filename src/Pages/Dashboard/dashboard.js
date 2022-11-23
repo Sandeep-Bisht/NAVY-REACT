@@ -5,6 +5,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import axios from 'axios';
 import { DashboardNew } from '../../Component/Dashboard';
 import '../../CSS/dashboard.css'
+import {apiBaseUrl} from "../../util.js"
 am4core.useTheme(am4themes_animated);
 
 const Dashboard = () => {
@@ -13,7 +14,7 @@ const Dashboard = () => {
   let [categoryWiseUser, setCategoryWiseUser] = useState([])
 
   const getCartCounts = async () => {
-    let chartCounterUrl = "http://localhost:4001/api/getCartsCounts";
+    let chartCounterUrl = `${apiBaseUrl}getCartsCounts`;
     
     try {
       let response = await axios.get(chartCounterUrl);
@@ -25,7 +26,7 @@ const Dashboard = () => {
         console.log("error", error);
       }
 
-      let pieChartDataUrl = "http://localhost:4001/api/getConfirmationCount";
+      let pieChartDataUrl = `${apiBaseUrl}getConfirmationCount`;
 
       try {
         let response = await axios.get(pieChartDataUrl);
@@ -37,7 +38,7 @@ const Dashboard = () => {
           console.log("error", error);
         }
 
-        let categoryWiseUserCount = "http://localhost:4001/api/getCategoryUserCount";
+        let categoryWiseUserCount = `${apiBaseUrl}getCategoryUserCount`;
         
         try {
           let response = await axios.get(categoryWiseUserCount);

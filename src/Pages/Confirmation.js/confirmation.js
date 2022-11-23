@@ -17,7 +17,6 @@ const Confirmation = () => {
 
   const verifyGuest = async (stringToken) => {
     console.log("stringToken on api call", stringToken);
-    // let url = "http://localhost:4001/api/verifyGuestByToken";
     let url = `${apiBaseUrl}verifyGuestByToken`
 
     try {
@@ -48,7 +47,6 @@ const Confirmation = () => {
     };
      console.log("Guest Response", obj);
 
-    // let url = "http://localhost:4001/api/markAvailability";
     let url = `${apiBaseUrl}markAvailability`
 
     
@@ -73,7 +71,7 @@ const Confirmation = () => {
         <div className="container">
           <div className="row pt-5">
             <div className="col-md-12">
-            { userData && userData.setUserData == "null" ? (
+            { userData && userData.availability == "null" ? (
                 <>
               <div className="card">
                 <p className="text-center">Are you Intrested for the Event</p>
