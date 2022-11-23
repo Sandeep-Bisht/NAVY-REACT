@@ -2,7 +2,7 @@ import React from "react";
 import { useRoutes } from "react-router-dom";
 import AddInvites from "../Pages/AddInvites/addInvites.js";
 import Login from "../Pages/Authantication/login.js";
-import Confirmation from "../Pages/Confirmation.js/confirmation.js";
+import Confirmation from "../Pages/Confirmation/confirmation.js";
 import Dashboard from "../Pages/Dashboard/dashboard.js";
 import GuestList from "../Pages/GuestList/guestList.js";
 import CreateCategory from "../Pages/Category/create.js";

@@ -15,15 +15,15 @@ const Confirmation = () => {
     return stringToken;
   };
 
-  const verifyGuest = async (stringToken) => {
-    console.log("stringToken on api call", stringToken);
+  const verifyGuest = async (token) => {
+    console.log("token on api call", token);
     // let url = "http://localhost:4001/api/verifyGuestByToken";
-    let url = `${apiBaseUrl}verifyGuestByToken`
-
+    let url = `${apiBaseUrl}verifyGuestByToken`;
+    console.log("this is url", url)
     try {
       let response = await axios.get(url, {
         params: {
-          stringToken: stringToken,
+          stringToken: token,
         },
       });
       if (response && response.data) {
@@ -64,16 +64,16 @@ const Confirmation = () => {
     }
   };
 
-//   console.log("userData", userData)
+  console.log(" consoling userData", userData)
 
   return (
     <>
      
-         <section>
+         <section> 
         <div className="container">
           <div className="row pt-5">
             <div className="col-md-12">
-            { userData && userData.setUserData == "null" ? (
+            { userData && userData.availability == "null" ? (
                 <>
               <div className="card">
                 <p className="text-center">Are you Intrested for the Event</p>
