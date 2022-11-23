@@ -5,57 +5,57 @@ import "../../CSS/sidebar.css";
 
 const Sidebar = () => {
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
-    <section className="dash-body">
-          <div className="container-fluid ">
-            <div className="row">
-              <div className="col-md-3 left-part col-lg-2 px-0">
-                <aside>
-                  <ul className="ps-0 list-unstyled ">                   
-                        <li>
-                          <button
-                            className="common-blue btn"
-                             onClick={() => navigate("/dashboard")}
-                          >
-                            <span className="me-2">
-                              <i className="fa-solid fa-house"></i>
-                            </span>
-                            Dashboard
-                          </button>
-                        </li>
-                  </ul>
-                 
-                    <ul className="ps-0 list-unstyled">
-                      <li>
-                        <button
-                          className="common-blue btn"
-                          onClick={() => navigate("/dashboard/addInvites")}
-                        >
-                          <span className="me-2">
-                            <i className="fa-solid fa-user-plus"></i>
-                          </span>
-                          New Invitation
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          className="common-blue btn"
-                          onClick={() =>
-                            navigate("/dashboard/guestList")
-                          }
-                        >
-                          <span className="me-2">
-                            <i className="fa-solid fa-user-plus"></i>
-                          </span>
-                          Guest List
-                        </button>
-                      </li>
-                    </ul>
-                    
-                    
-                  {/* <ul className="ps-0 list-unstyled mt-4">
+      <section className="dash-body">
+        <div className="container-fluid ">
+          <div className="row">
+            <div className="col-md-3 left-part col-lg-2 px-0">
+              <aside>
+                <ul className="ps-0 list-unstyled ">
+                  <li>
+                    <button
+                      className="common-blue btn"
+                      onClick={() => navigate("/dashboard")}
+                    >
+                      <span className="me-2">
+                        <i className="fa-solid fa-house"></i>
+                      </span>
+                      Dashboard
+                    </button>
+                  </li>
+                </ul>
+
+                <ul className="ps-0 list-unstyled">
+                  <li>
+                    <button
+                      className="common-blue btn"
+                      onClick={() => navigate("/dashboard/addInvites")}
+                    >
+                      <span className="me-2">
+                        <i className="fa-solid fa-user-plus"></i>
+                      </span>
+                      New Invitation
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="common-blue btn"
+                      onClick={() =>
+                        navigate("/dashboard/guestList")
+                      }
+                    >
+                      <span className="me-2">
+                        <i className="fa-solid fa-user-plus"></i>
+                      </span>
+                      Guest List
+                    </button>
+                  </li>
+                </ul>
+
+
+                {/* <ul className="ps-0 list-unstyled mt-4">
                       
                         <li>
                           <button
@@ -93,17 +93,17 @@ const navigate = useNavigate();
                           </button>
                         </li>                   
                        </ul> */}
-                </aside>
-              </div>      
-              <div className="col-md-9 col-lg-10">
-                  <div className="sidebar-right-wrapper">
+              </aside>
+            </div>
+            <div className="col-md-9 col-lg-10">
+              <div className="sidebar-right-wrapper">
 
-                       <h2 className="text-center">Welcome to the Dashboard</h2>
-                  </div>
-              </div>        
+                <h2 className="text-center">Welcome to the Dashboard</h2>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
     </>
     // <>
     //   <section className="sidebar-wrapper">
@@ -160,7 +160,7 @@ const navigate = useNavigate();
     //                                  <Link to="">Create</Link>
     //                             </li>
     //                         </ul>
-                            
+
     //                     </div>
     //                 </div> */}
     //         </div>
