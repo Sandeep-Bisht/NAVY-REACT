@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import {apiBaseUrl} from "../../util.js"
 
 const Confirmation = () => {
   const location = useLocation();
@@ -16,7 +17,8 @@ const Confirmation = () => {
 
   const verifyGuest = async (stringToken) => {
     console.log("stringToken on api call", stringToken);
-    let url = "http://localhost:4001/api/verifyGuestByToken";
+    // let url = "http://localhost:4001/api/verifyGuestByToken";
+    let url = `${apiBaseUrl}verifyGuestByToken`
 
     try {
       let response = await axios.get(url, {
@@ -46,7 +48,10 @@ const Confirmation = () => {
     };
      console.log("Guest Response", obj);
 
-    let url = "http://localhost:4001/api/markAvailability";
+    // let url = "http://localhost:4001/api/markAvailability";
+    let url = `${apiBaseUrl}markAvailability`
+
+    
     try {
       let response = await axios.post(url, obj);
       if (response) {
