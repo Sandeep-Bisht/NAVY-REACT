@@ -10,9 +10,22 @@ import {apiBaseUrl} from "../../util.js"
 const GuestList = () => {
   const [tableData, setTableData] = useState([]);
 
+  const sendReminder = async (reminderData) => {
+    console.log("reminderData", reminderData)
+    let url = `${apiBaseUrl}sendReminder`
+
+    try {
+      let response = await axios.post(url, reminderData);
+      if (response) {
+        console.log("reminderData response", response);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+
   const sendInvitation = async (inviteData) => {
     let url = `${apiBaseUrl}sendInvitation`
-
     try {
       let response = await axios.post(url, inviteData);
       if (response) {
@@ -41,11 +54,8 @@ const GuestList = () => {
 
   const getGuestList = async () => {
     let url = `${apiBaseUrl}getGuestList`
-
-
     try {
       let response = await axios.get(url);
-
       if (response && response.data) {
         setTableData(response.data);
       }
@@ -95,14 +105,9 @@ const GuestList = () => {
       name: "guestEmail",
       selector: "guestEmail",
       sortable: true,
-    },
+    },  
     {
-      name: "Address",
-      selector: "guestAddress",
-      sortable: true,
-    },
-    {
-      name: "Action",
+      name: "Send Invitation",
       selector: (row) => (        
         <button
           type="button"
@@ -113,6 +118,24 @@ const GuestList = () => {
           "Resend Invitation"
           ) : 
           "Send Invitation"
+        }
+        </button>
+      ),
+      sortable: false,
+    },  
+    {
+      name: "Action",
+      selector: (row) => (        
+        <button
+          type="button"
+          className="btn btn-primary invite-btn"
+          onClick={() => sendReminder(row)}
+        // >{ row && row.invitationStatus == "Invitation Sent" ? 
+        >{ row && row.reminderStatus == "Reminder Sent" ? 
+        (
+          "Resend Reminder"
+          ) : 
+          "Send Reminder"
         }
         </button>
       ),
