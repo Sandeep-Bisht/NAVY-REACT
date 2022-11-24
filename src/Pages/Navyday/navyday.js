@@ -120,16 +120,14 @@ const Navyday = () => {
                         viewBox={`0 0 256 256`}
                       />
                     </div>
-                    </div>
-                    
-                    <div className="two">
-                      <p className="navyday-second-area-card-title f2">
+                    <div className='two'>
+                      <p className='navyday-second-area-card-title f2 fw-bold'>
                         Vice Admiral Adhir Arora, NM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         and staff of the
                       </p>
-                      <p className="navyday-second-area-card-title f2">
+                      <p className='navyday-second-area-card-title f2 fw-bold'>
                         National Hydrographic Office
                       </p>
                       <p className="navyday-second-area-card-title f2">
@@ -171,12 +169,21 @@ const Navyday = () => {
                         has Kindly consented to be the Chief Guest
                       </p>
                     </div>
-                    <div className="four">
-                      <div className="left-box">
-                        <p className="general-info-title">Rsvp</p>
-                        <p className="general-info">Staff Officer</p>
-                        <p className="general-info">Tel: 8104685364</p>
-                        <p className="general-info">
+                    <div className='container'>
+                      <div className='row'>
+                         <div className='col-md-12'>
+                         <div className='four'>
+                      <div className='left-box'>
+                        <p className='general-info-title'>
+                          Rsvp
+                        </p>
+                        <p className='general-info'>
+                          Staff Officer
+                        </p>
+                        <p className='general-info'>
+                          Tel: 8104685364
+                        </p>
+                        <p className='general-info'>
                           (to be seated by.........P.M.)
                         </p>
                       </div>
@@ -211,11 +218,16 @@ const Navyday = () => {
                         </div>
                       </div>
                     </div>
+                         </div>
+                      </div>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
       {/* --------------second card--------------------- */}
@@ -538,6 +550,9 @@ const Navyday = () => {
               <div className="map-box">
                 <img src={Map} className="img-fluid" alt="map" />
               </div>
+            </div>
+            <div className='col-md-12'>
+               <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div>
           </div>
         </div>
