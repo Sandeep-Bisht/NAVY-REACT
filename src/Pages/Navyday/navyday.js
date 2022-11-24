@@ -100,7 +100,7 @@ const Navyday = () => {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="one">
-                      <img src={Inner} className="img-fluid" alt="" />
+                      <div><img src={Inner} className="img-fluid" alt="" /></div>
                       <div className="qr-code"
                       style={{
                         height: "250px",
@@ -119,6 +119,7 @@ const Navyday = () => {
                         value={userData.guestDesignation + userData.guestName}
                         viewBox={`0 0 256 256`}
                       />
+                    </div>
                     </div>
                     <div className='two'>
                       <p className='navyday-second-area-card-title f2 fw-bold'>
@@ -228,7 +229,7 @@ const Navyday = () => {
             </div>
           </div>
         </div>
-        </div>
+        
       </section>
       {/* --------------second card--------------------- */}
       <section className="navyday-third-area common-alternate-bg navyday-common-padding">

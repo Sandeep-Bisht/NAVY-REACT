@@ -7,7 +7,7 @@
 .qr-code
 {
   position: absolute;
-  top: 30%;
+  top: 20%;
   right: 5%;
 }
 
@@ -445,6 +445,9 @@
 .navyday-second-area .navyday-second-area-card .four .general-info{
   font-size: 12px;
 }
+.qr-code svg{
+  height: 35px!important;
+}
 
 
 }
@@ -552,6 +555,13 @@
 .navyday-second-area .navyday-second-area-card .one img{
   height: 150px;
 }
+.qr-code{
+  right: 0;
+}
+.qr-code svg{
+  height: 30px!important;
+}
+
 }
 @media only screen and (max-width : 360px){
   .navyday-third-area-card .navycard-common-title-content {
