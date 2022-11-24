@@ -9,7 +9,6 @@ import Logo from "../../Images/nhoLogo.png";
 import UserLogo from "../../Images/user-logo.png";
 import {apiBaseUrl} from "../../util.js"
 
-
 export function DashboardNew({children}){
 
     const childrenArray = React.Children.toArray(children);
@@ -104,6 +103,7 @@ export function DashboardNew({children}){
                     <li>
                       <button
                         className="dropdown-item logout-btn"
+                        onClick={()=>navigate('/')}
                       >
                         Logout
                       </button>

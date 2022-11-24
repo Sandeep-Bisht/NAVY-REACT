@@ -5,27 +5,17 @@ import "react-data-table-component-extensions/dist/index.css";
 import "../../CSS/guestList.css"
 import { DashboardNew } from "../../Component/Dashboard/index.js";
 import {apiBaseUrl} from "../../util.js"
+import { useParams } from "react-router-dom";
 
 
-const GuestList = () => {
+const CategoryWiseGuestList = () => {
+    const params = useParams();
+    console.log(params,'this is location')
   const [tableData, setTableData] = useState([]);
-
-  const sendReminder = async (reminderData) => {
-    console.log("reminderData", reminderData)
-    let url = `${apiBaseUrl}sendReminder`
-
-    try {
-      let response = await axios.post(url, reminderData);
-      if (response) {
-        console.log("reminderData response", response);
-      }
-    } catch (error) {
-      console.log("error", error);
-    }
-  }
 
   const sendInvitation = async (inviteData) => {
     let url = `${apiBaseUrl}sendInvitation`
+
     try {
       let response = await axios.post(url, inviteData);
       if (response) {
@@ -50,12 +40,15 @@ const GuestList = () => {
 
   useEffect(() => {
     getGuestList();
-  }, []);
+  }, [params]);
 
   const getGuestList = async () => {
-    let url = `${apiBaseUrl}getGuestList`
+    let url = `${apiBaseUrl}getcategoryWiseGuestList`
+
+
     try {
-      let response = await axios.get(url);
+      let response = await axios.get(`${url}/${params.categoryId}`);
+
       if (response && response.data) {
         setTableData(response.data);
       }
@@ -105,9 +98,14 @@ const GuestList = () => {
       name: "guestEmail",
       selector: "guestEmail",
       sortable: true,
-    },  
+    },
     {
-      name: "Send Invitation",
+      name: "Address",
+      selector: "guestAddress",
+      sortable: true,
+    },
+    {
+      name: "Action",
       selector: (row) => (        
         <button
           type="button"
@@ -118,24 +116,6 @@ const GuestList = () => {
           "Resend Invitation"
           ) : 
           "Send Invitation"
-        }
-        </button>
-      ),
-      sortable: false,
-    },  
-    {
-      name: "Action",
-      selector: (row) => (        
-        <button
-          type="button"
-          className="btn btn-primary invite-btn"
-          onClick={() => sendReminder(row)}
-        // >{ row && row.invitationStatus == "Invitation Sent" ? 
-        >{ row && row.reminderStatus == "Reminder Sent" ? 
-        (
-          "Resend Reminder"
-          ) : 
-          "Send Reminder"
         }
         </button>
       ),
@@ -172,4 +152,4 @@ const GuestList = () => {
   );
 };
 
-export default GuestList;
+export default CategoryWiseGuestList;
