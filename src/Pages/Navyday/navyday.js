@@ -456,6 +456,9 @@ const Navyday = () => {
                <img src={Map} className="img-fluid" alt='map'/>
                </div>
             </div>
+            <div className='col-md-12'>
+               <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+            </div>
           </div>
         </div>
       </section>
