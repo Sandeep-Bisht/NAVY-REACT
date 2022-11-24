@@ -8,6 +8,7 @@ import GuestList from "../Pages/GuestList/guestList.js";
 import CreateCategory from "../Pages/Category/create.js";
 import Navyday from "../Pages/Navyday/navyday.js";
 import CategoryWiseGuestList from "../Pages/CategoryWiseGuestList/index.js";
+import Departmenmt from "../Pages/Department/index.js";
 //  import Table from "../Pages/Table/table.js";
 
 
@@ -20,6 +21,7 @@ const AppRoute = () => {
     { path : "/dashboard/guestList", element : <GuestList /> },
     { path : "/dashboard/guestList/:categoryId", element : <CategoryWiseGuestList /> },
     { path : "/dashboard/createCategory", element : <CreateCategory /> },
+    { path : "/dashboard/Department", element : <Departmenmt /> },
     {
       path :"/navyday/:id", element : <Navyday/>
     }
