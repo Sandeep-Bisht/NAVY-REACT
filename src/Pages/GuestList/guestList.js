@@ -17,7 +17,7 @@ const GuestList = () => {
     try {
       let response = await axios.post(url, reminderData);
       if (response) {
-        console.log("reminderData response", response);
+        getGuestList()
       }
     } catch (error) {
       console.log("error", error);
@@ -29,6 +29,7 @@ const GuestList = () => {
     try {
       let response = await axios.post(url, inviteData);
       if (response) {
+        getGuestList()
       }
     } catch (error) {
       console.log("error", error);

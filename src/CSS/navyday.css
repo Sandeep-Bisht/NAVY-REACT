@@ -14,7 +14,7 @@
 .navyday
 {
   background-color: #151632; 
-  min-height: 100vh;
+  min-height: unset;
   position: relative;
 }
 .navyday .muiltiple-pics{
