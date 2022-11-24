@@ -14,14 +14,25 @@ const GuestList = () => {
   const [guestList, setGuestList] = useState([]);
   const [tableData, setTableData] = useState([]);
 
+  const sendReminder = async (reminderData) => {
+    console.log("reminderData", reminderData)
+    let url = `${apiBaseUrl}sendReminder`
+
+    try {
+      let response = await axios.post(url, reminderData);
+      if (response) {
+        console.log("reminderData response", response);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+
   const sendInvitation = async (inviteData) => {
-    //console.log("invite data", inviteData);
-    //delete inviteData.data;
-    //console.log("button clicked", inviteData);
+    console.log(inviteData, "invite data")
     //let payload = JSON.stringify(inviteData)
     // let url = "http://localhost:4001/api/sendInvitation";
     let url = `${apiBaseUrl}sendInvitation`
-
     try {
       let response = await axios.post(url, inviteData);
       if (response) {
@@ -52,15 +63,10 @@ const GuestList = () => {
   }, []);
 
   const getGuestList = async () => {
-    // let url = "http://localhost:4001/api/getGuestList";
+     //let url = "http://localhost:4001/api/getGuestList";
     let url = `${apiBaseUrl}getGuestList`
-
-
     try {
       let response = await axios.get(url);
-
-      // console.log("response guestlist 7657", response);
-
       if (response && response.data) {
         console.log("response guestlist", response);
         setGuestList(response.data);
@@ -112,14 +118,9 @@ const GuestList = () => {
       name: "guestEmail",
       selector: "guestEmail",
       sortable: true,
-    },
+    },  
     {
-      name: "Address",
-      selector: "guestAddress",
-      sortable: true,
-    },
-    {
-      name: "Action",
+      name: "Send Invitation",
       selector: (row) => (        
         <button
           type="button"
@@ -130,6 +131,24 @@ const GuestList = () => {
           "Resend Invitation"
           ) : 
           "Send Invitation"
+        }
+        </button>
+      ),
+      sortable: false,
+    },  
+    {
+      name: "Action",
+      selector: (row) => (        
+        <button
+          type="button"
+          className="btn btn-primary invite-btn"
+          onClick={() => sendReminder(row)}
+        // >{ row && row.invitationStatus == "Invitation Sent" ? 
+        >{ row && row.reminderStatus == "Reminder Sent" ? 
+        (
+          "Resend Reminder"
+          ) : 
+          "Send Reminder"
         }
         </button>
       ),
