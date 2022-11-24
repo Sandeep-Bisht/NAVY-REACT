@@ -5,9 +5,12 @@ import "react-data-table-component-extensions/dist/index.css";
 import "../../CSS/guestList.css"
 import { DashboardNew } from "../../Component/Dashboard/index.js";
 import {apiBaseUrl} from "../../util.js"
+import { useParams } from "react-router-dom";
 
 
-const GuestList = () => {
+const CategoryWiseGuestList = () => {
+    const params = useParams();
+    console.log(params,'this is location')
   const [tableData, setTableData] = useState([]);
 
   const sendInvitation = async (inviteData) => {
@@ -37,14 +40,14 @@ const GuestList = () => {
 
   useEffect(() => {
     getGuestList();
-  }, []);
+  }, [params]);
 
   const getGuestList = async () => {
-    let url = `${apiBaseUrl}getGuestList`
+    let url = `${apiBaseUrl}getcategoryWiseGuestList`
 
 
     try {
-      let response = await axios.get(url);
+      let response = await axios.get(`${url}/${params.categoryId}`);
 
       if (response && response.data) {
         setTableData(response.data);
@@ -149,4 +152,4 @@ const GuestList = () => {
   );
 };
 
-export default GuestList;
+export default CategoryWiseGuestList;
