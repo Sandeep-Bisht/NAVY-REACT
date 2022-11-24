@@ -65,13 +65,13 @@ const Navyday = () => {
                         <img src={Inner} className="img-fluid" alt=''/>
                     </div>
                     <div className='two'>
-                      <p className='navyday-second-area-card-title f2'>
+                      <p className='navyday-second-area-card-title f2 fw-bold'>
                         Vice Admiral Adhir Arora, NM
                       </p>
                       <p className='navyday-second-area-card-title f2'>
                         and staff of the
                       </p>
-                      <p className='navyday-second-area-card-title f2'>
+                      <p className='navyday-second-area-card-title f2 fw-bold'>
                         National Hydrographic Office
                       </p>
                       <p className='navyday-second-area-card-title f2'>
@@ -97,7 +97,10 @@ const Navyday = () => {
                         <p className='navyday-second-area-card-title f2'>Hon'ble Governor of Uttarakhand</p>
                         <p className='navyday-second-area-card-title f2'>has Kindly consented to be the Chief Guest</p>
                     </div>
-                    <div className='four'>
+                    <div className='container'>
+                      <div className='row'>
+                         <div className='col-md-12'>
+                         <div className='four'>
                       <div className='left-box'>
                         <p className='general-info-title'>
                           Rsvp
@@ -151,6 +154,10 @@ const Navyday = () => {
                         </div>
                       </div>
                     </div>
+                         </div>
+                      </div>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -448,6 +455,9 @@ const Navyday = () => {
               <div className='map-box'>
                <img src={Map} className="img-fluid" alt='map'/>
                </div>
+            </div>
+            <div className='col-md-12'>
+               <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div>
           </div>
         </div>
