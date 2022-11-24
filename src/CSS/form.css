@@ -26,6 +26,12 @@
     background: #fff;
     padding: 40px;
 }
-.common-form input,.common-form textarea{
-    background: rgb(232, 240, 254);
+.common-form input,.common-form textarea, .common-form select{
+    background-color: rgb(232, 240, 254);
+}
+
+.common-category-btn{
+    background-color: #1c2740!important;
+    color: #fff!important;
+    padding:5px 28px!important;
 }

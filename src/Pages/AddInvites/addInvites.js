@@ -15,7 +15,6 @@ const AddInvites = () => {
   let [allCategories, setAllCategories] = useState([]);
 
   const getCategoryList = async () => {
-    // let url = "http://localhost:4001/api/getcategories";
     let url = `${apiBaseUrl}getcategories`
 
     try {
@@ -42,14 +41,13 @@ const AddInvites = () => {
   const loginFormSubmit = async (e) => {
     e.preventDefault();
 
-    // let url = "http://localhost:4001/api/addGuestList";
     let url = `${apiBaseUrl}addGuestList`
     try {
       let response = await axios.post(url, guestInfo);
       if (response) {
         console.log("response guestlist", response);
-        if (response.status == 200) {
-          // navigate("/dashboard/guestList")
+        if(response.status == 200){
+          navigate("/dashboard/guestList")
         }
       }
     } catch (error) {
