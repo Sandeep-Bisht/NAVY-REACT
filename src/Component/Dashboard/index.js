@@ -151,6 +151,17 @@ export function DashboardNew({children}){
                           <li>
                             <button
                               className="common-blue btn"
+                              onClick={() => navigate("/dashboard/Department")}
+                            >
+                              <span className="me-2">
+                                <i className="fa-solid fa-user-plus"></i>
+                              </span>
+                              Department
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              className="common-blue btn"
                               onClick={() => navigate("/dashboard/createCategory")}
                             >
                               <span className="me-2">
