@@ -83,7 +83,7 @@ const Navyday = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-12 text-center">
+            <div className="col-md-12 text-center responsive-default">
               <div className="navyday-main-pic">
                 <img src={Logomain} className="img-fluid " />
               </div>
@@ -126,11 +126,11 @@ const Navyday = () => {
                         Vice Admiral Adhir Arora, NM
                       </p>
                       <p className="navyday-second-area-card-title f2">
-                        and staff of the
+                        Chief Hydrographer to the Government of India
                       </p>
-                      <p className='navyday-second-area-card-title f2 fw-bold'>
+                      {/* <p className='navyday-second-area-card-title f2 fw-bold'>
                         National Hydrographic Office
-                      </p>
+                      </p> */}
                       <p className="navyday-second-area-card-title f2">
                         requests the pleasure of the company of
                       </p>
@@ -152,7 +152,7 @@ const Navyday = () => {
                         <span className="highlight-one">
                           " At Home function"
                         </span>{" "}
-                        on
+                        on{" "}
                         <span className="highlight-one ">04 Dec 2022</span> at
                         4:40 pm
                       </p>
@@ -184,9 +184,9 @@ const Navyday = () => {
                         <p className='general-info'>
                           Tel: 8104685364
                         </p>
-                        <p className='general-info'>
+                        {/* <p className='general-info'>
                           (to be seated by.........P.M.)
-                        </p>
+                        </p> */}
                       </div>
                       <div className="right-box">
                         <div className="general-info-wrapper">
@@ -545,7 +545,7 @@ const Navyday = () => {
           <div className="row">
             <div className="col-md-12">
               <h2 className="f2 map-title">Route Map Of</h2>
-              <h2 className="f2 map-title">National Hydrographic Officer</h2>
+              <h2 className="f2 map-title">National Hydrographic Office</h2>
             </div>
             <div className="col-md-12">
               <div className="map-box">

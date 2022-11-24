@@ -14,6 +14,7 @@ const AddInvites = () => {
   });
 
   let [allCategories, setAllCategories] = useState([]);
+  let [allDepartments, setAllDepartments] = useState([]);
 
   const getCategoryList = async () => {
     let url = `${apiBaseUrl}getcategories`
@@ -29,8 +30,23 @@ const AddInvites = () => {
     }
   };
 
+  const getDepartmentList = async () => {
+    let url = `${apiBaseUrl}getDepartments`
+
+    try {
+      let response = await axios.get(url);
+
+      if (response && response.data) {
+        setAllDepartments(response.data.response);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   useEffect(() => {
     getCategoryList();
+    getDepartmentList();
   }, []);
 
   const onChangeHandler = (e) => {
@@ -99,26 +115,32 @@ const AddInvites = () => {
                   </div>
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guestDepartment" className="form-label">
-                      Department
+                    Department
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
+                    <select
+                      className="form-select"
                       id="guestDepartment"
                       onChange={(e) => onChangeHandler(e)}
-                    />
+                      defaultValue=""
+                      required
+                    >
+                      <option disabled value="">
+                        Select Department
+                      </option>
+                      {allDepartments.map((item, index) => {
+                        return (
+                          <option value={item._id} key={index}>
+                            {item.departmentName}
+                          </option>
+                        );
+                      })}
+                    </select>
                   </div>
 
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guestCategory" className="form-label">
                       Guest Category
                     </label>
-                    {/* <input
-                              type="text"
-                              className="form-control"
-                              id="guestCategory"
-                              onChange={(e) => onChangeHandler(e)}
-                            /> */}
                     <select
                       className="form-select"
                       id="guestCategory"
