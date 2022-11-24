@@ -20,7 +20,7 @@ const AppRoute = () => {
     { path : "/dashboard/guestList/:categoryId", element : <GuestList /> },
     { path : "/dashboard/createCategory", element : <CreateCategory /> },
     {
-      path :"/navyday", element : <Navyday/>
+      path :"/navyday/:id", element : <Navyday/>
     }
     // {path:"/table",element : <Table/>}
   ]);
