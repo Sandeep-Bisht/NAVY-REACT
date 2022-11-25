@@ -16,14 +16,23 @@
 .default-dashboard-view .conter-card i{
    font-size: 40px;
 }
-.default-dashboard-view .conter-card.one i{
+.default-dashboard-view .conter-card.two i{
     color:#00c292;
 } 
-.default-dashboard-view .conter-card.two i{
+
+.default-dashboard-view .conter-card.one .category-icon i{
+    color:#ff9800;
+} 
+
+.default-dashboard-view .conter-card.four i{
+    color:#f44336;
+}
+
+.default-dashboard-view .conter-card.one i{
     color:#ab8ce4;
 }
 .default-dashboard-view .conter-card.three i{
-    color: #03a9f3;
+    color: #ffc107;
 }
 
 .default-dashboard-view .conter-card.five i{

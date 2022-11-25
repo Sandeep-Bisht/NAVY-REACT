@@ -2,3 +2,14 @@
     font-size: 12px!important;
     padding: 3px!important;
 }
+
+.main-table div[role="columnheader"]{
+    font-size: 14px;
+    color: black;
+    font-weight: 700;
+}
+
+.main-table div[role="cell"]{
+    font-size: 12px;
+    color: black;
+}

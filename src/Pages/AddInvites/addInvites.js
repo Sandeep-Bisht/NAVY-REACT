@@ -106,7 +106,7 @@ const AddInvites = () => {
 
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guestName" className="form-label">
-                      Guest Name
+                      Full Name
                     </label>
                     <input
                       type="text"
@@ -178,7 +178,7 @@ const AddInvites = () => {
                   </div>
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guesteNumber" className="form-label">
-                      Guest Phone Number
+                      Mobile No <span>{`( used for sending SMS)`}</span>
                     </label>
                     <input
                       type="text"

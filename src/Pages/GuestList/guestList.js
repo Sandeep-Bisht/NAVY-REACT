@@ -1,17 +1,43 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
+import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import "../../CSS/guestList.css"
+import "../../CSS/form.css"
+import { AiTwotoneDelete, AiFillEdit } from 'react-icons/ai'
 import { DashboardNew } from "../../Component/Dashboard/index.js";
 import {apiBaseUrl} from "../../util.js"
 
 
 const GuestList = () => {
   const [tableData, setTableData] = useState([]);
+  const [inviteeType, setInviteeType] = useState('')
+  const [departments, setDepartments] = useState([])
+
+  const changeInviteeType = (e) =>{
+    setInviteeType(e.target.value)
+  }
+
+  const getDepartmentList = async () => {
+    let url = `${apiBaseUrl}getDepartments`;
+    
+    try {
+      let response = await axios.get(url);
+
+      if (response && response.data) {
+        setDepartments(response.data.response);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+};
+
+useEffect(()=>{
+  getDepartmentList()
+},[])
 
   const sendReminder = async (reminderData) => {
-    console.log("reminderData", reminderData)
     let url = `${apiBaseUrl}sendReminder`
 
     try {
@@ -36,11 +62,16 @@ const GuestList = () => {
     }
   };
 
-  const sendToAll = async (list) => {
+  const sendToAll = async (e) => {
+    e.preventDefault();
     let url = `${apiBaseUrl}sendInvitationToAll`
-    
+    let payload = {
+      "category":"all",
+      inviteeType
+    }
+
     try {
-      let response = await axios.post(url, list);
+      let response = await axios.post(url, payload);
       if (response) {
         console.log("invitation response", response);
       }
@@ -67,7 +98,12 @@ const GuestList = () => {
 
   const columns = [
     {
-      name: "Guest Name",
+      name: "Invitee No",
+      selector: "inviteNo",
+      sortable: true,
+    },
+    {
+      name: "Name",
       selector: "guestName",
       sortable: true,
     },
@@ -88,61 +124,102 @@ const GuestList = () => {
     },
     {
       name: "Department",
-      selector: "guestDepartment",
+      // selector: "guestDepartment",
+      selector: (row) => (`${getDepartment(row.guestDepartment)}`),
       sortable: true,
-      // cell: d => <span>{d.genres.join(", ")}</span>
     },
     {
-      name: "Personal No",
+      name: "Mobile No",
       selector: "guestNumber",
       sortable: true,
-    },
+    }, 
     {
-      name: "Office No",
-      selector: "guestOfficeNumber",
-      sortable: true,
-    },
-    {
-      name: "guestEmail",
-      selector: "guestEmail",
-      sortable: true,
-    },  
-    {
-      name: "Send Invitation",
+      name: "Invite 03-Dec",
       selector: (row) => (        
         <button
           type="button"
-          className="btn btn-primary invite-btn"
+          className="common-category-btn"
           onClick={() => sendInvitation(row)}
         >{ row && row.invitationStatus == "Invitation Sent" ? 
         (
-          "Resend Invitation"
+          "Resend"
           ) : 
-          "Send Invitation"
+          "Send"
+        }
+        </button>
+      ),
+      sortable: false,
+    }, 
+    {
+      name: "Invite 04-Dec",
+      selector: (row) => (        
+        <button
+          type="button"
+          className="common-category-btn"
+          onClick={() => sendInvitation(row)}
+        >{ row && row.invitationStatus == "Invitation Sent" ? 
+        (
+          "Resend"
+          ) : 
+          "Send"
         }
         </button>
       ),
       sortable: false,
     },  
     {
-      name: "Action",
+      name: "Confirmation",
       selector: (row) => (        
         <button
           type="button"
-          className="btn btn-primary invite-btn"
+          className="common-category-btn"
           onClick={() => sendReminder(row)}
         // >{ row && row.invitationStatus == "Invitation Sent" ? 
         >{ row && row.reminderStatus == "Reminder Sent" ? 
         (
-          "Resend Reminder"
+          "Resend"
           ) : 
-          "Send Reminder"
+          "Send"
         }
         </button>
       ),
       sortable: false,
     },
+    {
+      name: "Action",
+      selector: (row) => (    
+        <>    
+        <button
+          type="button"
+          className="common-category-btn me-2 px-2"
+        // >{ row && row.invitationStatus == "Invitation Sent" ? 
+        >
+          <AiFillEdit className="text-white"/>
+        </button>
+        <button
+        type="button"
+        className="common-category-btn me-2 px-2"
+      // >{ row && row.invitationStatus == "Invitation Sent" ? 
+      >
+        <AiTwotoneDelete className="text-white"/>
+      </button>
+      </>
+      ),
+      sortable: false,
+    },
   ];
+
+  const getDepartment = (id) =>{
+    
+    let departmentData = departments.find((item)=>item._id == id)
+    return departmentData.departmentName
+  }
+
+  const extentionData = {
+    columns,
+    'data':tableData
+  };
+
 
   return (
     <>
@@ -155,9 +232,25 @@ const GuestList = () => {
 
                        
      <div>
-    <button className="btn btn-primary mb-5" onClick={()=>sendToAll("sendToAll")}>Send 2 All</button>
+      <form onSubmit={(e)=>sendToAll(e)}>
+        <div className="row mb-5">
+          <div className="col-md-4">
+            <select id="inviteeType" className="form-select" value={inviteeType} onChange={(e)=>changeInviteeType(e)} required>
+              <option value="" disabled>select Invitee Type</option>
+              <option value="all">All</option>
+              <option value="notSend">Not Send Yet</option>
+              <option value="alreadySend">Already Send</option>
+            </select>
+          </div>
+          <div className="col-md-4">
+          <button className="common-category-btn" type="submit">Send</button>
+          </div>
+        </div>
+      </form>
       </div>
-      <div className="main">        
+      <div className="main-table">  
+      {tableData.length > 0 ? 
+      <DataTableExtensions {...extentionData}>
         <DataTable
           columns={columns}
           data={tableData}
@@ -167,6 +260,9 @@ const GuestList = () => {
           pagination
           highlightOnHover
         />
+        </DataTableExtensions>
+        :
+        <p>No Data Found</p>}
       </div>
       </DashboardNew>
     </>
