@@ -9,6 +9,12 @@ const Confirmation = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [userData, setUserData] = useState(false);
 
+  useEffect(() => {
+    if (location && location.pathname) {
+      verifyGuest(getPathName(location.pathname));
+    }
+  }, []);
+
   const getPathName = (pathname) => {
     let newArray = pathname.split("/");
     let stringToken = newArray.pop();
@@ -34,17 +40,13 @@ const Confirmation = () => {
     }
   };
 
-  useEffect(() => {
-    if (location && location.pathname) {
-      verifyGuest(getPathName(location.pathname));
-    }
-  }, []);
+  
 
   let invitationResponseHandler = async (guest_response) => {
     let obj = {
       guest_response: guest_response,
       _id: userData._id,
-    };   
+    };
 
     let url = `${apiBaseUrl}markAvailability`;
 
@@ -59,7 +61,6 @@ const Confirmation = () => {
       console.log("error", error);
     }
   };
-
 
   return (
     <>

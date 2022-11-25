@@ -42,6 +42,8 @@ const Navyday = () => {
       });
       if (response && response.data) {
         console.log("response stringToken", response.data);
+        let qrData = response.data.guest;
+        console.log("qr dattttttttttttttttaaa", qrData)
         setUserData(response.data.guest);
       }
     } catch (error) {
@@ -116,7 +118,8 @@ const Navyday = () => {
                           maxWidth: "100%",
                           width: "100%",
                         }}
-                        value={userData.guestDesignation + userData.guestName}
+                        //value={userData.guestDesignation + userData.guestName}
+                        value="http://inho.in"
                         viewBox={`0 0 256 256`}
                       />
                     </div>
