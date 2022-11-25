@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import '../../CSS/confirmation.css'
+import logo from "../../Images/nhoLogo.png";
 import { useLocation } from "react-router-dom";
 import { apiBaseUrl } from "../../util.js";
 
@@ -22,7 +24,7 @@ const Confirmation = () => {
   };
 
   const verifyGuest = async (stringToken) => {
-    console.log("stringToken on api call", stringToken);
+
     let url = `${apiBaseUrl}verifyGuestByToken`;
 
     try {
@@ -64,47 +66,46 @@ const Confirmation = () => {
 
   return (
     <>
-      <section>
+      <section className="confirmationPage">
+        <img src={logo} alt="logo" className="img-fluid" />
         <div className="container">
           <div className="row pt-5">
-            <div className="col-md-12">
+            <div className="col-md-12 smsContent">
               {userData && userData.availability == "null" ? (
                 <>
-                  <div className="card">
-                    <p className="text-center">
+                    <p className="text-center para">
                       Are you Intrested for the Event
                     </p>
                     <div className="row pb-3">
-                      <div className="col-md-6 d-flex justify-content-end">
+                      <div className="col-6 d-flex justify-content-end">
                         <button
                           type="button"
                           disabled={isDisabled}
-                          className="btn btn-primary"
+                          className="btn btn-primary px-5"
                           onClick={() => invitationResponseHandler("yes")}
                         >
                           Yes
                         </button>
                       </div>
-                      <div className="col-md-6">
+                      <div className="col-6">
                         <button
                           type="button"
                           disabled={isDisabled}
-                          className="btn btn-danger"
+                          className="btn btn-danger px-5"
                           onClick={() => invitationResponseHandler("no")}
                         >
                           No
                         </button>
                       </div>
                     </div>
-                  </div>
                 </>
               ) : (
-                <div className="card">
-                  <p className="text-center">
+                <div className="">
+                  <p className="text-center para">
                     You had already respond for the Event.
                   </p>
                   <p>
-                    <h4 className="text-center text-success">Thank you</h4>
+                    <h4 className="text-center success">Thank you</h4>
                   </p>
                 </div>
               )}

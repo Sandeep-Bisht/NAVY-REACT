@@ -1,0 +1,31 @@
+.confirmationPage{
+    background-color: #1c2740 ;
+    background-image: url("../Images/loginbgImg.png");
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.confirmationPage img{
+    height: 20vh;
+}
+
+.confirmationPage .smsContent{
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmationPage .smsContent .para{
+    font-size: 18px;
+    color: white;
+}
+
+.confirmationPage .smsContent .success{
+    font-size: 22px;
+    color: #10ea85;
+}
