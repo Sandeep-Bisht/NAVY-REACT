@@ -53,9 +53,12 @@ const Navyday = () => {
 
   return (
     <>
-      <section className="navyday navyday-common-padding pt-3">
-        <div className="muiltiple-pics">
+      <section className="navyday ">
+        <div className="muiltiple-pics d-none">
           <div className="single-pic-wrapper">
+            <div className="three ">
+              <img src={Logoright} className="img-fluid " />
+            </div>
             <div className="single-pic">
               <img src={Sidepic1} className="img-fluid " />
             </div>
@@ -69,7 +72,7 @@ const Navyday = () => {
         </div>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-10 col-9 text-center px-0">
               <div className="top-wrapper">
                 <div className="one">
                   <img src={Logoleft} className="img-fluid " />
@@ -79,11 +82,32 @@ const Navyday = () => {
                   <p className="date f2">04 December 2022</p>
                 </div>
                 <div className="three position-relative">
-                  <img src={Logoright} className="img-fluid " />
+                  {/* <img src={Logoright} className="img-fluid " /> */}
+                </div>
+              </div>
+              <div className="navyday-main-pic">
+                <img src={Logomain} className="img-fluid " />
+              </div>
+            </div>
+            <div className="col-md-2 col-3 px-0">
+              <div className="muiltiple-pics ">
+                <div className="single-pic-wrapper">
+                  <div className="three ">
+                    <img src={Logoright} className="img-fluid " />
+                  </div>
+                  <div className="single-pic">
+                    <img src={Sidepic1} className="img-fluid " />
+                  </div>
+                  <div className="single-pic">
+                    <img src={Sidepic2} className="img-fluid " />
+                  </div>
+                  <div className="single-pic">
+                    <img src={Sidepic3} className="img-fluid " />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-md-12 text-center responsive-default">
+            <div className="col-md-10 text-center responsive-default d-none">
               <div className="navyday-main-pic">
                 <img src={Logomain} className="img-fluid " />
               </div>
@@ -102,24 +126,25 @@ const Navyday = () => {
                     <div className="one">
                       <div><img src={Inner} className="img-fluid" alt="" /></div>
                       <div className="qr-code"
-                      style={{
-                        height: "250px",
-                        margin: "0 auto",
-                        maxWidth: 64,
-                        width: "100%",
-                      }}
-                    >
-                      <QRCode
-                        size={256}
                         style={{
-                          height: "auto",
-                          maxWidth: "100%",
+                          height: "250px",
+                          margin: "0 auto",
+                          maxWidth: 64,
                           width: "100%",
                         }}
-                        value={userData.guestDesignation + userData.guestName}
-                        viewBox={`0 0 256 256`}
-                      />
-                    </div>
+                      >
+                        <QRCode
+                          size={256}
+                          style={{
+                            height: "auto",
+                            maxWidth: "100%",
+                            width: "100%",
+                          }}
+                          value="xxx"
+                          // value={userData.guestDesignation + userData.guestName}
+                          viewBox={`0 0 256 256`}
+                        />
+                      </div>
                     </div>
                     <div className='two'>
                       <p className='navyday-second-area-card-title f2 fw-bold'>
@@ -154,7 +179,7 @@ const Navyday = () => {
                         </span>{" "}
                         on{" "}
                         <span className="highlight-one ">04 Dec 2022</span> at
-                        4:40 pm
+                        4:30 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
@@ -172,66 +197,105 @@ const Navyday = () => {
                     </div>
                     <div className='container custom-container'>
                       <div className='row'>
-                         <div className='col-md-12'>
-                         <div className='four'>
-                      <div className='left-box'>
-                        <p className='general-info-title'>
-                          Rsvp
-                        </p>
-                        <p className='general-info'>
-                          Staff Officer
-                        </p>
-                        <p className='general-info'>
-                          Tel: 8104685364
-                        </p>
-                        {/* <p className='general-info'>
+                        <div className='col-md-12'>
+                          <div className='four'>
+                            <div className='left-box'>
+                              <p className='general-info-title'>
+                                Rsvp
+                              </p>
+                              <p className='general-info'>
+                                Staff Officer
+                              </p>
+                              <p className='general-info'>
+                                Tel: 8104685364
+                              </p>
+                              {/* <p className='general-info'>
                           (to be seated by.........P.M.)
                         </p> */}
-                      </div>
-                      <div className="right-box">
-                        <div className="general-info-wrapper">
-                          <div className="left">
-                            <p className="general-info">Admit</p>
-                          </div>
-                          <div className="right">
-                            <p className="general-info">: Two</p>
-                          </div>
-                        </div>
-                        <div className="general-info-wrapper">
-                          <div className="left">
-                            <p className="general-info">Dress</p>
-                          </div>
-                          <div className="right">
-                            <p className="general-info">
-                              : National/Lounge Suit
-                            </p>
-                          </div>
-                        </div>
-                        <div className="general-info-wrapper">
-                          <div className="left">
-                            <p className="general-info">Service Officer : Winter Ceremonial/Equivalent (Without Sword)</p>
-                          </div>
-                          <div className="right d-none">
-                            <p className="general-info">
-                              : Winter Ceremonial/Equivalent (Without Sword)
-                            </p>
+                            </div>
+                            <div className="right-box">
+                              <div className="general-info-wrapper">
+                                <div className="left">
+                                  <p className="general-info">Admit</p>
+                                </div>
+                                <div className="right">
+                                  <p className="general-info">: Two</p>
+                                </div>
+                              </div>
+                              <div className="general-info-wrapper">
+                                <div className="left">
+                                  <p className="general-info">Dress</p>
+                                </div>
+                                <div className="right">
+                                  <p className="general-info">
+                                    : National/Lounge Suit
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="general-info-wrapper">
+                                <div className="left">
+                                  <p className="general-info">Service Officer : Winter Ceremonial/Equivalent (Without Sword)</p>
+                                </div>
+                                <div className="right d-none">
+                                  <p className="general-info">
+                                    : Winter Ceremonial/Equivalent (Without Sword)
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                         </div>
-                      </div>
-                    </div>
-                    
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
       </section>
       {/* --------------second card--------------------- */}
+      <section className="navyday-fifth-area common-alternate-bg navyday-common-padding">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="navyday-fifth-area-card flex-column">
+                <div className="entrance-box-wrapper">
+                  <div className="entrance-box">
+                    <p>Please Bring this QR code</p>
+                    <p>at the time of entrance</p>
+                    
+                  </div>
+                </div>
+                <div className="entrance-qr text-center">
+                    <div className="one">
+                      
+                    <div className="entrance-qr-code-view"
+                      >
+                        <QRCode
+                          size={256}
+                          style={{
+                            height: "auto",
+                            maxWidth: "100%",
+                            width: "100%",
+                          }}
+                         
+                          value="http://inho.in"
+                          viewBox={`0 0 256 256`}
+                        />
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div className='col-md-12 d-none'>
+              <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="navyday-third-area common-alternate-bg navyday-common-padding">
         <div className="container-fluid">
           <div className="row">
@@ -268,7 +332,7 @@ const Navyday = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1640
+                                  1630
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -405,7 +469,7 @@ const Navyday = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1640
+                                  1630
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -552,12 +616,13 @@ const Navyday = () => {
                 <img src={Map} className="img-fluid" alt="map" />
               </div>
             </div>
-            <div className='col-md-12'>
-               <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+            <div className='col-md-12 '>
+              <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div>
           </div>
         </div>
       </section>
+     
     </>
   );
 };
