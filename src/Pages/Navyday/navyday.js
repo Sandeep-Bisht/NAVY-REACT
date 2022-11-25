@@ -42,6 +42,8 @@ const Navyday = () => {
       });
       if (response && response.data) {
         console.log("response stringToken", response.data);
+        let qrData = response.data.guest;
+        console.log("qr dattttttttttttttttaaa", qrData)
         setUserData(response.data.guest);
       }
     } catch (error) {
