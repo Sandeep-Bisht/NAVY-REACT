@@ -150,8 +150,7 @@
 .navyday-second-area .navyday-second-area-card .bordered-line{
   border-bottom: 2px dotted #000;
   width: 40%;
-  margin: 30px auto;
-  white-space: nowrap;
+  margin: 15px auto;
 }
 .navyday-second-area .navyday-second-area-card .three .subheading{
   font-size: 18px;
@@ -492,7 +491,6 @@
   font-size: 15px;
   line-height: 1;
   margin-bottom: 2px;
-  white-space: nowrap;
 }
 .navyday-second-area .navyday-second-area-card .three .subheading{
   font-size: 16px;
@@ -540,11 +538,11 @@
   margin-bottom: 20px;
 }
 .navyday-second-area .navyday-second-area-card .bordered-line{
-  margin: 30px auto 10px auto;
+  margin: 15px auto 10px auto;
 }
 .navyday-second-area .navyday-second-area-card .highlight-second{
   font-size: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 .custom-container{
   padding: 0!important;
@@ -717,7 +715,7 @@
 }
 .navyday-second-area .navyday-second-area-card .one img{
   height:200px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 .qr-code{
   right: 0;
@@ -756,8 +754,8 @@
 }
 .navyday-second-area .navyday-second-area-card .highlight-second{
   font-size: 17px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 
@@ -772,7 +770,7 @@
     font-size: 12px;
   }
   .navyday-second-area .navyday-second-area-card .bordered-line {
-    margin: 30px auto 10px auto;
+    margin: 15px auto 10px auto;
 }
 .navyday-second-area .navyday-second-area-card .four {
   padding: 20px 0 20px 0;
@@ -784,7 +782,7 @@
 @media only screen and (max-width : 393px){
   .navyday-second-area .navyday-second-area-card .one img {
     height: 133px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 }
 
@@ -812,7 +810,7 @@
     margin-bottom: 10px;
 }
 .navyday-second-area .navyday-second-area-card .bordered-line {
-  margin: 20px auto 10px auto;
+  margin: 15px auto 10px auto;
 }
 .navyday-second-area .navyday-second-area-card .highlight-second {
   font-size: 17px;
@@ -866,10 +864,10 @@
 }
 .navyday-second-area .navyday-second-area-card .one img {
   height: 120px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 .navyday-second-area .navyday-second-area-card .bordered-line {
-margin: 30px auto 10px auto;
+margin: 15px auto 10px auto;
 }
 .navyday-second-area .navyday-second-area-card .highlight-second {
 font-size: 17px;
@@ -885,8 +883,8 @@ padding: 20px 0 20px 0;
 }
 .navyday-second-area .navyday-second-area-card .highlight-second {
   font-size: 17px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 

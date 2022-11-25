@@ -159,7 +159,7 @@ const PreInvitation = () => {
                       <p className="navyday-second-area-card-title f2">
                         requests the pleasure of the company of
                       </p>
-                      <p className="bordered-line">
+                      <p className="bordered-line text-nowrap">
                         <b>
                           {userData.guestDesignation} {userData.guestName}
                         </b>
@@ -172,13 +172,13 @@ const PreInvitation = () => {
                       <p className='mainheading'>
                         Navy Day Celebration
                       </p> */}
-                      <p className="navyday-second-area-card-title f2">
+                      <p className="navyday-second-area-card-title f2  text-nowrap">
                         for{" "}
                         <span className="highlight-one">
                           " At Home function"
                         </span>{" "}
                         on{" "}
-                        <span className="highlight-one ">03 Dec 2022</span> at
+                        <span className="highlight-one text-nowrap">03 Dec 2022</span> at
                         4 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
