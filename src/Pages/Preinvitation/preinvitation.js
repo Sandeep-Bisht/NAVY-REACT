@@ -141,7 +141,7 @@ const PreInvitation = () => {
                             width: "100%",
                           }}
                           //value="xxx"
-                          value={`http://inho/markAttendance/${userData.stringToken}`}
+                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
@@ -282,7 +282,7 @@ const PreInvitation = () => {
                             width: "100%",
                           }}
                          
-                          value={`http://inho/markAttendance/${userData.stringToken}`}
+                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
