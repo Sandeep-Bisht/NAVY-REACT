@@ -51,7 +51,7 @@ const Login = () => {
                   <div className="card-header text-center">
                     <img src={logo} alt="logo" className="img-fluid" />
                     <p>
-                      <b>INHO</b> E-Invite Portal
+                      <b>NHO</b> E-Invite Portal
                     </p>
                     <span class="text-muted text-center">
                       Enter your email address and password to access E-Invite Portal.

@@ -14,9 +14,60 @@ const GuestList = () => {
   const [tableData, setTableData] = useState([]);
   const [inviteeType, setInviteeType] = useState('')
   const [departments, setDepartments] = useState([])
+  const [currentMode, setCurrentMode] = useState('List')
+  const [guestPayload, setGuestPayload] = useState({})
+  const [allCategories, setAllCategories] = useState([]);
+  const [userId,setUserId] = useState('')
+  let [responseMsg,setResponseMsg] = useState({})
+  let [haveResponse,setHaveResponse] = useState(false)
+
+  const getCategoryList = async () => {
+    let url = `${apiBaseUrl}getcategories`
+
+    try {
+      let response = await axios.get(url);
+
+      if (response && response.data) {
+        setAllCategories(response.data.response);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
   const changeInviteeType = (e) =>{
     setInviteeType(e.target.value)
+  }
+
+  const changeMode = (mode) =>{
+    setCurrentMode(mode);
+  }
+
+  const onChangeHandler = (e) =>{
+    let guestPayloadCopy = {...guestPayload}
+    guestPayloadCopy[e.target.id] = e.target.value
+    setGuestPayload(guestPayloadCopy)
+  }
+
+  const handleSubmit = async(e) =>{
+    e.preventDefault();
+
+    let url = `${apiBaseUrl}updateGuest`;
+    try {
+      let response = await axios.post(url, guestPayload);
+      if (response) {
+        if(response.data.message){
+            setCurrentMode('List')
+            getGuestList()
+        }
+            setHaveResponse(true)
+            setResponseMsg(response.data)
+            setTimeout(() => { setHaveResponse(false);setResponseMsg({}); }, 6000);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+
   }
 
   const getDepartmentList = async () => {
@@ -35,6 +86,7 @@ const GuestList = () => {
 
 useEffect(()=>{
   getDepartmentList()
+  getCategoryList()
 },[])
 
   const sendReminder = async (reminderData) => {
@@ -192,22 +244,52 @@ useEffect(()=>{
         <button
           type="button"
           className="common-category-btn me-2 px-2"
+          onClick={()=>updateGuest(row)}
         // >{ row && row.invitationStatus == "Invitation Sent" ? 
         >
           <AiFillEdit className="text-white"/>
         </button>
-        <button
-        type="button"
-        className="common-category-btn me-2 px-2"
-      // >{ row && row.invitationStatus == "Invitation Sent" ? 
-      >
-        <AiTwotoneDelete className="text-white"/>
+      <button type="button" className="common-category-btn me-2 px-2" onClick={()=>deleteGuest(row)} data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <AiTwotoneDelete className="text-white"/>
       </button>
       </>
       ),
       sortable: false,
     },
   ];
+
+  const deleteGuest = (data)=>{
+    setUserId(data._id);
+  }
+
+  const updateGuest = (data) =>{
+    setGuestPayload(data)
+    changeMode('update')
+
+  }
+
+  const confirmDeleteGuest = async()=>{
+    console.log(userId,'confirm')
+    
+
+    let url = `${apiBaseUrl}deleteGuest`;
+    try {
+      let response = await axios.post(url, {'id':userId});
+      if (response) {
+        if(response.data.message){
+            setCurrentMode('List')
+            getGuestList()
+        }
+            setHaveResponse(true)
+            setResponseMsg(response.data)
+            setTimeout(() => { setHaveResponse(false);setResponseMsg({}); }, 6000);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+
+
+  }
 
   const getDepartment = (id) =>{
     
@@ -229,9 +311,11 @@ useEffect(()=>{
                           <h4 className='fw-bold text-center mb-4'>Guest List</h4>
                        </div>
                     </div>
+                    {haveResponse && <>
+                            {responseMsg.errorMessage ? <p className='text-danger p-2 alert-danger'>{responseMsg.errorMessage}</p> : <p className='text-success  p-2 alert-success'>{responseMsg.message}</p>}
+                        </>}
 
-                       
-     <div>
+      {currentMode == 'List' && <> 
       <form onSubmit={(e)=>sendToAll(e)}>
         <div className="row mb-5">
           <div className="col-md-4">
@@ -247,7 +331,6 @@ useEffect(()=>{
           </div>
         </div>
       </form>
-      </div>
       <div className="main-table">  
       {tableData.length > 0 ? 
       <DataTableExtensions {...extentionData}>
@@ -264,6 +347,174 @@ useEffect(()=>{
         :
         <p>No Data Found</p>}
       </div>
+      </>}
+      {currentMode == 'update' && <> 
+      <div className="row">
+              <div className="col-md-12">
+                <form
+                  className="common-form row"
+                  onSubmit={(e) => handleSubmit(e)}
+                >
+                <div className="mb-3 col-lg-6">
+                  <label htmlFor="inviteNo" className="form-label">
+                    Invity No
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="inviteNo"
+                    value={guestPayload.inviteNo}
+                    onChange={(e) => onChangeHandler(e)}
+                    required
+                  />
+                </div>
+
+                  <div className="mb-3 col-lg-6">
+                    <label htmlFor="guestName" className="form-label">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="guestName"
+                      value={guestPayload.guestName}
+                      aria-describedby="emailHelp"
+                      onChange={(e) => onChangeHandler(e)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3 col-lg-6">
+                    <label htmlFor="guestDesignation" className="form-label">
+                      Designation
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="guestDesignation"
+                      value={guestPayload.guestDesignation}
+                      onChange={(e) => onChangeHandler(e)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3 col-lg-6">
+                    <label htmlFor="guestDepartment" className="form-label">
+                    Department
+                    </label>
+                    <select
+                      className="form-select"
+                      id="guestDepartment"
+                      value={guestPayload.guestDepartment}
+                      onChange={(e) => onChangeHandler(e)}
+                      required
+                    >
+                      <option disabled value="">
+                        Select Department
+                      </option>
+                      {departments.map((item, index) => {
+                        return (
+                          <option value={item._id} key={index}>
+                            {item.departmentName}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+
+                  <div className="mb-3 col-lg-6">
+                    <label htmlFor="guestCategory" className="form-label">
+                      Guest Category
+                    </label>
+                    <select
+                      className="form-select"
+                      id="guestCategory"
+                      value={guestPayload.guestCategory}
+                      onChange={(e) => onChangeHandler(e)}
+                      required
+                    >
+                      <option disabled value="">
+                        Select Category
+                      </option>
+                      {allCategories.map((item, index) => {
+                        return (
+                          <option value={item._id} key={index}>
+                            {item.categoryName}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                  <div className="mb-3 col-lg-6">
+                    <label htmlFor="guesteNumber" className="form-label">
+                      Mobile No <span>{`( used for sending SMS)`}</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="guestNumber"
+                      value={guestPayload.guestNumber}
+                      onChange={(e) => onChangeHandler(e)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3 col-lg-6">
+                    <label htmlFor="guestOfficeNumber" className="form-label">
+                      Official Phone Number
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="guestOfficeNumber"
+                      value={guestPayload.guestOfficeNumber}
+                      onChange={(e) => onChangeHandler(e)}
+                    />
+                  </div>
+
+                  <div className="mb-3 col-lg-6">
+                    <label htmlFor="guestEmail" className="form-label">
+                      Guest Email
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="guestEmail"
+                      value={guestPayload.guestEmail}
+                      onChange={(e) => onChangeHandler(e)}
+                    />
+                  </div>
+
+                  <div className="mt-4 col-lg-12">
+                    <button type="submit" className="btn common-form-btn me-3">
+                      Update
+                    </button>
+                    <button type="button" className="btn common-form-btn " onClick={()=>setCurrentMode('List')}>
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+      </>}
+
+      {/* model */}
+
+
+<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content">
+      <div className="modal-header">
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div className="modal-body">
+        Do you really want to remove this guest?
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={()=>confirmDeleteGuest()}>Confirm</button>
+        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+      {/* end model */}
       </DashboardNew>
     </>
   );
