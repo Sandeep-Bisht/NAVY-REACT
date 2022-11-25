@@ -785,6 +785,9 @@
   .navyday-second-area .navyday-second-area-card .navyday-second-area-card-title{
     font-size: 13px;
   }
+  .navyday-common-padding {
+    padding: 15px 5px;
+}
 }
 @media only screen and (max-width : 320px){
 
