@@ -90,9 +90,22 @@ const AddInvites = () => {
                   className="common-form row"
                   onSubmit={(e) => loginFormSubmit(e)}
                 >
+                <div className="mb-3 col-lg-6">
+                  <label htmlFor="inviteNo" className="form-label">
+                    Invity No
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="inviteNo"
+                    onChange={(e) => onChangeHandler(e)}
+                    required
+                  />
+                </div>
+
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guestName" className="form-label">
-                      Guest Name
+                      Full Name
                     </label>
                     <input
                       type="text"
@@ -100,6 +113,7 @@ const AddInvites = () => {
                       id="guestName"
                       aria-describedby="emailHelp"
                       onChange={(e) => onChangeHandler(e)}
+                      required
                     />
                   </div>
                   <div className="mb-3 col-lg-6">
@@ -111,6 +125,7 @@ const AddInvites = () => {
                       className="form-control"
                       id="guestDesignation"
                       onChange={(e) => onChangeHandler(e)}
+                      required
                     />
                   </div>
                   <div className="mb-3 col-lg-6">
@@ -162,13 +177,14 @@ const AddInvites = () => {
                   </div>
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guesteNumber" className="form-label">
-                      Guest Phone Number
+                      Mobile No <span>{`( used for sending SMS)`}</span>
                     </label>
                     <input
                       type="text"
                       className="form-control"
                       id="guestNumber"
                       onChange={(e) => onChangeHandler(e)}
+                      required
                     />
                   </div>
                   <div className="mb-3 col-lg-6">

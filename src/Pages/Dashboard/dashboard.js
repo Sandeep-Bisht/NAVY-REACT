@@ -100,7 +100,7 @@ const Dashboard = () => {
                                     </div>
                                     <div className="col-md-3">
                                         <div className="conter-card four">
-                                            <div className="left"><i className="fa-brands fa-elementor"></i></div>
+                                            <div className="left"><i class="fa-solid fa-file-excel"></i></div>
                                             <div className="right">
                                                 <p className="counter-card-number">{cartCounts.failedSmsCount}</p>
                                                 <p className="counter-card-title">Failed</p>
@@ -121,7 +121,7 @@ const Dashboard = () => {
                     <div className="row">
                                     <div className="col-md-12 ">
                                         <div className="conter-card one">
-                                            <div className="left"><i className="fa-solid fa-user-plus"></i></div>
+                                            <div className="left category-icon"><i class="fa-solid fa-user-shield"></i></div>
                                             <div className="right">
                                                 <p className="counter-card-number">{item.userCount}</p>
                                                 <p className="counter-card-title">{item.categoryName}</p>
