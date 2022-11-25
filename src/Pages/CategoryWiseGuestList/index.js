@@ -99,6 +99,11 @@ useEffect(()=>{
 
   const columns = [
     {
+    name: "Invitee No",
+    selector: "inviteNo",
+    sortable: true,
+  },
+    {
       name: "Name",
       selector: "guestName",
       sortable: true,
