@@ -42,6 +42,8 @@ const Navyday = () => {
       });
       if (response && response.data) {
         console.log("response stringToken", response.data);
+        let qrData = response.data.guest;
+        console.log("qr dattttttttttttttttaaa", qrData)
         setUserData(response.data.guest);
       }
     } catch (error) {
@@ -140,8 +142,8 @@ const Navyday = () => {
                             maxWidth: "100%",
                             width: "100%",
                           }}
-                          value="xxx"
-                          // value={userData.guestDesignation + userData.guestName}
+                          //value="xxx"
+                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
@@ -282,13 +284,13 @@ const Navyday = () => {
                             width: "100%",
                           }}
                          
-                          value="http://inho.in"
+                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
                     </div>
                   </div>
-              </div>
+              </div>  
             </div>
             <div className='col-md-12 d-none'>
               <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>

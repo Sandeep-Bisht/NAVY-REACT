@@ -10,26 +10,32 @@ import Navyday from "../Pages/Navyday/navyday.js";
 import PreInvitation from "../Pages/Preinvitation/preinvitation.js";
 import CategoryWiseGuestList from "../Pages/CategoryWiseGuestList/index.js";
 import Departmenmt from "../Pages/Department/index.js";
+import MarkAttendance from "../Pages/Attendance/markAttendance.js";
 //  import Table from "../Pages/Table/table.js";
-
 
 const AppRoute = () => {
   let routes = useRoutes([
     { path: "/", element: <Login /> },
-    { path : "/confirmation/:id", element: <Confirmation /> },
-    { path: "/dashboard", element: < Dashboard /> },
-    { path : "/dashboard/addInvites", element : <AddInvites /> },
-    { path : "/dashboard/guestList", element : <GuestList /> },
-    { path : "/dashboard/guestList/:categoryId", element : <CategoryWiseGuestList /> },
-    { path : "/dashboard/createCategory", element : <CreateCategory /> },
-    { path : "/dashboard/Department", element : <Departmenmt /> },
+    { path: "/confirmation/:id", element: <Confirmation /> },
+    { path: "/markAttendance/:id", element: <MarkAttendance /> },
+    { path: "/dashboard", element: <Dashboard /> },
+    { path: "/dashboard/addInvites", element: <AddInvites /> },
+    { path: "/dashboard/guestList", element: <GuestList /> },
     {
-      path :"/navyday/:id", element : <Navyday/>
+      path: "/dashboard/guestList/:categoryId",
+      element: <CategoryWiseGuestList />,
+    },
+    { path: "/dashboard/createCategory", element: <CreateCategory /> },
+    { path: "/dashboard/Department", element: <Departmenmt /> },
+    {
+      path: "/navyday/:id",
+      element: <Navyday />,
     },
     {
-      path :"/prenavyday/:id", element : <PreInvitation/>
-    }
-    
+      path: "/prenavyday/:id",
+      element: <PreInvitation />,
+    },
+
     // {path:"/table",element : <Table/>}
   ]);
   return routes;

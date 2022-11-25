@@ -13,6 +13,7 @@ const Login = () => {
 
   const [userInfo, setUserInfo] = useState([]);
   const [errorMsg,setErrorMsg] = useState(null)
+  
   const onChangeHandler = (e) => {
     let loginPayloadCopy = { ...loginPayload };
     loginPayloadCopy[e.target.id] = e.target.value;
@@ -68,7 +69,6 @@ const Login = () => {
                           className="form-control"
                           id="userEmail"
                           aria-describedby="emailHelp"
-                          y
                           onChange={(e) => onChangeHandler(e)}
                         />
                         <div id="emailHelp" className="form-text">

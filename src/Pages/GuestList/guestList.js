@@ -103,7 +103,7 @@ useEffect(()=>{
   }
 
   const sendInvitation = async (inviteData) => {
-    let url = `${apiBaseUrl}sendInvitation`
+    let url = `${apiBaseUrl}sendPreInvitation`
     try {
       let response = await axios.post(url, inviteData);
       if (response) {
