@@ -7,6 +7,7 @@ import Dashboard from "../Pages/Dashboard/dashboard.js";
 import GuestList from "../Pages/GuestList/guestList.js";
 import CreateCategory from "../Pages/Category/create.js";
 import Navyday from "../Pages/Navyday/navyday.js";
+import PreInvitation from "../Pages/Preinvitation/preinvitation.js";
 import CategoryWiseGuestList from "../Pages/CategoryWiseGuestList/index.js";
 import Departmenmt from "../Pages/Department/index.js";
 //  import Table from "../Pages/Table/table.js";
@@ -24,7 +25,11 @@ const AppRoute = () => {
     { path : "/dashboard/Department", element : <Departmenmt /> },
     {
       path :"/navyday/:id", element : <Navyday/>
+    },
+    {
+      path :"/prenavyday/:id", element : <PreInvitation/>
     }
+    
     // {path:"/table",element : <Table/>}
   ]);
   return routes;

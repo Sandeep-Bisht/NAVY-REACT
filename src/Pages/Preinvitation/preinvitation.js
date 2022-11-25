@@ -14,7 +14,7 @@ import Inner from "../../Images/inner.jpg";
 import Map from "../../Images/map.jpg";
 import { apiBaseUrl } from "../../util.js";
 
-const Navyday = () => {
+const PreInvitation = () => {
   const location = useLocation();
   const [userData, setUserData] = useState(false);
 
@@ -153,8 +153,8 @@ const Navyday = () => {
                           " At Home function"
                         </span>{" "}
                         on{" "}
-                        <span className="highlight-one ">04 Dec 2022</span> at
-                        4:40 pm
+                        <span className="highlight-one ">03 Dec 2022</span> at
+                        4pm
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
@@ -562,4 +562,4 @@ const Navyday = () => {
   );
 };
 
-export default Navyday;
+export default PreInvitation;
