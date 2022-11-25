@@ -619,7 +619,7 @@
   }
   .navyday-second-area{
     
-    height:100vh;
+    min-height:100vh;
   }
 
 }
