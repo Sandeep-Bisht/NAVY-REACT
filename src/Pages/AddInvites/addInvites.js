@@ -10,7 +10,8 @@ const AddInvites = () => {
   let [guestInfo, setGuestInfo] = useState({
     invitationStatus: "null",
     availability: "null",
-    reminderStatus : "null"
+    reminderStatus : "null",
+    
   });
 
   let [allCategories, setAllCategories] = useState([]);
