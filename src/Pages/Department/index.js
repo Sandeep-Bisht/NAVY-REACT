@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
-import {MdEditNote} from 'react-icons/md'
+import {BiEdit} from 'react-icons/bi'
 import {IoIosAdd , IoMdArrowRoundBack} from 'react-icons/io'
 import { BiCategory} from 'react-icons/bi'
 import "../../CSS/form.css";
@@ -57,7 +57,7 @@ const columns = [
             className="btn invite-btn"
             onClick={()=>editUser(row)}
           >
-            <MdEditNote className='text-black'/>
+            <BiEdit className='text-black'/>
           </button>
           </>
         )),

@@ -140,21 +140,10 @@ export function DashboardNew({children}){
                           <li>
                             <button
                               className="common-blue btn"
-                              onClick={() => navigate("/dashboard/addInvites")}
-                            >
-                              <span className="me-2">
-                                <i className="fa-solid fa-user-plus"></i>
-                              </span>
-                              New Invitation
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              className="common-blue btn"
                               onClick={() => navigate("/dashboard/Department")}
                             >
                               <span className="me-2">
-                                <i className="fa-solid fa-user-plus"></i>
+                              <i class="fa-solid fa-building-shield"></i>
                               </span>
                               Department
                             </button>
@@ -165,24 +154,22 @@ export function DashboardNew({children}){
                               onClick={() => navigate("/dashboard/createCategory")}
                             >
                               <span className="me-2">
-                                <i className="fa-solid fa-user-plus"></i>
+                              <i class="fa-solid fa-user-shield"></i>
                               </span>
                               Category
                             </button>
                           </li>
-                          {/* <li>
+                          <li>
                             <button
                               className="common-blue btn"
-                              onClick={() =>
-                                navigate("/dashboard/guestList")
-                              }
+                              onClick={() => navigate("/dashboard/addInvites")}
                             >
                               <span className="me-2">
                                 <i className="fa-solid fa-user-plus"></i>
                               </span>
-                              Guest List
+                              Add Guest
                             </button>
-                          </li> */}
+                          </li>
                           <li>
                           <div class="accordion" id="accordionExample">
   <div class="accordion-item">
@@ -202,7 +189,7 @@ export function DashboardNew({children}){
                               }
                             >
                               <span className="me-2">
-                                <i className="fa-solid fa-user-plus"></i>
+                              <i class="fa-solid fa-user"></i>
                               </span>
                               All
                             </button>
@@ -217,7 +204,7 @@ export function DashboardNew({children}){
                               }
                             >
                               <span className="me-2">
-                                <i className="fa-solid fa-user-plus"></i>
+                              <i class="fa-solid fa-user"></i>
                               </span>
                               {item.categoryName}
                             </button>
