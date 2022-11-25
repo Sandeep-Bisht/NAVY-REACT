@@ -392,6 +392,9 @@
   .navyday .muiltiple-pics .single-pic-wrapper{
     /* margin-top: 112px; */
   }
+  .navyday-fifth-area-card{
+      min-height: unset;
+  }
 }
 @media only screen and (max-width :845px){
   .navyday-common-padding{
@@ -517,10 +520,10 @@
   left: 30px;
 }
 
-.navyday-second-area{
+/* .navyday-second-area{
   height: 100vh;
 
-}
+} */
 
 .navyday-fifth-area .entrance-box p{
   font-size: 18px;
@@ -532,7 +535,7 @@
   top:2%;
 }
 .navyday-second-area .navyday-second-area-card .one{
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 .navyday-second-area .navyday-second-area-card .bordered-line{
   margin: 30px auto 10px auto;
@@ -602,6 +605,9 @@
   }
   .custom-container{
     margin-top: 10px!important;
+  }
+  .navyday-fifth-area-card{
+    min-height: unset;
   }
 
 }
@@ -731,13 +737,32 @@
 .navyday-fifth-area-card{
   padding:30px 20px;
 }
-.navyday-second-area{
+/* .navyday-second-area{
   height: 100vh;
-}
+} */
 .navyday-second-area .navyday-second-area-card{
   padding: 10px;
 }
 }
+
+@media only screen and (max-width : 414px){
+  .navyday-common-padding{
+    padding: 30px 5px;
+  }
+ 
+  .navyday-fourth-area .copyright{
+    font-size: 12px;
+  }
+
+
+}
+
+
+
+
+
+
+
 
 @media only screen and (max-width : 390px)
 {
