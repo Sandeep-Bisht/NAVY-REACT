@@ -53,26 +53,10 @@ const PreInvitation = () => {
 
   return (
     <>
-      <section className="navyday ">
-        <div className="muiltiple-pics d-none">
-          <div className="single-pic-wrapper">
-            <div className="three ">
-              <img src={Logoright} className="img-fluid " />
-            </div>
-            <div className="single-pic">
-              <img src={Sidepic1} className="img-fluid " />
-            </div>
-            <div className="single-pic">
-              <img src={Sidepic2} className="img-fluid " />
-            </div>
-            <div className="single-pic">
-              <img src={Sidepic3} className="img-fluid " />
-            </div>
-          </div>
-        </div>
+       <section className="navyday ">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-10 col-9 text-center px-0">
+            <div className="col-12 text-center px-0">
               <div className="top-wrapper">
                 <div className="one">
                   <img src={Logoleft} className="img-fluid " />
@@ -81,20 +65,17 @@ const PreInvitation = () => {
                   <h2 className="title f2">Navy day</h2>
                   <p className="date f2">04 December 2022</p>
                 </div>
-                <div className="three position-relative">
-                  {/* <img src={Logoright} className="img-fluid " /> */}
+                <div className="three">
+                  <img src={Logoright} className="img-fluid " />
                 </div>
               </div>
-              <div className="navyday-main-pic">
-                <img src={Logomain} className="img-fluid " />
+              <div className="navyday-main-pic p-5">
+                <img src={Logomain} className="img-fluid" />
               </div>
             </div>
-            <div className="col-md-2 col-3 px-0">
+            <div className="col-12 px-0">
               <div className="muiltiple-pics ">
-                <div className="single-pic-wrapper">
-                  <div className="three ">
-                    <img src={Logoright} className="img-fluid " />
-                  </div>
+                <div className="single-pic-wrapper d-flex justify-content-center">
                   <div className="single-pic">
                     <img src={Sidepic1} className="img-fluid " />
                   </div>
@@ -617,7 +598,8 @@ const PreInvitation = () => {
               </div>
             </div>
             <div className='col-md-12 '>
-              <span className='copyright text-md-end text-center'>Conceptualised by CMDE HA Hardas and Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+              <span className='copyright text-md-end text-center'>Conceptualised by <span className="text-white">CMDE HA Hardas</span><br/> 
+              <span className="footer-hide"> and</span> Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div>
           </div>
         </div>
