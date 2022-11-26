@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     padding: 50px;
+    position: relative;
 }
 
 .confirmationPage img{
@@ -28,4 +29,23 @@
 .confirmationPage .smsContent .success{
     font-size: 22px;
     color: #10ea85;
+}
+
+.confirmationPage .copyright{
+    display: block;
+    
+    margin-top: 30px;
+    color:#D3CA6D;
+    position: absolute;
+    z-index: 4;
+     left:0;
+     right: 0;
+     width: 100%;
+    
+     text-align:center;
+    bottom: 50px;
+}
+.confirmationPage .copyright-highlight{
+    color: #fff;
+    font-weight: 600;
 }

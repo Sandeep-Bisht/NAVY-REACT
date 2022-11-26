@@ -59,6 +59,13 @@
   position: relative;
   left: 53px;
 }
+.top-wrapper .three img{
+  filter: brightness(10);
+}
+.top-wrapper .three{
+  position: relative;
+  right: 53px;
+}
 .top-wrapper img{
   height: 70px;
 }
@@ -260,13 +267,13 @@
 .navyday-fourth-area .copyright,.navyday-fifth-area .copyright
 {
      display: block;
-    text-align: right;
     margin-top: 30px;
     color:#D3CA6D;
     position: relative;
     z-index: 4;
 }
-.navyday-fourth-area .copyright-highlight,.navyday-fifth-area .copyright-highlight{
+.navyday-fourth-area .copyright-highlight,.navyday-fifth-area .copyright-highlight
+{
   color: #fff;
   font-weight: 600;
 }
@@ -358,7 +365,7 @@
 }
 
 .navyday-main-pic img{
-  height: 300px;
+  height: 400px;
 }
 }
 
@@ -443,12 +450,12 @@
 }
 @media only screen and (max-width : 680px){
   .navyday-main-pic img{
-    height: 250px;
+    height: 350px;
   }
 }
 @media only screen and (max-width : 650px){
   .navyday-main-pic img{
-    height: 220px;
+    height: 320px;
   }
 }
 @media only screen and (max-width : 575.98px) {
@@ -464,7 +471,7 @@
   }
 
   .navyday-main-pic img{
-    height:250px;
+    height:300px;
   }  
   .top-wrapper .title{
     font-size: 28px;
@@ -518,6 +525,9 @@
 }
 .top-wrapper .one{
   left: 30px;
+}
+.top-wrapper .three{
+  right: 30px;
 }
 
 /* .navyday-second-area{
@@ -576,6 +586,9 @@
 .top-wrapper .one{
   left: 30px;
 }
+.top-wrapper .three{
+  right: 30px;
+}
 .qr-code{
   display: none;
 }
@@ -588,7 +601,7 @@
   } */
   .navyday-main-pic img{
     /* padding-right: 40px; */
-    height: 220px;
+    height: 290px;
   }
  
   .qr-code svg{
@@ -688,7 +701,7 @@
     /* width: 87px; */
   }
   .navyday-main-pic img{
-    height:215px;
+    height:280px;
     /* padding-right: 45px; */
   }
   .top-wrapper .title{
@@ -732,6 +745,9 @@
 }
 .top-wrapper .one {
   left: 15px;
+}
+.top-wrapper .three {
+  right: 15px;
 }
 .navyday .muiltiple-pics .three img{
   margin-top: 10px;
@@ -850,7 +866,7 @@
     /* padding-right: 55px; */
   }
   .navyday-main-pic img{
-    height: 190px;
+    height: 270px;
     /* padding-right: 55px; */
   }
   .navyday-second-area .navyday-second-area-card .highlight-second{
