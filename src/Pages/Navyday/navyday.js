@@ -41,9 +41,7 @@ const Navyday = () => {
         },
       });
       if (response && response.data) {
-        console.log("response stringToken", response.data);
         let qrData = response.data.guest;
-        console.log("qr dattttttttttttttttaaa", qrData)
         setUserData(response.data.guest);
       }
     } catch (error) {
@@ -51,7 +49,6 @@ const Navyday = () => {
     }
   };
 
-  console.log("userData in navyday", userData);
 
   return (
     <>
@@ -147,7 +144,7 @@ const Navyday = () => {
                       </p>
                       <p className="bordered-line text-nowrap">
                         <b>
-                          {userData.guestDesignation} {userData.guestName}
+                          {userData.guestName} {userData.guestDesignation}
                         </b>
                       </p>
                     </div>
