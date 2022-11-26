@@ -48,4 +48,31 @@
 .confirmationPage .copyright-highlight{
     color: #fff;
     font-weight: 600;
+    text-decoration: none;
+}
+.copyright br{
+    display: none;
+  }
+
+ 
+
+  @media only screen and (max-width : 575.98px) {
+
+    .copyright br{
+        display:block;
+      }
+      .copyright .footer-hide{
+        display: none;
+      }
+
+  }
+  @media only screen and (max-width : 500px){
+    .copyright{
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width : 414px){
+  .copyright{
+    font-size: 12px;
+  }
 }

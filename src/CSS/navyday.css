@@ -25,7 +25,8 @@
   width: 180px; */
   height: 100%;
   /* bottom: 0; */
-  margin-top: 15px;
+  margin: 15px 0;
+
   background-color:#D3CA6D;
 }
 .navyday .muiltiple-pics .three {
@@ -277,6 +278,10 @@
 {
   color: #fff;
   font-weight: 600;
+  text-decoration: none;
+}
+.copyright br{
+  display: none;
 }
 
 
@@ -558,6 +563,12 @@
 .custom-container{
   padding: 0!important;
 }
+.copyright br{
+  display:block;
+}
+.copyright .footer-hide{
+  display: none;
+}
 
 }
 
@@ -783,7 +794,7 @@
     padding: 30px 5px;
   }
  
-  .navyday-fourth-area .copyright{
+.navyday-fourth-area .copyright{
     font-size: 12px;
   }
   .navyday-second-area .navyday-second-area-card .bordered-line {

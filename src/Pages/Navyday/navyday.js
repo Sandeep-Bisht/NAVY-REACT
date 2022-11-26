@@ -74,7 +74,7 @@ const Navyday = () => {
             </div>
             <div className="col-12 px-0">
               <div className="muiltiple-pics ">
-                <div className="single-pic-wrapper d-flex">
+                <div className="single-pic-wrapper d-flex justify-content-center">
                   <div className="single-pic">
                     <img src={Sidepic1} className="img-fluid " />
                   </div>
@@ -600,7 +600,8 @@ const Navyday = () => {
               </div>
             </div>
             <div className='col-md-12 '>
-              <span className='copyright text-md-end text-center'>Conceptualised by CMDE HA Hardas and Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+              <span className='copyright text-md-end text-center'>Conceptualised by <span className="text-white">CMDE HA Hardas</span><br/> 
+              <span className="footer-hide"> and</span> Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div>
           </div>
         </div>
