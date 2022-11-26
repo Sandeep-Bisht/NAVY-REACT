@@ -25,6 +25,7 @@
   width: 180px; */
   height: 100%;
   /* bottom: 0; */
+  margin-top: 15px;
   background-color:#D3CA6D;
 }
 .navyday .muiltiple-pics .three {
@@ -39,16 +40,16 @@
   /* margin-top: 140px; */
 }
 .navyday .muiltiple-pics .single-pic-wrapper .single-pic{
-  margin: 25px 0;
+  margin: 20px 0;
 }
 .navyday .muiltiple-pics .single-pic{
   text-align: center;
 }
 .navyday .muiltiple-pics img{
-  width: 65%;
+  width: 75%;
 }
 .navyday-main-pic img{
-   height: 400px;
+   height: 420px;
 }
 .top-wrapper{
    display: flex;
@@ -365,7 +366,7 @@
 }
 
 .navyday-main-pic img{
-  height: 400px;
+  height: 420px;
 }
 }
 
@@ -444,18 +445,18 @@
     height: 270px;
   } */
   .navyday .muiltiple-pics img{
-    width: 50%;
+    width: 60%;
   }
   
 }
 @media only screen and (max-width : 680px){
   .navyday-main-pic img{
-    height: 350px;
+    height: 370px;
   }
 }
 @media only screen and (max-width : 650px){
   .navyday-main-pic img{
-    height: 320px;
+    height: 340px;
   }
 }
 @media only screen and (max-width : 575.98px) {
@@ -471,7 +472,7 @@
   }
 
   .navyday-main-pic img{
-    height:300px;
+    height:320px;
   }  
   .top-wrapper .title{
     font-size: 28px;
@@ -601,7 +602,7 @@
   } */
   .navyday-main-pic img{
     /* padding-right: 40px; */
-    height: 290px;
+    height: 310px;
   }
  
   .qr-code svg{
@@ -701,7 +702,7 @@
     /* width: 87px; */
   }
   .navyday-main-pic img{
-    height:280px;
+    height:300px;
     /* padding-right: 45px; */
   }
   .top-wrapper .title{
@@ -711,7 +712,7 @@
     font-size: 12px;
   }
   .navyday .muiltiple-pics img {
-  width: 60%;
+  width: 70%;
 
 }
 .navyday-third-area-card-wrapper .right{
@@ -866,7 +867,7 @@
     /* padding-right: 55px; */
   }
   .navyday-main-pic img{
-    height: 270px;
+    height: 290px;
     /* padding-right: 55px; */
   }
   .navyday-second-area .navyday-second-area-card .highlight-second{
