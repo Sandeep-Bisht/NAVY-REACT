@@ -68,7 +68,7 @@ const Navyday = () => {
                   <img src={Logoright} className="img-fluid " />
                 </div>
               </div>
-              <div className="navyday-main-pic p-3">
+              <div className="navyday-main-pic p-5">
                 <img src={Logomain} className="img-fluid" />
               </div>
             </div>
