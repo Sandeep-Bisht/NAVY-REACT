@@ -126,7 +126,7 @@ const AddInvites = () => {
                       className="form-control"
                       id="guestDesignation"
                       onChange={(e) => onChangeHandler(e)}
-                      required
+                      
                     />
                   </div>
                   <div className="mb-3 col-lg-6">
