@@ -617,7 +617,7 @@ const PreInvitation = () => {
               </div>
             </div>
             <div className='col-md-12 '>
-              <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+              <span className='copyright text-md-end text-center'>Conceptualised by CMDE HA Hardas and Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div>
           </div>
         </div>

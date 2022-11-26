@@ -5,6 +5,8 @@ import { apiBaseUrl } from "../../util.js";
 import logo from "../../Images/nhoLogo.png";
 import "../../CSS/login.css";
 import "../../CSS/common.css";
+import "../../CSS/markattendance.css"
+
 
 const MarkAttendance = () => {
   const location = useLocation();
@@ -84,12 +86,13 @@ const MarkAttendance = () => {
 
   return (
     <>
-      <section className="login-wrapper">
+      <section className="login-wrapper mark-attendance">
         <div className="container">
           <div className="row">
-            <div className="col-md-5 mx-auto">
+            <div className="col-md-7 mx-auto">
               <div className="login-card vh-100">
-                <div className="card">
+                <div className="card pb-0 pt-1
+                ">
                   <div>
                     <div className="card-header text-center">
                       <img src={logo} alt="logo" className="img-fluid" />
@@ -97,9 +100,9 @@ const MarkAttendance = () => {
                         <b>NHO</b> Mark Attendance
                       </p>
                     </div>
-                    <div className="card-body">
+                    <div className="card-body pt-1">
                       <form onSubmit={(e) => markAttendanceSubmit(e)}>
-                        <div className="mb-3">
+                        <div className="mb-2">
                           <label htmlFor="inviteNo" className="form-label">
                             Invitee No
                           </label>
@@ -110,7 +113,7 @@ const MarkAttendance = () => {
                             value={userData && userData.inviteNo}
                           />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-2">
                           <label htmlFor="guestName" className="form-label">
                             Name
                           </label>
@@ -121,7 +124,7 @@ const MarkAttendance = () => {
                             value={userData && userData.guestName}
                           />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-2">
                           <label
                             htmlFor="guestDesignation"
                             className="form-label"
@@ -135,7 +138,7 @@ const MarkAttendance = () => {
                             value={userData && userData.guestDesignation}
                           />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-2">
                           <label htmlFor="guestNumber" className="form-label">
                             Mobile
                           </label>
@@ -146,7 +149,7 @@ const MarkAttendance = () => {
                             value={userData && userData.guestNumber}
                           />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-2">
                           <label htmlFor="adminPassword" className="form-label">
                             Admin Password
                           </label>

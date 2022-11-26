@@ -107,7 +107,11 @@ const Confirmation = () => {
                   <p>
                     <h4 className="text-center success">Thank you</h4>
                   </p>
+                  <div className='col-md-12 '>
+                   <span className='copyright px-2'>Conceptualised by CMDE HA Hardas and Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+                  </div>
                 </div>
+                
               )}
             </div>
           </div>
