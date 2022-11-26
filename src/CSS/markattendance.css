@@ -1,0 +1,11 @@
+.login-wrapper.mark-attendance{
+    
+    padding: 20px 0;
+}
+
+.login-wrapper.mark-attendance .login-card p{
+  line-height: 1;
+  font-size: 30px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}

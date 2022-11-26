@@ -98,6 +98,9 @@ const Confirmation = () => {
                         </button>
                       </div>
                     </div>
+                    <div className='col-md-12 '>
+                   <span className='copyright px-2'>Conceptualised by <span className="text-white">CMDE HA Hardas </span> and Design & Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+                  </div>
                 </>
               ) :  userData && userData.availability != "null" ? (
                 <div className="">
@@ -107,13 +110,19 @@ const Confirmation = () => {
                   <p>
                     <h4 className="text-center success">Thank you</h4>
                   </p>
+                  <div className='col-md-12 '>
+                  <span className='copyright px-2'>Conceptualised by <span className="text-white">CMDE HA Hardas </span> and Design & Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+                  </div>
                 </div>
               ) : <div className="row">
               <div className="col-md-12">
                 <div>
-                <h4 className="text-center text-success">Thank you for your response.</h4>
+                <h4 className="text-center text-white">Thank you for your response.</h4>
                 </div>
               </div>
+              <div className='col-md-12 '>
+              <span className='copyright px-2'>Conceptualised by <span className="text-white">CMDE HA Hardas </span> and Design & Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+                  </div>
           </div> }
             </div>
           </div>

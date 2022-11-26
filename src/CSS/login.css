@@ -1,7 +1,7 @@
 .login-wrapper {
     background-color: #1c2740 ;
     background-image: url("../Images/loginbgImg.png");
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .login-wrapper .login-card {  
