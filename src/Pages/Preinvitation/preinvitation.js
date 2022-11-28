@@ -63,7 +63,7 @@ const PreInvitation = () => {
                 </div>
                 <div className="two">
                   <h2 className="title f2">Navy day</h2>
-                  <p className="date f2">04 December 2022</p>
+                  <p className="date f2">03 December 2022</p>
                 </div>
                 <div className="three">
                   <img src={Logoright} className="img-fluid " />
@@ -163,22 +163,20 @@ const PreInvitation = () => {
                           " At Home function"
                         </span>{" "}
                         on{" "}
-                        <span className="highlight-one text-nowrap">
-                          03 Dec 2022
-                        </span>{" "}
-                        at 4 PM
+                        <span className="highlight-one text-nowrap">03 Dec 2022</span> at
+                        3:30 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
                         Dehradun
                       </p>
-                      <p className="highlight-second text-danger">
+                      <p className="highlight-second d-none">
                         Lt Gen Gurmit Singh, PVSM, UYSM, AVSM, VSM (Retd)
                       </p>
-                      <p className="navyday-second-area-card-title f2 text-danger">
+                      <p className="navyday-second-area-card-title f2 d-none">
                         Hon'ble Governor of Uttarakhand
                       </p>
-                      <p className="navyday-second-area-card-title f2">
+                      <p className="navyday-second-area-card-title f2 d-none">
                         has Kindly consented to be the Chief Guest
                       </p>
                     </div>
@@ -286,7 +284,7 @@ const PreInvitation = () => {
           </div>
         </div>
       </section>
-      <section className="navyday-third-area common-alternate-bg navyday-common-padding">
+      <section className="navyday-third-area common-alternate-bg navyday-common-padding d-none">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">

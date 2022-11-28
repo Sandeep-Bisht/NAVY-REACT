@@ -44,6 +44,7 @@ const GuestList = () => {
   }
 
   const onChangeHandler = (e) =>{
+    
     let guestPayloadCopy = {...guestPayload}
     guestPayloadCopy[e.target.id] = e.target.value
     setGuestPayload(guestPayloadCopy)
