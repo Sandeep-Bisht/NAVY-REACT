@@ -142,7 +142,7 @@ const PreInvitation = () => {
                       </p>
                       <p className="bordered-line text-nowrap">
                         <b>
-                          {userData.guestName}  {userData.guestDesignation}
+                        {userData.guestDesignation} {userData.guestName} 
                         </b>
                       </p>
                     </div>
