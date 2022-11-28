@@ -125,8 +125,8 @@ const PreInvitation = () => {
                             width: "100%",
                           }}
                           //value="xxx"
-                          // value={`http://inho.in/markAttendance/${userData.stringToken}`}
-                          value={`http://localhost:3000/markAttendance/${userData.stringToken}`}
+                           value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                          //value={`http://localhost:3000/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
@@ -261,8 +261,8 @@ const PreInvitation = () => {
                           maxWidth: "100%",
                           width: "100%",
                         }}
-                        // value={`http://inho.in/markAttendance/${userData.stringToken}`}
-                        value={`http://localhost:3000/markAttendance/${userData.stringToken}`}
+                         value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                        //value={`http://localhost:3000/markAttendance/${userData.stringToken}`}
 
                         viewBox={`0 0 256 256`}
                       />
