@@ -172,11 +172,6 @@ useEffect(()=>{
       sortable: true,
     },
     {
-      name: "Designation",
-      selector: "guestDesignation",
-      sortable: true,
-    },
-    {
       name: "Invitation",
       selector: "invitationStatus",
       sortable: true,
@@ -204,7 +199,7 @@ useEffect(()=>{
           type="button"
           className="common-category-btn"
           onClick={() => sendPreInvitation(row)}
-        >{ row && row.invitationStatus == "Invitation Sent" ? 
+        >{ row && row.preInvitation == "yes" ? 
         (
           "Resend"
           ) : 
@@ -221,7 +216,7 @@ useEffect(()=>{
           type="button"
           className="common-category-btn"
           onClick={() => sendInvitation(row)}
-        >{ row && row.invitationStatus == "Invitation Sent" ? 
+        >{ row && row.navydayInvitation == "yes" ? 
         (
           "Resend"
           ) : 
@@ -304,9 +299,12 @@ useEffect(()=>{
   }
 
   const getDepartment = (id) =>{
-    
-    let departmentData = departments.find((item)=>item._id == id)
-    return departmentData.departmentName
+    let departmentName = ''
+    if(departments.length > 0){
+      let departmentData = departments.find((item)=>item._id == id)
+      departmentName = departmentData.departmentName
+    }
+    return departmentName
   }
 
   const extentionData = {
