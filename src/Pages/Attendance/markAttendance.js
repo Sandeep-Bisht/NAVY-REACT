@@ -138,7 +138,7 @@ const MarkAttendance = () => {
                             value={userData && userData.guestName}
                           />
                         </div>
-                        <div className="mb-2">
+                        {/* <div className="mb-2">
                           <label
                             htmlFor="guestDesignation"
                             className="form-label"
@@ -151,7 +151,7 @@ const MarkAttendance = () => {
                             id="guestDesignation"
                             value={userData && userData.guestDesignation}
                           />
-                        </div>
+                        </div> */}
                         <div className="mb-2">
                           <label htmlFor="guestNumber" className="form-label">
                             Mobile
