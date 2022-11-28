@@ -104,6 +104,18 @@ useEffect(()=>{
   }
 
   const sendInvitation = async (inviteData) => {
+    let url = `${apiBaseUrl}sendInvitation`
+    try {
+      let response = await axios.post(url, inviteData);
+      if (response) {
+        getGuestList()
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  const sendPreInvitation = async (inviteData) => {
     let url = `${apiBaseUrl}sendPreInvitation`
     try {
       let response = await axios.post(url, inviteData);
@@ -161,11 +173,6 @@ useEffect(()=>{
       sortable: true,
     },
     {
-      name: "Designation",
-      selector: "guestDesignation",
-      sortable: true,
-    },
-    {
       name: "Invitation",
       selector: "invitationStatus",
       sortable: true,
@@ -192,8 +199,8 @@ useEffect(()=>{
         <button
           type="button"
           className="common-category-btn"
-          onClick={() => sendInvitation(row)}
-        >{ row && row.invitationStatus == "Invitation Sent" ? 
+          onClick={() => sendPreInvitation(row)}
+        >{ row && row.preInvitation == "yes" ? 
         (
           "Resend"
           ) : 
@@ -210,7 +217,7 @@ useEffect(()=>{
           type="button"
           className="common-category-btn"
           onClick={() => sendInvitation(row)}
-        >{ row && row.invitationStatus == "Invitation Sent" ? 
+        >{ row && row.navydayInvitation == "yes" ? 
         (
           "Resend"
           ) : 
@@ -293,9 +300,12 @@ useEffect(()=>{
   }
 
   const getDepartment = (id) =>{
-    
-    let departmentData = departments.find((item)=>item._id == id)
-    return departmentData.departmentName
+    let departmentName = ''
+    if(departments.length > 0){
+      let departmentData = departments.find((item)=>item._id == id)
+      departmentName = departmentData.departmentName
+    }
+    return departmentName
   }
 
   const extentionData = {

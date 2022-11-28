@@ -74,7 +74,7 @@ const Confirmation = () => {
               {userData && userData.availability == "null" ? (
                 <>
                     <p className="text-center para">
-                      Are you Intrested for the Event
+                      Are you Interested in attending the function ?
                     </p>
                     <div className="row pb-3">
                       <div className="col-6 d-flex justify-content-end">
@@ -103,7 +103,7 @@ const Confirmation = () => {
               ) :  userData && userData.availability != "null" ? (
                 <div className="">
                   <p className="text-center para">
-                    You have already confirmed your precesence presence.
+                    You have already confirmed your presence.
                   </p>
                   <p>
                     <h4 className="text-center success">Thank you</h4>
