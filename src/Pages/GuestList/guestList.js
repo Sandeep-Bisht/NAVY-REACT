@@ -404,7 +404,6 @@ useEffect(()=>{
                       id="guestDesignation"
                       value={guestPayload.guestDesignation}
                       onChange={(e) => onChangeHandler(e)}
-                      required
                     />
                   </div>
                   <div className="mb-3 col-lg-6">
