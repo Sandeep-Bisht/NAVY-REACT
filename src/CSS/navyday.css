@@ -10,8 +10,9 @@
   top: 20%;
   right: 5%;
 }
-
-
+.guestName {
+  font-size: 18px;
+}
 .navyday
 {
   background-color: #151632; 
@@ -157,9 +158,9 @@
   font-size: 22px;
 }
 .navyday-second-area .navyday-second-area-card .bordered-line{
-  border-bottom: 2px dotted #000;
+  /* border-bottom: 2px dotted #000;
   width: 40%;
-  margin: 15px auto;
+  margin: 15px auto; */
 }
 .navyday-second-area .navyday-second-area-card .three .subheading{
   font-size: 18px;
