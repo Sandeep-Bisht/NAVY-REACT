@@ -143,8 +143,8 @@ const Navyday = () => {
                         requests the pleasure of the company of
                       </p>
                       <p className="bordered-line text-nowrap">
-                        <b>
-                          {userData.guestName} {userData.guestDesignation}
+                        <b className="guestName">
+                         {userData.guestName} 
                         </b>
                       </p>
                     </div>
@@ -168,10 +168,10 @@ const Navyday = () => {
                         at National Hydrographic Office, 107-A Rajpur Road,
                         Dehradun
                       </p>
-                      <p className="highlight-second">
+                      <p className="highlight-second text-danger">
                         Lt Gen Gurmit Singh, PVSM, UYSM, AVSM, VSM (Retd)
                       </p>
-                      <p className="navyday-second-area-card-title f2">
+                      <p className="navyday-second-area-card-title f2 text-danger">
                         Hon'ble Governor of Uttarakhand
                       </p>
                       <p className="navyday-second-area-card-title f2">

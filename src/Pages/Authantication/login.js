@@ -30,8 +30,10 @@ const Login = () => {
     try {
       let response = await axios.post(url, payload);
       if (response) {
-        console.log("response guestlist", response);
-        if(response.status == 200){
+        console.log(response, "response")
+        if(response.status == 200 && response.data.token){
+          console.log(response.data.token, "inside check response")
+          localStorage.setItem("token", response.data.token);
           navigate("/dashboard")
         }
       }
@@ -54,7 +56,7 @@ const Login = () => {
                     <p>
                       <b>NHO</b> E-Invite Portal
                     </p>
-                    <span class="text-muted text-center">
+                    <span className="text-muted text-center">
                       Enter your email address and password to access E-Invite Portal.
                     </span>
                   </div>

@@ -8,6 +8,12 @@ import "../../CSS/common.css";
 import "../../CSS/markattendance.css"
 
 
+let obj = {
+  date:  new Date().toLocaleDateString(),
+  status: "present"
+}
+
+
 const MarkAttendance = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,6 +21,8 @@ const MarkAttendance = () => {
   const [userData, setUserData] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
   const [confirmationMsg, setConfirmationMsg] = useState();
+  
+
 
   useEffect(() => {
     if (location && location.pathname) {
@@ -58,8 +66,7 @@ const MarkAttendance = () => {
   };
 
   const handleAttendance = async (userData) => {
-    let today = new Date().toLocaleDateString();
-    userData.attendentDate = today;
+    userData.attendentDate.push(obj);
     let url = `${apiBaseUrl}markAttendance`;
     delete userData.availability;
     delete userData.guestEmail;
@@ -68,7 +75,9 @@ const MarkAttendance = () => {
     delete userData.invitationStatus;
     delete userData.reminderStatus;
     delete userData._id;
-    console.log(userData, "userData userData before sending");
+    //console.log(userData, "userData userData before sending");
+    console.log(userData, 'dsfzxgbdfcgb')
+    
     try {
       let response = await axios.post(url, userData);
       if (response) {
@@ -99,7 +108,12 @@ const MarkAttendance = () => {
                       <p>
                         <b>NHO</b> Mark Attendance
                       </p>
-                    </div>
+                       { userData && userData.preInvitation == "Yes" && userData.navydayInvitation == "Yes" ? 
+                       "Invitation valid for 3 & 4 Dec"  : !userData.navydayInvitation &&  userData.preInvitation == "Yes" ? "Invitation valid for 3 Dec" 
+                       :  !userData.preInvitation && userData.navydayInvitation == "Yes" ? 
+                       "Invitation valid for  4 Dec" : " "
+                       }
+                    </div> 
                     <div className="card-body pt-1">
                       <form onSubmit={(e) => markAttendanceSubmit(e)}>
                         <div className="mb-2">

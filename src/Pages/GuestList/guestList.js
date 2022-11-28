@@ -103,6 +103,18 @@ useEffect(()=>{
   }
 
   const sendInvitation = async (inviteData) => {
+    let url = `${apiBaseUrl}sendInvitation`
+    try {
+      let response = await axios.post(url, inviteData);
+      if (response) {
+        getGuestList()
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  const sendPreInvitation = async (inviteData) => {
     let url = `${apiBaseUrl}sendPreInvitation`
     try {
       let response = await axios.post(url, inviteData);
@@ -191,7 +203,7 @@ useEffect(()=>{
         <button
           type="button"
           className="common-category-btn"
-          onClick={() => sendInvitation(row)}
+          onClick={() => sendPreInvitation(row)}
         >{ row && row.invitationStatus == "Invitation Sent" ? 
         (
           "Resend"

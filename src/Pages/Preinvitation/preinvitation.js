@@ -53,7 +53,7 @@ const PreInvitation = () => {
 
   return (
     <>
-       <section className="navyday ">
+      <section className="navyday ">
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 text-center px-0">
@@ -105,8 +105,11 @@ const PreInvitation = () => {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="one">
-                      <div><img src={Inner} className="img-fluid" alt="" /></div>
-                      <div className="qr-code"
+                      <div>
+                        <img src={Inner} className="img-fluid" alt="" />
+                      </div>
+                      <div
+                        className="qr-code"
                         style={{
                           height: "250px",
                           margin: "0 auto",
@@ -122,13 +125,14 @@ const PreInvitation = () => {
                             width: "100%",
                           }}
                           //value="xxx"
-                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                          // value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                          value={`http://localhost:3000/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
                     </div>
-                    <div className='two'>
-                      <p className='navyday-second-area-card-title f2 fw-bold'>
+                    <div className="two">
+                      <p className="navyday-second-area-card-title f2 fw-bold">
                         Vice Admiral Adhir Arora, NM
                       </p>
                       <p className="navyday-second-area-card-title f2">
@@ -141,8 +145,8 @@ const PreInvitation = () => {
                         requests the pleasure of the company of
                       </p>
                       <p className="bordered-line text-nowrap">
-                        <b>
-                          {userData.guestName}  {userData.guestDesignation}
+                        <b className="guestName">
+                          {userData.guestDesignation}
                         </b>
                       </p>
                     </div>
@@ -159,37 +163,33 @@ const PreInvitation = () => {
                           " At Home function"
                         </span>{" "}
                         on{" "}
-                        <span className="highlight-one text-nowrap">03 Dec 2022</span> at
-                        4 PM
+                        <span className="highlight-one text-nowrap">
+                          03 Dec 2022
+                        </span>{" "}
+                        at 4 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
                         Dehradun
                       </p>
-                      <p className="highlight-second">
+                      <p className="highlight-second text-danger">
                         Lt Gen Gurmit Singh, PVSM, UYSM, AVSM, VSM (Retd)
                       </p>
-                      <p className="navyday-second-area-card-title f2">
+                      <p className="navyday-second-area-card-title f2 text-danger">
                         Hon'ble Governor of Uttarakhand
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         has Kindly consented to be the Chief Guest
                       </p>
                     </div>
-                    <div className='container custom-container'>
-                      <div className='row'>
-                        <div className='col-md-12'>
-                          <div className='four'>
-                            <div className='left-box'>
-                              <p className='general-info-title'>
-                                Rsvp
-                              </p>
-                              <p className='general-info'>
-                                Staff Officer
-                              </p>
-                              <p className='general-info'>
-                                Tel: 8104685364
-                              </p>
+                    <div className="container custom-container">
+                      <div className="row">
+                        <div className="col-md-12">
+                          <div className="four">
+                            <div className="left-box">
+                              <p className="general-info-title">Rsvp</p>
+                              <p className="general-info">Staff Officer</p>
+                              <p className="general-info">Tel: 8104685364</p>
                               {/* <p className='general-info'>
                           (to be seated by.........P.M.)
                         </p> */}
@@ -215,11 +215,15 @@ const PreInvitation = () => {
                               </div>
                               <div className="general-info-wrapper">
                                 <div className="left">
-                                  <p className="general-info">Service Officer : Winter Ceremonial/Equivalent (Without Sword)</p>
+                                  <p className="general-info">
+                                    Service Officer : Winter
+                                    Ceremonial/Equivalent (Without Sword)
+                                  </p>
                                 </div>
                                 <div className="right d-none">
                                   <p className="general-info">
-                                    : Winter Ceremonial/Equivalent (Without Sword)
+                                    : Winter Ceremonial/Equivalent (Without
+                                    Sword)
                                   </p>
                                 </div>
                               </div>
@@ -228,14 +232,12 @@ const PreInvitation = () => {
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </section>
       {/* --------------second card--------------------- */}
       <section className="navyday-fifth-area common-alternate-bg navyday-common-padding">
@@ -247,32 +249,39 @@ const PreInvitation = () => {
                   <div className="entrance-box">
                     <p>Please Bring this QR code</p>
                     <p>at the time of entrance</p>
-                    
                   </div>
                 </div>
                 <div className="entrance-qr text-center">
-                    <div className="one">
-                      
-                    <div className="entrance-qr-code-view"
-                      >
-                        <QRCode
-                          size={256}
-                          style={{
-                            height: "auto",
-                            maxWidth: "100%",
-                            width: "100%",
-                          }}
-                         
-                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
-                          viewBox={`0 0 256 256`}
-                        />
-                      </div>
+                  <div className="one">
+                    <div className="entrance-qr-code-view">
+                      <QRCode
+                        size={256}
+                        style={{
+                          height: "auto",
+                          maxWidth: "100%",
+                          width: "100%",
+                        }}
+                        // value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                        value={`http://localhost:3000/markAttendance/${userData.stringToken}`}
+
+                        viewBox={`0 0 256 256`}
+                      />
                     </div>
                   </div>
+                </div>
               </div>
             </div>
-            <div className='col-md-12 d-none'>
-              <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+            <div className="col-md-12 d-none">
+              <span className="copyright">
+                Design And Developed By{" "}
+                <a
+                  href="https://giksindia.com/"
+                  className="copyright-highlight"
+                  target="_blank"
+                >
+                  GIKS INDIA PVT LTD{" "}
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -597,14 +606,25 @@ const PreInvitation = () => {
                 <img src={Map} className="img-fluid" alt="map" />
               </div>
             </div>
-            <div className='col-md-12 '>
-              <span className='copyright text-md-end text-center'>Conceptualised by <span className="text-white">CMDE HA Hardas</span><br/> 
-              <span className="footer-hide"> and</span> Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+            <div className="col-md-12 ">
+              <span className="copyright text-md-end text-center">
+                Conceptualised by{" "}
+                <span className="text-white">CMDE HA Hardas</span>
+                <br />
+                <span className="footer-hide"> and</span> Design And Developed
+                By{" "}
+                <a
+                  href="https://giksindia.com/"
+                  className="copyright-highlight"
+                  target="_blank"
+                >
+                  GIKS INDIA PVT LTD{" "}
+                </a>
+              </span>
             </div>
           </div>
         </div>
       </section>
-     
     </>
   );
 };

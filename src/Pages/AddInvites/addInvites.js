@@ -11,7 +11,7 @@ const AddInvites = () => {
     invitationStatus: "null",
     availability: "null",
     reminderStatus : "null",
-    
+    attendentDate : []    
   });
 
   let [allCategories, setAllCategories] = useState([]);
