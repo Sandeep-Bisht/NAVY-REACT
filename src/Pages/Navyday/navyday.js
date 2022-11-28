@@ -143,7 +143,7 @@ const Navyday = () => {
                         requests the pleasure of the company of
                       </p>
                       <p className="bordered-line text-nowrap">
-                        <b className="guestName">
+                        <b className="guestName">                        
                          {userData.guestName} 
                         </b>
                       </p>
@@ -247,8 +247,8 @@ const Navyday = () => {
               <div className="navyday-fifth-area-card flex-column">
                 <div className="entrance-box-wrapper">
                   <div className="entrance-box">
-                    <p>Please Bring this QR code</p>
-                    <p>at the time of entrance</p>
+                    <p>Kindly show the QR code</p>
+                    <p>at the entrance of NHO</p>
                     
                   </div>
                 </div>
