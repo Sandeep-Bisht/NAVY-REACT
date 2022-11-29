@@ -8,11 +8,6 @@ import "../../CSS/common.css";
 import "../../CSS/markattendance.css"
 
 
-let obj = {
-  date:  new Date().toLocaleDateString(),
-  status: "present"
-}
-
 
 const MarkAttendance = () => {
   const location = useLocation();
@@ -21,7 +16,6 @@ const MarkAttendance = () => {
   const [userData, setUserData] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
   const [confirmationMsg, setConfirmationMsg] = useState();
-  
 
 
   useEffect(() => {
@@ -46,7 +40,6 @@ const MarkAttendance = () => {
         },
       });
       if (response && response.data) {
-        console.log("response stringToken", response.data);
         setUserData(response.data.guest);
       }
     } catch (error) {
@@ -66,7 +59,10 @@ const MarkAttendance = () => {
   };
 
   const handleAttendance = async (userData) => {
-    userData.attendentDate.push(obj);
+    let today = new Date().toLocaleDateString();
+    //let today = "11/30/2022"
+    userData.attendentDate = today;
+    
     let url = `${apiBaseUrl}markAttendance`;
     delete userData.availability;
     delete userData.guestEmail;
@@ -74,16 +70,15 @@ const MarkAttendance = () => {
     delete userData.guestOfficeNumber;
     delete userData.invitationStatus;
     delete userData.reminderStatus;
-    delete userData._id;
-    //console.log(userData, "userData userData before sending");
-    console.log(userData, 'dsfzxgbdfcgb')
+    userData.guestId = userData._id
+    // delete userData._id;
     
+   
     try {
       let response = await axios.post(url, userData);
       if (response) {
         if (response.status == 200) {
           let res = response.data;
-          console.log(res.message, "response");
           setConfirmationMsg(res.message);
         }
       }
@@ -138,7 +133,7 @@ const MarkAttendance = () => {
                             value={userData && userData.guestName}
                           />
                         </div>
-                        {/* <div className="mb-2">
+                        <div className="mb-2">
                           <label
                             htmlFor="guestDesignation"
                             className="form-label"
@@ -151,7 +146,7 @@ const MarkAttendance = () => {
                             id="guestDesignation"
                             value={userData && userData.guestDesignation}
                           />
-                        </div> */}
+                        </div>
                         <div className="mb-2">
                           <label htmlFor="guestNumber" className="form-label">
                             Mobile

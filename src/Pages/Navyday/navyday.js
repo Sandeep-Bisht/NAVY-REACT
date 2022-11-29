@@ -31,7 +31,6 @@ const Navyday = () => {
   };
 
   const verifyGuest = async (stringToken) => {
-    console.log("stringToken on api call", stringToken);
     let url = `${apiBaseUrl}verifyGuestByToken`;
 
     try {
