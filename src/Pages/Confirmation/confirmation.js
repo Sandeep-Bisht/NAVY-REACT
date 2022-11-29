@@ -103,7 +103,7 @@ const Confirmation = () => {
               ) :  userData && userData.availability != "null" ? (
                 <div className="">
                   <p className="text-center para">
-                    You have already confirmed your precesence presence.
+                    You have already confirmed your presence.
                   </p>
                   <p>
                     <h4 className="text-center success">Thank you</h4>
