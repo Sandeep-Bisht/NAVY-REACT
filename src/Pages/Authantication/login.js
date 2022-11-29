@@ -30,9 +30,7 @@ const Login = () => {
     try {
       let response = await axios.post(url, payload);
       if (response) {
-        console.log(response, "response")
         if(response.status == 200 && response.data.token){
-          console.log(response.data.token, "inside check response")
           localStorage.setItem("token", response.data.token);
           navigate("/dashboard")
         }

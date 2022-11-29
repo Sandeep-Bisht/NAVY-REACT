@@ -31,7 +31,6 @@ const PreInvitation = () => {
   };
 
   const verifyGuest = async (stringToken) => {
-    console.log("stringToken on api call", stringToken);
     let url = `${apiBaseUrl}verifyGuestByToken`;
 
     try {
@@ -41,7 +40,6 @@ const PreInvitation = () => {
         },
       });
       if (response && response.data) {
-        console.log("response stringToken", response.data);
         setUserData(response.data.guest);
       }
     } catch (error) {
@@ -49,7 +47,6 @@ const PreInvitation = () => {
     }
   };
 
-  console.log("userData in navyday", userData);
 
   return (
     <>

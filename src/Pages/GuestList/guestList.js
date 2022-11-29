@@ -276,9 +276,7 @@ useEffect(()=>{
 
   }
 
-  const confirmDeleteGuest = async()=>{
-    console.log(userId,'confirm')
-    
+  const confirmDeleteGuest = async()=>{   
 
     let url = `${apiBaseUrl}deleteGuest`;
     try {
