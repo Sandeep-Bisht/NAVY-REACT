@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import { BsArrowRight, BsCheck2, BsExclamationLg } from 'react-icons/bs'
 import { apiBaseUrl } from "../../util.js";
-import logo from "../../Images/nhoLogo.png";
-import "../../CSS/login.css";
-import "../../CSS/common.css";
 import "../../CSS/markattendance.css"
+import Logoright from "../../Images/navydaylogo2.png";
+import Logoleft from "../../Images/navydaylogo1.png";
 
 
 
@@ -15,7 +15,7 @@ const MarkAttendance = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [userData, setUserData] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
-  const [confirmationMsg, setConfirmationMsg] = useState();
+  const [confirmationMsg, setConfirmationMsg] = useState(null);
 
 
   useEffect(() => {
@@ -88,116 +88,104 @@ const MarkAttendance = () => {
     }
   };
 
+ const  toggleForm = () =>{
+   let attendanceForm = document.getElementById("attendanceForm")
+   attendanceForm.classList.toggle("attendance-width")
+ }
+
+
   return (
     <>
-      <section className="login-wrapper mark-attendance">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-7 mx-auto">
-              <div className="login-card vh-100">
-                <div className="card pb-0 pt-1
-                ">
-                  <div>
-                    <div className="card-header text-center">
-                      <img src={logo} alt="logo" className="img-fluid" />
-                      <p>
-                        <b>NHO</b> Mark Attendance
-                      </p>
-                       { userData && userData.preInvitation == "Yes" && userData.navydayInvitation == "Yes" ? 
-                       "Invitation valid for 3 & 4 Dec"  : !userData.navydayInvitation &&  userData.preInvitation == "Yes" ? "Invitation valid for 3 Dec" 
-                       :  !userData.preInvitation && userData.navydayInvitation == "Yes" ? 
-                       "Invitation valid for  4 Dec" : " "
-                       }
-                    </div> 
-                    <div className="card-body pt-1">
-                      <form onSubmit={(e) => markAttendanceSubmit(e)}>
-                        <div className="mb-2">
-                          <label htmlFor="inviteNo" className="form-label">
-                            Invitee No
-                          </label>
+    <section className="navyday mark-attendance-single">
+      <div className="container-fluid">
+        <div className="row">
+           <div className="col-12 text-center px-0">
+              <div className="top-wrapper">
+                <div className="one">
+                  <img src={Logoleft} className="img-fluid " />
+                </div>
+                <div className="two">
+                  <h2 className="title f2">Navy day</h2>
+                  <p className="date f2">
+                    {(userData && userData.preInvitation == "Yes" ) && "03 December 2022"}
+                    {(userData && userData.navydayInvitation == "Yes" ) && "04 December 2022"}
+                       </p>
+                </div>
+                <div className="three">
+                  <img src={Logoright} className="img-fluid " />
+                </div>
+              </div>
+            </div>
+        </div>
+        <div className="welcome-box">
+             <p className="welcome-title">Welcome to NHO</p>
+             <p className="welcome-name">{userData && userData.guestName}</p>
+        </div>
+        <div className="toggle-input-box">
+            <div className="left">
+            <form onSubmit={(e) => markAttendanceSubmit(e)} className="justify-content-center aign-items-center">
                           <input
-                            type="text"
+                            type="hidden"
                             className="form-control"
                             id="inviteNo"
                             value={userData && userData.inviteNo}
                           />
-                        </div>
-                        <div className="mb-2">
-                          <label htmlFor="guestName" className="form-label">
-                            Name
-                          </label>
                           <input
-                            type="text"
+                            type="hidden"
                             className="form-control"
                             id="guestName"
                             value={userData && userData.guestName}
                           />
-                        </div>
-                        <div className="mb-2">
-                          <label
-                            htmlFor="guestDesignation"
-                            className="form-label"
-                          >
-                            Designation
-                          </label>
                           <input
-                            type="text"
+                            type="hidden"
                             className="form-control"
                             id="guestDesignation"
                             value={userData && userData.guestDesignation}
                           />
-                        </div>
-                        <div className="mb-2">
-                          <label htmlFor="guestNumber" className="form-label">
-                            Mobile
-                          </label>
                           <input
-                            type="text"
+                            type="hidden"
                             className="form-control"
                             id="guestNumber"
                             value={userData && userData.guestNumber}
                           />
-                        </div>
-                        <div className="mb-2">
-                          <label htmlFor="adminPassword" className="form-label">
-                            Admin Password
-                          </label>
                           <input
-                            type="text"
-                            className="form-control"
+                            type="password"
+                            className="form-control me-2"
                             id="adminPassword"
                             onChange={(e) => onChangeHandler(e)}
+                            placeholder="Enter Code"
                           />
-                        </div>
 
-                        <button type="submit" className="btn">
-                          Mark Attendance
+                        <button type="submit" className="btn common-form-btn">
+                        <BsArrowRight/>
                         </button> 
-
+                      </form>
+            </div>
+        </div>
+        
                         {confirmationMsg && (
-                          <div>
-                            <p className="text-success fs-6 text-center mb-0 mt-3">
+                          <div className="responseBox">
+                            <div className="successIcon">
+                            <BsCheck2/>
+                            </div>
+                            <p className="success">
                               {confirmationMsg}
                             </p>
                           </div>
                         )}
 
                         {errorMsg && (
-                          <div>
-                            <p className="text-danger fs-6 text-center mb-0 mt-3">
-                              {errorMsg}
-                            </p>
+                          <div className="responseBox">
+                          <div className="errorIcon">
+                          <BsExclamationLg/>
                           </div>
+                          <p className="error">
+                          {errorMsg}
+                          </p>
+                        </div>
                         )}
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
     </>
   );
 };
