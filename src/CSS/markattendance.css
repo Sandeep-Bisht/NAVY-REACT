@@ -8,4 +8,102 @@
   font-size: 30px;
   margin-bottom: 0;
   margin-top: 10px;
+
+  
+}
+
+button.common-form-btn{
+  background-color: #264b9e;
+  color: #fff;
+  padding:5px 28px;
+}
+
+button.common-form-btn:hover{
+  filter: brightness(1.4);
+  color: #fff;
+}
+
+.responseBox{
+  position:absolute;
+  top:90%;
+  left:50%;
+  transform: translate(-50%,-90%);
+  text-align: center;
+}
+
+.responseBox .successIcon{
+  width: fit-content;
+  margin: 20px auto;
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+
+}
+
+.responseBox .successIcon svg{
+  color: #21c648;
+  font-size: 48px;
+}
+
+.responseBox .success{
+  font-size: 20px;
+  color: #21c648;
+}
+
+.responseBox .errorIcon{
+  width: fit-content;
+  margin: 20px auto;
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+
+}
+
+.responseBox .errorIcon svg{
+  color: #e60d0d;
+  font-size: 48px;
+}
+
+.responseBox .error{
+  font-size: 20px;
+  color: #e60d0d;
+}
+
+
+/* Prashant sharma */
+
+
+.navyday.mark-attendance-single{
+  
+  height: 100vh;
+  position: relative;
+}
+.navyday.mark-attendance-single .welcome-box{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+.navyday.mark-attendance-single .welcome-box .welcome-title{
+  font-size: 45px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.navyday.mark-attendance-single .welcome-box .welcome-name{
+  font-size: 25px;
+  color: #fff;
+  font-weight: 400;
+}
+.navyday.mark-attendance-single  .toggle-input-box{
+ 
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  display: flex;
+}
+.navyday.mark-attendance-single  .toggle-input-box form{
+  display:flex;
+  margin-right: 20px;
 }
