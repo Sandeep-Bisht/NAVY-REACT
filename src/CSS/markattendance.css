@@ -86,15 +86,15 @@ button.common-form-btn:hover{
   text-align: center;
 }
 .navyday.mark-attendance-single .welcome-box .welcome-title{
-  font-size: 45px;
+  font-size: 35px;
   color: #fff;
-  font-weight: 700;
-  margin-bottom: 3px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 .navyday.mark-attendance-single .welcome-box .welcome-name{
-  font-size: 25px;
-  color: #fff;
-  font-weight: 400;
+  font-size: 55px;
+  color: #eac600;
+  font-weight: 700;
 }
 .navyday.mark-attendance-single  .toggle-input-box{
  
