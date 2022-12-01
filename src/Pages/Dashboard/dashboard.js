@@ -1,70 +1,66 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-import axios from 'axios';
-import { DashboardNew } from '../../Component/Dashboard';
-import '../../CSS/dashboard.css'
-import {apiBaseUrl} from "../../util.js"
+import axios from "axios";
+import { DashboardNew } from "../../Component/Dashboard";
+import "../../CSS/dashboard.css";
+import { apiBaseUrl } from "../../util.js";
 am4core.useTheme(am4themes_animated);
 
 const Dashboard = () => {
-
-  let [cartCounts, setCartCounts] = useState({})
-  let [categoryWiseUser, setCategoryWiseUser] = useState([])
+  let [cartCounts, setCartCounts] = useState({});
+  let [categoryWiseUser, setCategoryWiseUser] = useState([]);
 
   const getCartCounts = async () => {
     let chartCounterUrl = `${apiBaseUrl}getCartsCounts`;
-    
+
     try {
       let response = await axios.get(chartCounterUrl);
 
       if (response && response.data) {
         setCartCounts(response.data.responseObj);
       }
-      } catch (error) {
-        console.log("error", error);
+    } catch (error) {
+      console.log("error", error);
+    }
+
+    let pieChartDataUrl = `${apiBaseUrl}getConfirmationCount`;
+
+    try {
+      let response = await axios.get(pieChartDataUrl);
+
+      if (response && response.data) {
+        createPieChart(response.data.response);
       }
+    } catch (error) {
+      console.log("error", error);
+    }
 
-      let pieChartDataUrl = `${apiBaseUrl}getConfirmationCount`;
+    let categoryWiseUserCount = `${apiBaseUrl}getCategoryUserCount`;
 
-      try {
-        let response = await axios.get(pieChartDataUrl);
-  
-        if (response && response.data) {
-          createPieChart(response.data.response)
-        }
-        } catch (error) {
-          console.log("error", error);
-        }
+    try {
+      let response = await axios.get(categoryWiseUserCount);
 
-        let categoryWiseUserCount = `${apiBaseUrl}getCategoryUserCount`;
-        
-        try {
-          let response = await axios.get(categoryWiseUserCount);
-    
-          if (response && response.data) {
-            setCategoryWiseUser(response.data.categoryData)
-          }
-          } catch (error) {
-            console.log("error", error);
-          }
-    
-    };
+      if (response && response.data) {
+        setCategoryWiseUser(response.data.categoryData);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
-  useEffect(()=>{
-    getCartCounts()
-  },[])
+  useEffect(() => {
+    getCartCounts();
+  }, []);
 
   let createPieChart = (data) => {
-
     let chart = am4core.create("chartdiv", am4charts.PieChart);
-    chart.data = data
+    chart.data = data;
     var pieSeries = chart.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = "counter";
     pieSeries.dataFields.category = "type";
-}
-
+  };
 
 let categoryCarts = (data, time) =>{
   let renderCarts = []
@@ -155,9 +151,9 @@ let categoryCarts = (data, time) =>{
         </div>
         </div>
         </section>
-    </DashboardNew>
+      </DashboardNew>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
