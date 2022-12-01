@@ -11,6 +11,7 @@ import PreInvitation from "../Pages/Preinvitation/preinvitation.js";
 import CategoryWiseGuestList from "../Pages/CategoryWiseGuestList/index.js";
 import Departmenmt from "../Pages/Department/index.js";
 import MarkAttendance from "../Pages/Attendance/markAttendance.js";
+import ConfirmedGuest from "../Pages/ConfirmedGuest/confirmedGuest.js";
 //  import Table from "../Pages/Table/table.js";
 
 const AppRoute = () => {
@@ -19,6 +20,7 @@ const AppRoute = () => {
     { path: "/confirmation/:id", element: <Confirmation /> },
     { path: "/markAttendance/:id", element: <MarkAttendance /> },
     { path: "/dashboard", element: <Dashboard /> },
+    { path : "/dashboard/confirmed-guests" , element : <ConfirmedGuest /> },
     { path: "/dashboard/addInvites", element: <AddInvites /> },
     { path: "/dashboard/guestList", element: <GuestList /> },
     {
