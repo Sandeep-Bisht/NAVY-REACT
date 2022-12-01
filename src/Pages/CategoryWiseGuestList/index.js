@@ -301,9 +301,12 @@ useEffect(()=>{
   }
 
   const getDepartment = (id) =>{
-    
-    let departmentData = departments.find((item)=>item._id == id)
-    return departmentData.departmentName
+    let departmentName = ''
+    if(departments.length > 0){
+      let departmentData = departments.find((item)=>item._id == id)
+      departmentName = departmentData.departmentName
+    }
+    return departmentName
   }
 
   const extentionData = {
