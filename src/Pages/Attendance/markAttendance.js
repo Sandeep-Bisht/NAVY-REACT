@@ -6,6 +6,7 @@ import { apiBaseUrl } from "../../util.js";
 import "../../CSS/markattendance.css"
 import Logoright from "../../Images/navydaylogo2.png";
 import Logoleft from "../../Images/navydaylogo1.png";
+import independace from "../../Images/75_th_Independence.png"
 
 
 
@@ -120,6 +121,9 @@ const MarkAttendance = () => {
         <div className="welcome-box">
              <p className="welcome-title">Welcome to NHO</p>
              <p className="welcome-name">{userData && userData.guestName}</p>
+        </div>
+        <div className="independence">
+                  <img src={independace} className="img-fluid independence_img" />
         </div>
         <div className="toggle-input-box">
             <div className="left">

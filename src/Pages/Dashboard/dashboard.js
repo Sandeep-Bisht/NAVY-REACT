@@ -66,6 +66,17 @@ const Dashboard = () => {
 }
 
 
+let categoryCarts = (data, time) =>{
+  let renderCarts = []
+  let i = 0;
+  for(i; i< time; i++){
+   renderCarts.push(data[i])
+  }
+
+  return renderCarts
+}
+
+
   return (
     <>
     <DashboardNew> 
@@ -108,32 +119,40 @@ const Dashboard = () => {
                                         </div>
                                     </div>
       </div>
-      <div className='row'>
-               <div className='col-md-8'>
+      <div className='container'>
+      <div className='row '>
+                  
+                  {categoryWiseUser.length > 0 && 
+                  categoryCarts(categoryWiseUser, 3).map((item,index)=>{
+                    return(<>
+                    <div className='col-md-4'>
+                                        <div className="conter-card one">
+                                            <div className="left category-icon"><i class="fa-solid fa-user-shield"></i></div>
+                                            <div className="right">
+                                                <p className="counter-card-number" >{item.userCount}</p>
+                                                <p className="counter-card-title" >{item.categoryName}</p>
+                                            </div>
+                                        </div>
+                                        </div>
+                    </>)
+                  })
+                  }
+        </div>
+        <div className='row d-flex align-items-center'>
+        <div className='col-md-8'>
                 <div id="chartdiv" className='p-4' style={{ width: "100%", height: "500px" }}>
                   </div>
                   </div>
                   <div className='col-md-4'>
-                  {categoryWiseUser.length > 0 && categoryWiseUser.map((item,index)=>{
-                    return(<>
-                      <div className="default-dashboard-view">
-                <div className="container">
-                    <div className="row">
-                                    <div className="col-md-12 ">
-                                        <div className="conter-card one">
+                                        <div className="conter-card catagory">
                                             <div className="left category-icon"><i class="fa-solid fa-user-shield"></i></div>
                                             <div className="right">
-                                                <p className="counter-card-number">{item.userCount}</p>
-                                                <p className="counter-card-title">{item.categoryName}</p>
+                                                <p className="counter-card-number">{categoryWiseUser.length }</p>
+                                                <p className="counter-card-title">Categories</p>
                                             </div>
                                         </div>
-                                    </div>
-                    </div>
-                </div>
-            </div>
-                    </>)
-                  })}
-                  </div>
+                                        </div>
+        </div>
         </div>
         </section>
     </DashboardNew>
