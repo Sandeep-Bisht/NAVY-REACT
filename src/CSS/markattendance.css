@@ -107,3 +107,13 @@ button.common-form-btn:hover{
   display:flex;
   margin-right: 20px;
 }
+
+/* Deepak */
+.independence .independence_img
+{
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  bottom: 30px;
+  left: 12px;
+}

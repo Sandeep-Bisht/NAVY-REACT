@@ -23,6 +23,10 @@
 .default-dashboard-view .conter-card.one .category-icon i{
     color:#ff9800;
 } 
+.default-dashboard-view .conter-card.catagory .category-icon .fa-user-shield
+{
+    color: #7d97a4;
+}
 
 .default-dashboard-view .conter-card.four i{
     color:#f44336;
