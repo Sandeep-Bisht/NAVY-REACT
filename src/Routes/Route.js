@@ -20,7 +20,7 @@ const AppRoute = () => {
     { path: "/confirmation/:id", element: <Confirmation /> },
     { path: "/markAttendance/:id", element: <MarkAttendance /> },
     { path: "/dashboard", element: <Dashboard /> },
-    { path : "/dashboard/confirmed-guests" , element : <ConfirmedGuest /> },
+    { path : "/dashboard/confirmed-guests/:date" , element : <ConfirmedGuest /> },
     { path: "/dashboard/addInvites", element: <AddInvites /> },
     { path: "/dashboard/guestList", element: <GuestList /> },
     {

@@ -4,34 +4,92 @@ import DataTable from "react-data-table-component";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { apiBaseUrl } from "../../util.js";
+import { useParams } from "react-router-dom";
 import { DashboardNew } from "../../Component/Dashboard";
 
 const ConfirmedGuest = () => {
+  const param = useParams();
   const [tableData, setTableData] = useState([]);
   const [totalCount, setTotalCount] = useState()
+  const [columns,setColumns] = useState([]);
+
 
   useEffect(() => {
-    getConfirmedGuestList();
-    // getConfirmedGuestListCount();
-    
-  }, []);
+    getConfirmedGuestList(param.date);
 
-//   const getConfirmedGuestListCount = async () => {
-//     let url = `${apiBaseUrl}getConfirmationCount`;
-//     try {
-//       let response = await axios.get(url);
-//       console.log(response, "response")
-//       if (response && response.data.guestList) {
-//         setTotalCount(response.data.guestList);
-//       }
-//     } catch (error) {
-//       console.log("error", error);
-//     }
-//   };
+    let staticColumns = [
+      {
+        name: "Invitee No",
+        selector: "inviteNo",
+        sortable: true,
+      },
+      {
+        name: "Name",
+        selector: "guestName",
+        sortable: true,
+      },
+      {
+        name: "Invitation",
+        selector: "invitationStatus",
+        sortable: true,
+      },
+      {
+        name: "Availablity",
+        selector: "availability",
+        sortable: true,
+      },
+      {
+        name: "Mobile No",
+        selector: "guestNumber",
+        sortable: true,
+      },
+    ];
+
+
+    if(param.date == 'navyday'){
+
+      staticColumns.push({
+        name: "Invite 04-Dec",
+        selector: (row) => (
+          <button
+            type="button"
+            className="common-category-btn"
+          //  onClick={() => sendInvitation(row)}
+          >{ row && row.navydayInvitation == "Yes" ?
+          (
+            "Resend"
+            ) :
+            "Send"
+          }
+          </button>
+        ),
+        sortable: false,
+      })
+    }
+
+    if(param.date == 'prenavyday'){
+      staticColumns.push({
+        name: "Invite 03-Dec",
+        selector: (row) => (
+          <button
+            type="button"
+            className="common-category-btn"
+          >
+            {row && row.preInvitation == "Yes" ? "Resend" : "Send"}
+          </button>
+        ),
+        sortable: false,
+      })
+    }
+    
+    setColumns(staticColumns)
+
+  }, [param]);
+
   
 
-  const getConfirmedGuestList = async () => {
-    let url = `${apiBaseUrl}getConfirmationGuest`;
+  const getConfirmedGuestList = async (date) => {
+    let url = `${apiBaseUrl}getConfirmationGuest/${date}`;
     try {
       let response = await axios.get(url);
       if (response && response.data.guestList) {
@@ -43,112 +101,10 @@ const ConfirmedGuest = () => {
     }
   };
 
-  const columns = [
-    {
-      name: "Invitee No",
-      selector: "inviteNo",
-      sortable: true,
-    },
-    {
-      name: "Name",
-      selector: "guestName",
-      sortable: true,
-    },
-    {
-      name: "Invitation",
-      selector: "invitationStatus",
-      sortable: true,
-    },
-    {
-      name: "Availablity",
-      selector: "availability",
-      sortable: true,
-    },
-    // {
-    //   name: "Department",
-    //   // selector: "guestDepartment",
-    //   selector: (row) => (`${getDepartment(row.guestDepartment)}`),
-    //   sortable: true,
-    // },
-    {
-      name: "Mobile No",
-      selector: "guestNumber",
-      sortable: true,
-    },
-    {
-      name: "Invite 03-Dec",
-      selector: (row) => (
-        <button
-          type="button"
-          className="common-category-btn"
-          // onClick={() => sendPreInvitation(row)}
-        >
-          {row && row.preInvitation == "Yes" ? "Resend" : "Send"}
-        </button>
-      ),
-      sortable: false,
-    },
-    {
-      name: "Invite 04-Dec",
-      selector: (row) => (
-        <button
-          type="button"
-          className="common-category-btn"
-        //  onClick={() => sendInvitation(row)}
-        >{ row && row.navydayInvitation == "Yes" ?
-        (
-          "Resend"
-          ) :
-          "Send"
-        }
-        </button>
-      ),
-      sortable: false,
-    },
-    // {
-    //   name: "Confirmation",
-    //   selector: (row) => (
-    //     <button
-    //       type="button"
-    //       className="common-category-btn"
-    //       onClick={() => sendReminder(row)}
-    //     // >{ row && row.invitationStatus == "Invitation Sent" ?
-    //     >{ row && row.reminderStatus == "Reminder Sent" ?
-    //     (
-    //       "Resend"
-    //       ) :
-    //       "Send"
-    //     }
-    //     </button>
-    //   ),
-    //   sortable: false,
-    // },
-    // {
-    //   name: "Action",
-    //   selector: (row) => (
-    //     <>
-    //     <button
-    //       type="button"
-    //       className="common-category-btn me-2 px-2"
-    //       onClick={()=>updateGuest(row)}
-    //     // >{ row && row.invitationStatus == "Invitation Sent" ?
-    //     >
-    //       <AiFillEdit className="text-white"/>
-    //     </button>
-    //   <button type="button" className="common-category-btn me-2 px-2" onClick={()=>deleteGuest(row)} data-bs-toggle="modal" data-bs-target="#exampleModal">
-    //   <AiTwotoneDelete className="text-white"/>
-    //   </button>
-    //   </>
-    //   ),
-    //   sortable: false,
-    // },
-  ];
-
   const extentionData = {
     columns,
     data: tableData,
   };
-  console.log("tableData", tableData)
 
 
   return (
@@ -161,7 +117,7 @@ const ConfirmedGuest = () => {
         </div>
       <div className="main-table">
         {tableData.length > 0 ? (
-        //   <DataTableExtensions {...extentionData}>
+          <DataTableExtensions {...extentionData}>
             <DataTable
               columns={columns}
               data={tableData}
@@ -171,7 +127,7 @@ const ConfirmedGuest = () => {
               pagination
               highlightOnHover
             />
-        //   </DataTableExtensions>
+          </DataTableExtensions>
         ) : (
           <p>No Data Found</p>
         )}
