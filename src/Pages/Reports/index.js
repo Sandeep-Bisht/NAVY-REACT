@@ -29,6 +29,11 @@ const Reports = () => {
         sortable: true,
       },
       {
+        name: "Email",
+        selector: "guestEmail",
+        sortable: true,
+      },
+      {
         name: "Invitation",
         selector: "invitationStatus",
         sortable: true,
@@ -41,6 +46,11 @@ const Reports = () => {
       {
         name: "Mobile No",
         selector: "guestNumber",
+        sortable: true,
+      },
+      {
+        name: "Office No",
+        selector: "guestOfficeNumber",
         sortable: true,
       },
     ];
