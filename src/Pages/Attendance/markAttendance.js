@@ -16,6 +16,7 @@ const MarkAttendance = () => {
   const [userData, setUserData] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
   const [confirmationMsg, setConfirmationMsg] = useState(null);
+  const [guestList, setGuestList] = useState([])
 
 
   useEffect(() => {
@@ -23,6 +24,22 @@ const MarkAttendance = () => {
       verifyGuest(getPathName(location.pathname));
     }
   }, []);
+
+  useEffect(() => {
+    getGuestList();
+  }, [])
+
+  const getGuestList = async () => {
+    let url = `${apiBaseUrl}getGuestList`;
+    try {
+      let response = await axios.get(url);
+      if (response && response.data) {
+        setGuestList(response.data);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
   const getPathName = (pathname) => {
     let newArray = pathname.split("/");
