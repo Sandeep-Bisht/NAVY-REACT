@@ -117,9 +117,8 @@ export function DashboardNew({ children }) {
         <div className="container-fluid ">
           <div className="row">
             <div
-              className={`col-md-1 left-part col-lg-2 px-0 ${
-                mobileView ? "d-none" : ""
-              }`}
+              className={`col-md-1 left-part col-lg-2 px-0 ${mobileView ? "d-none" : ""
+                }`}
             >
               <aside>
                 <ul className="ps-0 list-unstyled ">
@@ -237,7 +236,7 @@ export function DashboardNew({ children }) {
                       </div>
                     </div>
                   </li>
-                  <li>
+                  {/* <li>
                     <button
                       className="common-blue btn"
                       onClick={() => navigate("/dashboard/confirmed-guests")}
@@ -247,7 +246,135 @@ export function DashboardNew({ children }) {
                       </span>
                       Confirmed Guest
                     </button>
+                  </li> */}
+
+                  <li>
+                    <div class="accordion" id="accordionExample2">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                          <button
+                            class="custom-accordion-btn my-0"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo"
+                          >
+                            <div>
+                              <span className="me-2">
+                                <i class="fa-solid fa-users"></i>
+                              </span>
+                              Confirmed Guest
+                            </div>{" "}
+                            <RiArrowDropDownLine />
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseTwo"
+                          class="accordion-collapse collapse"
+                          aria-labelledby="headingTwo"
+                          data-bs-parent="#accordionExample2"
+                        >
+                          <div class="accordion-body py-0">
+                            <ul className="list-unstyled">
+                              <li className="m-0">
+                                <button
+                                  className="common-blue btn"
+                                  onClick={() =>
+                                    navigate("/dashboard/confirmed-guests/navyday")
+                                  }
+                                >
+                                  <span className="me-2">
+                                    <i class="fa-solid fa-user"></i>
+                                  </span>
+                                  04-Dec-2022
+                                </button>
+                              </li>
+                              <li className="m-0">
+                                <button
+                                  className="common-blue btn"
+                                  onClick={() =>
+                                    navigate("/dashboard/confirmed-guests/prenavyday")
+                                  }
+                                >
+                                  <span className="me-2">
+                                    <i class="fa-solid fa-user"></i>
+                                  </span>
+                                  03-Dec-2022
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </li>
+
+                  {/* confirm guest date wise list */}
+
+                  <li>
+                    <div class="accordion" id="accordionExample3">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                          <button
+                            class="custom-accordion-btn my-0"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree"
+                            aria-expanded="false"
+                            aria-controls="collapseThree"
+                          >
+                            <div>
+                              <span className="me-2">
+                                <i class="fa-solid fa-users"></i>
+                              </span>
+                              Guest Reports
+                            </div>{" "}
+                            <RiArrowDropDownLine />
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseThree"
+                          class="accordion-collapse collapse"
+                          aria-labelledby="headingThree"
+                          data-bs-parent="#accordionExample3"
+                        >
+                          <div class="accordion-body py-0">
+                            <ul className="list-unstyled">
+                              <li className="m-0">
+                                <button
+                                  className="common-blue btn"
+                                  onClick={() =>
+                                    navigate("/dashboard/reports-confirmed/navyday")
+                                  }
+                                >
+                                  <span className="me-2">
+                                    <i class="fa-solid fa-user"></i>
+                                  </span>
+                                  04-Dec-2022
+                                </button>
+                              </li>
+                              <li className="m-0">
+                                <button
+                                  className="common-blue btn"
+                                  onClick={() =>
+                                    navigate("/dashboard/reports-confirmed/prenavyday")
+                                  }
+                                >
+                                  <span className="me-2">
+                                    <i class="fa-solid fa-user"></i>
+                                  </span>
+                                  03-Dec-2022
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  {/* Reports */}
                 </ul>
               </aside>
             </div>

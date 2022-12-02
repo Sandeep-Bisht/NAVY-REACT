@@ -62,16 +62,25 @@ const Dashboard = () => {
     pieSeries.dataFields.category = "type";
   };
 
+  let categoryCarts = (data, time) => {
+    let renderCarts = []
+    let i = 0;
+    for (i; i < time; i++) {
+      renderCarts.push(data[i])
+    }
+
+    return renderCarts
+  }
+
+
   return (
     <>
       <DashboardNew>
-        <section className=" default-dashboard-view">
-          <div className="row">
+        <section className=' default-dashboard-view'>
+          <div className='row'>
             <div className="col-md-3">
               <div className="conter-card one">
-                <div className="left">
-                  <i className="fa-solid fa-users"></i>
-                </div>
+                <div className="left"><i className="fa-solid fa-users"></i></div>
                 <div className="right">
                   <p className="counter-card-number">{cartCounts.usersCount}</p>
                   <p className="counter-card-title">Users</p>
@@ -80,81 +89,65 @@ const Dashboard = () => {
             </div>
             <div className="col-md-3">
               <div className="conter-card two">
-                <div className="left">
-                  <i className="fa-solid fa-user-check"></i>
-                </div>
+                <div className="left"><i className="fa-solid fa-user-check"></i></div>
                 <div className="right">
-                  <p className="counter-card-number">
-                    {cartCounts.sentSmsCount}
-                  </p>
+                  <p className="counter-card-number">{cartCounts.sentSmsCount}</p>
                   <p className="counter-card-title">Sent</p>
                 </div>
               </div>
             </div>
             <div className="col-md-3">
               <div className="conter-card three">
-                <div className="left">
-                  <i className="fa-solid fa-file-export"></i>
-                </div>
+                <div className="left"><i className="fa-solid fa-file-export"></i></div>
                 <div className="right">
-                  <p className="counter-card-number">
-                    {cartCounts.pendingSmsCount}
-                  </p>
+                  <p className="counter-card-number">{cartCounts.pendingSmsCount}</p>
                   <p className="counter-card-title">Pending</p>
                 </div>
               </div>
             </div>
             <div className="col-md-3">
               <div className="conter-card four">
-                <div className="left">
-                  <i class="fa-solid fa-file-excel"></i>
-                </div>
+                <div className="left"><i class="fa-solid fa-file-excel"></i></div>
                 <div className="right">
-                  <p className="counter-card-number">
-                    {cartCounts.failedSmsCount}
-                  </p>
+                  <p className="counter-card-number">{cartCounts.failedSmsCount}</p>
                   <p className="counter-card-title">Failed</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-8">
-              <div
-                id="chartdiv"
-                className="p-4"
-                style={{ width: "100%", height: "500px" }}
-              ></div>
-            </div>
-            <div className="col-md-4">
+          <div className='container'>
+            <div className='row '>
+
               {categoryWiseUser.length > 0 &&
-                categoryWiseUser.map((item, index) => {
-                  return (
-                    <>
-                      <div className="default-dashboard-view">
-                        <div className="container">
-                          <div className="row">
-                            <div className="col-md-12 ">
-                              <div className="conter-card one">
-                                <div className="left category-icon">
-                                  <i class="fa-solid fa-user-shield"></i>
-                                </div>
-                                <div className="right">
-                                  <p className="counter-card-number">
-                                    {item.userCount}
-                                  </p>
-                                  <p className="counter-card-title">
-                                    {item.categoryName}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                categoryCarts(categoryWiseUser, 3).map((item, index) => {
+                  return (<>
+                    <div className='col-md-4'>
+                      <div className="conter-card one">
+                        <div className="left category-icon"><i class="fa-solid fa-user-shield"></i></div>
+                        <div className="right">
+                          <p className="counter-card-number" >{item.userCount}</p>
+                          <p className="counter-card-title" >{item.categoryName}</p>
                         </div>
                       </div>
-                    </>
-                  );
-                })}
+                    </div>
+                  </>)
+                })
+              }
+            </div>
+            <div className='row d-flex align-items-center'>
+              <div className='col-md-8'>
+                <div id="chartdiv" className='p-4' style={{ width: "100%", height: "500px" }}>
+                </div>
+              </div>
+              <div className='col-md-4'>
+                <div className="conter-card catagory">
+                  <div className="left category-icon"><i class="fa-solid fa-user-shield"></i></div>
+                  <div className="right">
+                    <p className="counter-card-number">{categoryWiseUser.length}</p>
+                    <p className="counter-card-title">Categories</p>
+                    8                     </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

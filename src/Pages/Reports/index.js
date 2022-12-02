@@ -7,7 +7,7 @@ import { apiBaseUrl } from "../../util.js";
 import { useParams } from "react-router-dom";
 import { DashboardNew } from "../../Component/Dashboard";
 
-const ConfirmedGuest = () => {
+const Reports = () => {
   const param = useParams();
   const [tableData, setTableData] = useState([]);
   const [totalCount, setTotalCount] = useState()
@@ -29,6 +29,11 @@ const ConfirmedGuest = () => {
         sortable: true,
       },
       {
+        name: "Email",
+        selector: "guestEmail",
+        sortable: true,
+      },
+      {
         name: "Invitation",
         selector: "invitationStatus",
         sortable: true,
@@ -43,44 +48,12 @@ const ConfirmedGuest = () => {
         selector: "guestNumber",
         sortable: true,
       },
+      {
+        name: "Office No",
+        selector: "guestOfficeNumber",
+        sortable: true,
+      },
     ];
-
-
-    if(param.date == 'navyday'){
-
-      staticColumns.push({
-        name: "Invite 04-Dec",
-        selector: (row) => (
-          <button
-            type="button"
-            className="common-category-btn"
-          //  onClick={() => sendInvitation(row)}
-          >{ row && row.navydayInvitation == "Yes" ?
-          (
-            "Resend"
-            ) :
-            "Send"
-          }
-          </button>
-        ),
-        sortable: false,
-      })
-    }
-
-    if(param.date == 'prenavyday'){
-      staticColumns.push({
-        name: "Invite 03-Dec",
-        selector: (row) => (
-          <button
-            type="button"
-            className="common-category-btn"
-          >
-            {row && row.preInvitation == "Yes" ? "Resend" : "Send"}
-          </button>
-        ),
-        sortable: false,
-      })
-    }
     
     setColumns(staticColumns)
 
@@ -137,4 +110,4 @@ const ConfirmedGuest = () => {
   );
 };
 
-export default ConfirmedGuest;
+export default Reports;
