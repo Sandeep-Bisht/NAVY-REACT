@@ -122,8 +122,8 @@ const Navyday = () => {
                             maxWidth: "100%",
                             width: "100%",
                           }}
-                          //value="xxx"
-                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                          value={userData && userData.stringToken}
+                          //value={`http://inho.in/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
@@ -263,8 +263,8 @@ const Navyday = () => {
                             maxWidth: "100%",
                             width: "100%",
                           }}
-                         
-                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                          value={userData && userData.stringToken}
+                          //value={`http://inho.in/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
