@@ -61,14 +61,7 @@ const MarkAttendance = () => {
         userDataCopy.attendentDate = new Date().toLocaleDateString();
 
         setUserName(usersData.guestName)
-      }
-      else{
-        setErrorMsg("No user found");
-      setConfirmationMsg(null);
-      setTimeout(()=>{
-        setErrorMsg(null);
-      }, 2000)
-      }
+      }      
     }
 
     setUserData(userDataCopy)
