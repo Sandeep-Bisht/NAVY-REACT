@@ -18,6 +18,8 @@ const MarkAttendance = () => {
   const [guestList, setGuestList] = useState([]);
   const [userName, setUserName] = useState();
 
+  const [invitationDate, setInvitationDate] = useState('');
+
   useEffect(() => {
     getGuestList();    
   }, []);
@@ -51,6 +53,10 @@ const MarkAttendance = () => {
 
       if(usersData){
 
+        if(usersData.preInvitation == 'Yes'){
+          setInvitationDate('03-Dec-2022')
+        }
+
         userDataCopy.guestName = usersData.guestName
         userDataCopy.guestId = usersData._id
         userDataCopy.inviteNo = usersData.inviteNo
@@ -71,10 +77,6 @@ const MarkAttendance = () => {
 
   const onChangeHandler = (e) => {
     verifyGuest(getPathName(e.target.value), e.target.id);
-    // let userDataCopy = { ...userData };
-    // console.log(e.target.value, "on change handler called ")
-    // userDataCopy[e.target.id] = e.target.value;
-    // setUserData(userDataCopy);
   };
 
   const markAttendanceSubmit = () => {
@@ -95,6 +97,9 @@ const MarkAttendance = () => {
           setErrorMsg(null)
           setTimeout(()=>{
             setConfirmationMsg(null);
+            setUserName();
+            setInvitationDate('');
+            setUserData(false)
           }, 2000)
         }
       }
@@ -126,12 +131,14 @@ const MarkAttendance = () => {
                 <div className="two">
                   <h2 className="title f2">Navy day</h2>
                   <p className="date f2">
-                    {userData &&
+                    {/* {userData &&
                       userData.preInvitation == "Yes" &&
                       "03 December 2022"}
                     {userData &&
                       userData.navydayInvitation == "Yes" &&
-                      "04 December 2022"}
+                      "04 December 2022"} */}
+
+                      {invitationDate}
                   </p>
                 </div>
                 <div className="three">
@@ -182,6 +189,7 @@ const MarkAttendance = () => {
                   className="form-control me-2"
                   id="stringToken"
                   onChange={(e) => onChangeHandler(e)}
+                  value={userData.stringToken}
                   //value={}
                   //placeholder="Enter Code"
                 />
