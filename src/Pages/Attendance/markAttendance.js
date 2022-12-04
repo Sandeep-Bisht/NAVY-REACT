@@ -54,8 +54,8 @@ const MarkAttendance = () => {
 
       if(usersData){
 
-        if(usersData.preInvitation == 'Yes'){
-          setInvitationDate('03-Dec-2022')
+        if(usersData.navydayInvitation == 'Yes'){
+          setInvitationDate('04-Dec-2022')
         }
 
         userDataCopy.guestName = usersData.guestName
