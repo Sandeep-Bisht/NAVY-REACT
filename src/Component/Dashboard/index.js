@@ -375,6 +375,17 @@ export function DashboardNew({ children }) {
                   </li>
 
                   {/* Reports */}
+                  <li>
+                    <button
+                      className="common-blue btn"
+                      onClick={() => navigate("/dashboard/presentGuest")}
+                    >
+                      <span className="me-2">
+                        <i class="fa-solid fa-building-shield"></i>
+                      </span>
+                      Present Guest
+                    </button>
+                  </li>
                 </ul>
               </aside>
             </div>

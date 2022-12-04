@@ -13,6 +13,7 @@ import Departmenmt from "../Pages/Department/index.js";
 import MarkAttendance from "../Pages/Attendance/markAttendance.js";
 import ConfirmedGuest from "../Pages/ConfirmedGuest/confirmedGuest.js";
 import Reports from "../Pages/Reports/index.js";
+import PresentGuest from "../Pages/PresentGuest/presentGuest.js";
 //  import Table from "../Pages/Table/table.js";
 
 const AppRoute = () => {
@@ -28,6 +29,7 @@ const AppRoute = () => {
 
 
     { path: "/dashboard/addInvites", element: <AddInvites /> },
+    { path: "/dashboard/presentGuest", element: < PresentGuest /> },
     { path: "/dashboard/guestList", element: <GuestList /> },
     {
       path: "/dashboard/guestList/:categoryId",
