@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BsArrowRight, BsCheck2, BsExclamationLg } from "react-icons/bs";
@@ -17,11 +17,12 @@ const MarkAttendance = () => {
   const [confirmationMsg, setConfirmationMsg] = useState(null);
   const [guestList, setGuestList] = useState([]);
   const [userName, setUserName] = useState();
-
+  const stringTokenRef = React.useRef(null);
   const [invitationDate, setInvitationDate] = useState('');
 
   useEffect(() => {
-    getGuestList();    
+    getGuestList();  
+    stringTokenRef.current.focus();  
   }, []);
 
 
@@ -83,14 +84,17 @@ const MarkAttendance = () => {
     // console.log(userData, 'user data is this')
     handleAttendance(userData);
   };
+  
 
   const handleAttendance = async (userData) => {
-
     let url = `${apiBaseUrl}markAttendance`;
-
     try {
       let response = await axios.post(url, userData);
+      // let fields = document.getElementById("stringToken");
+      // fields.innerHTML = ""      
       if (response) {
+        document.getElementById("create-course-form").reset();
+        stringTokenRef.current.focus();
         if (response.status == 200) {
           let res = response.data;
           setConfirmationMsg(res.message);
@@ -104,6 +108,9 @@ const MarkAttendance = () => {
         }
       }
     } catch (error) {
+      // document.getElementById("create-course-form").reset();
+      // let fields = document.getElementById("stringToken");
+      // fields.innerHTML = ""    
       console.log("error", error.response.data.message);
       setErrorMsg(error.response.data.message);
       setConfirmationMsg(null);
@@ -158,6 +165,7 @@ const MarkAttendance = () => {
           <div className="toggle-input-box">
             <div className="left">
               <form
+              id="create-course-form"
                 className="justify-content-center aign-items-center"
               >
                 <input
@@ -188,6 +196,8 @@ const MarkAttendance = () => {
                   type="text"
                   className="form-control me-2"
                   id="stringToken"
+                  ref={stringTokenRef}
+                  // ref={textInput}                  
                   onChange={(e) => onChangeHandler(e)}
                   value={userData.stringToken}
                   //value={}
@@ -197,6 +207,7 @@ const MarkAttendance = () => {
                   type="password"
                   className="form-control me-2"
                   id="adminPassword"
+                  //ref={textInput}                  
                   onChange={(e) => onChangeHandler(e)}
                   placeholder="Enter Code"
                 />
