@@ -29,7 +29,7 @@ const AppRoute = () => {
 
 
     { path: "/dashboard/addInvites", element: <AddInvites /> },
-    { path: "/dashboard/presentGuest", element: < PresentGuest /> },
+    { path: "/dashboard/presentGuest/:date", element: < PresentGuest /> },
     { path: "/dashboard/guestList", element: <GuestList /> },
     {
       path: "/dashboard/guestList/:categoryId",
