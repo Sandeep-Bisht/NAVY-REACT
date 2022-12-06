@@ -376,6 +376,67 @@ export function DashboardNew({ children }) {
 
                   {/* Reports */}
                   <li>
+                    <div class="accordion" id="accordionExample5">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                          <button
+                            class="custom-accordion-btn my-0"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive"
+                            aria-expanded="false"
+                            aria-controls="collapseThree"
+                          >
+                            <div>
+                              <span className="me-2">
+                                <i class="fa-solid fa-users"></i>
+                              </span>
+                              Present Guest 
+                            </div>{" "}
+                            <RiArrowDropDownLine />
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseFive"
+                          class="accordion-collapse collapse"
+                          aria-labelledby="headingFive"
+                          data-bs-parent="#accordionExample5"
+                        >
+                          <div class="accordion-body py-0">
+                            <ul className="list-unstyled">
+                              <li className="m-0">
+                                <button
+                                  className="common-blue btn"
+                                  onClick={() =>
+                                    navigate("/dashboard/presentGuest/navyday")
+                                  }
+                                >
+                                  <span className="me-2">
+                                    <i class="fa-solid fa-user"></i>
+                                  </span>
+                                  04-Dec-2022
+                                </button>
+                              </li>
+                              <li className="m-0">
+                                <button
+                                  className="common-blue btn"
+                                  onClick={() =>
+                                    navigate("/dashboard/presentGuest/prenavyday")
+                                  }
+                                >
+                                  <span className="me-2">
+                                    <i class="fa-solid fa-user"></i>
+                                  </span>
+                                  03-Dec-2022
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  {/* <li>
                     <button
                       className="common-blue btn"
                       onClick={() => navigate("/dashboard/presentGuest")}
@@ -385,7 +446,7 @@ export function DashboardNew({ children }) {
                       </span>
                       Present Guest
                     </button>
-                  </li>
+                  </li> */}
                 </ul>
               </aside>
             </div>

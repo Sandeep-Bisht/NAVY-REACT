@@ -53,7 +53,6 @@ const MarkAttendance = () => {
       let usersData = guestList.find((item,index) => item.stringToken == stringToken)
 
       if(usersData){
-
         if(usersData.navydayInvitation == 'Yes'){
           setInvitationDate('04-Dec-2022')
         }
@@ -65,7 +64,8 @@ const MarkAttendance = () => {
         userDataCopy.guestNumber = usersData.guestNumber
         userDataCopy.guestCategory = usersData.guestCategory
         userDataCopy.guestDepartment = usersData.guestDepartment
-        userDataCopy.attendentDate = new Date().toLocaleDateString();
+        // userDataCopy.attendentDate = new Date().toLocaleDateString();
+        userDataCopy.attendentDate = "12/4/2022"
 
         setUserName(usersData.guestName)
       }      
