@@ -104,6 +104,18 @@ useEffect(()=>{
     }
   }
 
+  const sendFestivalWishes = async (inviteData) => {
+    let url = `${apiBaseUrl}sendFestivalWishes`
+    try {
+      let response = await axios.post(url, inviteData);
+      if (response) {
+        getGuestList()
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   const sendInvitation = async (inviteData) => {
     let url = `${apiBaseUrl}sendInvitation`
     try {
@@ -130,7 +142,7 @@ useEffect(()=>{
 
   const sendToAll = async (e) => {
     e.preventDefault();
-    let url = `${apiBaseUrl}sendInvitationToAll`
+    let url = `${apiBaseUrl}sendFestivalWishesToALl`
     let payload = {
       "category":params.categoryId,
       inviteeType
@@ -178,11 +190,11 @@ useEffect(()=>{
       selector: "invitationStatus",
       sortable: true,
     },
-    {
-      name: "Availablity",
-      selector: "availability",
-      sortable: true,
-    },
+    // {
+    //   name: "Availablity",
+    //   selector: "availability",
+    //   sortable: true,
+    // },
     {
       name: "Department",
       // selector: "guestDepartment",
@@ -194,14 +206,14 @@ useEffect(()=>{
       selector: "guestNumber",
       sortable: true,
     }, 
-    {
-      name: "Invite 03-Dec",
+      {
+      name: "Diwali",
       selector: (row) => (        
         <button
           type="button"
           className="common-category-btn"
-          onClick={() => sendPreInvitation(row)}
-        >{ row && row.preInvitation == "yes" ? 
+          onClick={() => sendFestivalWishes(row)}
+        >{ row && row.diwali == "yes" ? 
         (
           "Resend"
           ) : 
@@ -211,41 +223,58 @@ useEffect(()=>{
       ),
       sortable: false,
     }, 
-    {
-      name: "Invite 04-Dec",
-      selector: (row) => (        
-        <button
-          type="button"
-          className="common-category-btn"
-          onClick={() => sendInvitation(row)}
-        >{ row && row.navydayInvitation == "yes" ? 
-        (
-          "Resend"
-          ) : 
-          "Send"
-        }
-        </button>
-      ),
-      sortable: false,
-    },  
-    {
-      name: "Confirmation",
-      selector: (row) => (        
-        <button
-          type="button"
-          className="common-category-btn"
-          onClick={() => sendReminder(row)}
-        // >{ row && row.invitationStatus == "Invitation Sent" ? 
-        >{ row && row.reminderStatus == "Reminder Sent" ? 
-        (
-          "Resend"
-          ) : 
-          "Send"
-        }
-        </button>
-      ),
-      sortable: false,
-    },
+    // {
+    //   name: "Invite 03-Dec",
+    //   selector: (row) => (        
+    //     <button
+    //       type="button"
+    //       className="common-category-btn"
+    //       onClick={() => sendPreInvitation(row)}
+    //     >{ row && row.preInvitation == "yes" ? 
+    //     (
+    //       "Resend"
+    //       ) : 
+    //       "Send"
+    //     }
+    //     </button>
+    //   ),
+    //   sortable: false,
+    // }, 
+    // {
+    //   name: "Invite 04-Dec",
+    //   selector: (row) => (        
+    //     <button
+    //       type="button"
+    //       className="common-category-btn"
+    //       onClick={() => sendInvitation(row)}
+    //     >{ row && row.navydayInvitation == "yes" ? 
+    //     (
+    //       "Resend"
+    //       ) : 
+    //       "Send"
+    //     }
+    //     </button>
+    //   ),
+    //   sortable: false,
+    // },  
+    // {
+    //   name: "Confirmation",
+    //   selector: (row) => (        
+    //     <button
+    //       type="button"
+    //       className="common-category-btn"
+    //       onClick={() => sendReminder(row)}
+    //     // >{ row && row.invitationStatus == "Invitation Sent" ? 
+    //     >{ row && row.reminderStatus == "Reminder Sent" ? 
+    //     (
+    //       "Resend"
+    //       ) : 
+    //       "Send"
+    //     }
+    //     </button>
+    //   ),
+    //   sortable: false,
+    // },
     {
       name: "Action",
       selector: (row) => (    
@@ -372,7 +401,7 @@ useEffect(()=>{
                     Invity No
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     className="form-control"
                     id="inviteNo"
                     value={guestPayload.inviteNo}

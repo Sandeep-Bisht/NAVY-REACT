@@ -304,6 +304,8 @@ const GuestList = () => {
     data: tableData,
   };
 
+  console.log("guestPayload", guestPayload)
+
   return (
     <>
       <DashboardNew>
@@ -385,7 +387,7 @@ const GuestList = () => {
                       Invity No
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       className="form-control"
                       id="inviteNo"
                       value={guestPayload.inviteNo}

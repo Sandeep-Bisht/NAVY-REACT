@@ -95,7 +95,7 @@ const AddInvites = () => {
                     Invity No
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     className="form-control"
                     id="inviteNo"
                     onChange={(e) => onChangeHandler(e)}
