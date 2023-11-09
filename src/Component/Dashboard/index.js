@@ -121,10 +121,10 @@ export function DashboardNew({ children }) {
                 }`}
             >
               <aside>
-                <ul className="ps-0 list-unstyled ">
+                <ul className="ps-0 list-unstyled " style={{margin:"0px"}}>
                   <li>
                     <button
-                      className="common-blue btn"
+                      className="common-blue btn sidebar-button"
                       onClick={() => navigate("/dashboard")}
                     >
                       <span className="me-2">
@@ -138,7 +138,7 @@ export function DashboardNew({ children }) {
                 <ul className="ps-0 list-unstyled">
                   <li>
                     <button
-                      className="common-blue btn"
+                      className="common-blue btn sidebar-button"
                       onClick={() => navigate("/dashboard/Department")}
                     >
                       <span className="me-2">
@@ -149,7 +149,7 @@ export function DashboardNew({ children }) {
                   </li>
                   <li>
                     <button
-                      className="common-blue btn"
+                      className="common-blue btn sidebar-button"
                       onClick={() => navigate("/dashboard/createCategory")}
                     >
                       <span className="me-2">
@@ -160,7 +160,7 @@ export function DashboardNew({ children }) {
                   </li>
                   <li>
                     <button
-                      className="common-blue btn"
+                      className="common-blue btn sidebar-button"
                       onClick={() => navigate("/dashboard/addInvites")}
                     >
                       <span className="me-2">
@@ -174,7 +174,7 @@ export function DashboardNew({ children }) {
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                           <button
-                            class="custom-accordion-btn my-0"
+                            class="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseOne"
@@ -200,7 +200,7 @@ export function DashboardNew({ children }) {
                             <ul className="list-unstyled">
                               <li className="m-0">
                                 <button
-                                  className="common-blue btn"
+                                  className="common-blue btn sidebar-sub-heading"
                                   onClick={() =>
                                     navigate("/dashboard/guestList")
                                   }
@@ -215,7 +215,7 @@ export function DashboardNew({ children }) {
                                 return (
                                   <li className="m-0" key={index}>
                                     <button
-                                      className="common-blue btn"
+                                      className="common-blue btn sidebar-sub-heading"
                                       onClick={() =>
                                         navigate(
                                           `/dashboard/guestList/${item._id}`
@@ -253,7 +253,7 @@ export function DashboardNew({ children }) {
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
                           <button
-                            class="custom-accordion-btn my-0"
+                            class="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo"
@@ -279,7 +279,7 @@ export function DashboardNew({ children }) {
                             <ul className="list-unstyled">
                               <li className="m-0">
                                 <button
-                                  className="common-blue btn"
+                                  className="common-blue btn sidebar-sub-heading"
                                   onClick={() =>
                                     navigate("/dashboard/confirmed-guests/navyday")
                                   }
@@ -292,7 +292,7 @@ export function DashboardNew({ children }) {
                               </li>
                               <li className="m-0">
                                 <button
-                                  className="common-blue btn"
+                                  className="common-blue btn sidebar-sub-heading"
                                   onClick={() =>
                                     navigate("/dashboard/confirmed-guests/prenavyday")
                                   }
@@ -317,7 +317,7 @@ export function DashboardNew({ children }) {
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
                           <button
-                            class="custom-accordion-btn my-0"
+                            class="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseThree"
@@ -343,7 +343,7 @@ export function DashboardNew({ children }) {
                             <ul className="list-unstyled">
                               <li className="m-0">
                                 <button
-                                  className="common-blue btn"
+                                  className="common-blue btn sidebar-sub-heading"
                                   onClick={() =>
                                     navigate("/dashboard/reports-confirmed/navyday")
                                   }
@@ -356,7 +356,7 @@ export function DashboardNew({ children }) {
                               </li>
                               <li className="m-0">
                                 <button
-                                  className="common-blue btn"
+                                  className="common-blue btn sidebar-sub-heading"
                                   onClick={() =>
                                     navigate("/dashboard/reports-confirmed/prenavyday")
                                   }
@@ -380,7 +380,7 @@ export function DashboardNew({ children }) {
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive">
                           <button
-                            class="custom-accordion-btn my-0"
+                            class="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseFive"
@@ -406,7 +406,7 @@ export function DashboardNew({ children }) {
                             <ul className="list-unstyled">
                               <li className="m-0">
                                 <button
-                                  className="common-blue btn"
+                                  className="common-blue btn sidebar-sub-heading"
                                   onClick={() =>
                                     navigate("/dashboard/presentGuest/navyday")
                                   }
@@ -419,7 +419,7 @@ export function DashboardNew({ children }) {
                               </li>
                               <li className="m-0">
                                 <button
-                                  className="common-blue btn"
+                                  className="common-blue btn sidebar-sub-heading"
                                   onClick={() =>
                                     navigate("/dashboard/presentGuest/prenavyday")
                                   }
