@@ -34,3 +34,16 @@
 .sidebar-right-wrapper{
   padding: 100px 30px 50px 30px;
 }
+.dash-body .left-part aside ul li, .dash-body .left-part .accordion-button {
+  margin: 0PX!important;
+}
+
+.dash-body .left-part .sidebar-sub-heading{
+  padding: 8px 9px!important;
+  font-size: 12px!important;
+  font-weight: 400!important;
+}
+.dash-body .left-part .sidebar-button{
+  font-size: 14px!important;
+  font-weight: 400!important;
+}

@@ -71,10 +71,11 @@
   }
   .dash-body .left-part aside{
     position: sticky;
-      top: 0;
+      top: 0%;
       z-index: 1020;
       height: 100vh;
       overflow-y: scroll;
+      padding-top: 100px!important;
       padding: 70px 0px 0px 0px;
       
   }
