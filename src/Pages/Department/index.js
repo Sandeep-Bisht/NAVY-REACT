@@ -3,8 +3,8 @@ import axios from "axios";
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
-import { IoIosAdd, IoMdArrowRoundBack} from "react-icons/io";
-import { AiTwotoneDelete} from "react-icons/ai";
+import { IoIosAdd, IoMdArrowRoundBack } from "react-icons/io";
+import { AiTwotoneDelete } from "react-icons/ai";
 import { BiCategory } from "react-icons/bi";
 import "../../CSS/form.css";
 import { DashboardNew } from "../../Component/Dashboard";
@@ -17,8 +17,30 @@ const Departmenmt = () => {
   let [responseMsg, setResponseMsg] = useState({});
   let [haveResponse, setHaveResponse] = useState(false);
   let [currentMode, setCurrentMode] = useState("List");
+  let [department, setDepartment] = useState("");
+  let [formErrors, setFormErrors] = useState({});
 
-  let [department , setDepartment] =useState("");
+  const validateForm = () => {
+    const errors = {};
+
+    if (
+      !departmentPayload.departmentName ||
+      departmentPayload.departmentName.trim() === ""
+    ) {
+      errors.departmentName = "Department Name is required";
+    }
+
+    if (
+      !departmentPayload.departmentDescription ||
+      departmentPayload.departmentDescription.trim() === ""
+    ) {
+      errors.departmentDescription = "Description is required";
+    }
+
+    setFormErrors(errors);
+
+    return Object.keys(errors).length === 0; // Return true if there are no errors
+  };
 
   const getDepartmentList = async () => {
     let url = `${apiBaseUrl}getDepartments`;
@@ -63,15 +85,14 @@ const Departmenmt = () => {
             </button>
 
             <button
-            type="button"
-            className="btn invite-btn me-2 px-2"
-            onClick={() => deleteGuest(row)}
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            <AiTwotoneDelete className="text-dark" />
-          </button>
-
+              type="button"
+              className="btn invite-btn me-2 px-2"
+              onClick={() => deleteGuest(row)}
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <AiTwotoneDelete className="text-dark" />
+            </button>
           </>
         )),
       sortable: false,
@@ -79,12 +100,12 @@ const Departmenmt = () => {
   ];
 
   const deleteGuest = (data) => {
+    console.log("insdie delete deleteguest", data._id);
     setDepartment(data._id);
   };
-  
 
   const confirmDeleteGuest = async () => {
-    console.log("inside department" ,department)
+    console.log("inside department", department);
 
     let url = `${apiBaseUrl}deleteDepartmentById`;
     try {
@@ -105,8 +126,6 @@ const Departmenmt = () => {
       console.log("error", error);
     }
   };
-
-
 
   const editUser = (data) => {
     setUpdatePayload({
@@ -132,23 +151,26 @@ const Departmenmt = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
 
-    let url = `${apiBaseUrl}createDepartment`;
-    try {
-      let response = await axios.post(url, departmentPayload);
-      if (response) {
-        if (response.data.message) {
-          setCurrentMode("List");
-          getDepartmentList();
+    const isValid = validateForm();
+    if (isValid) {
+      let url = `${apiBaseUrl}createDepartment`;
+      try {
+        let response = await axios.post(url, departmentPayload);
+        if (response) {
+          if (response.data.message) {
+            setCurrentMode("List");
+            getDepartmentList();
+          }
+          setHaveResponse(true);
+          setResponseMsg(response.data);
+          setTimeout(() => {
+            setHaveResponse(false);
+            setResponseMsg({});
+          }, 6000);
         }
-        setHaveResponse(true);
-        setResponseMsg(response.data);
-        setTimeout(() => {
-          setHaveResponse(false);
-          setResponseMsg({});
-        }, 6000);
+      } catch (error) {
+        console.log("error", error);
       }
-    } catch (error) {
-      console.log("error", error);
     }
   };
 
@@ -231,11 +253,21 @@ const Departmenmt = () => {
                         </label>
                         <input
                           type="text"
-                          className="form-control"
+                          className={`form-control ${
+                            formErrors.departmentName ? "is-invalid" : ""
+                          }`}
                           id="departmentName"
                           value={departmentPayload.departmentName}
                           onChange={(e) => onChangeHandler(e)}
                         />
+                        {formErrors.departmentName && (
+                          <div
+                            className="invalid-feedback"
+                            style={{ display: "block" }}
+                          >
+                            {formErrors.departmentName}
+                          </div>
+                        )}
                       </div>
                       <div className="mb-3 col-lg-6">
                         <label
@@ -245,11 +277,21 @@ const Departmenmt = () => {
                           Description
                         </label>
                         <textarea
-                          className="form-control"
+                          className={`form-control ${
+                            formErrors.departmentDescription ? "is-invalid" : ""
+                          }`}
                           id="departmentDescription"
                           value={departmentPayload.departmentDescription}
                           onChange={(e) => onChangeHandler(e)}
                         />
+                        {formErrors.departmentDescription && (
+                          <div
+                            className="invalid-feedback"
+                            style={{ display: "block" }}
+                          >
+                            {formErrors.departmentDescription}
+                          </div>
+                        )}
                       </div>
 
                       <div className="mt-4 col-lg-12">
@@ -361,46 +403,46 @@ const Departmenmt = () => {
       </DashboardNew>
 
       <div
-          className="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-header">
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div className="modal-body">
-                Do you really want to remove this guest?
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  data-bs-dismiss="modal"
-                  onClick={() => confirmDeleteGuest()}
-                >
-                  Confirm
-                </button>
+        className="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              Do you really want to remove this guest?
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+                onClick={() => confirmDeleteGuest()}
+              >
+                Confirm
+              </button>
 
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
+      </div>
     </>
   );
 };
