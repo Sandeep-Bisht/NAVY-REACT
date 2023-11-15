@@ -7,6 +7,7 @@ import {IoIosAdd , IoMdArrowRoundBack} from 'react-icons/io'
 import { BiCategory} from 'react-icons/bi'
 import "../../CSS/form.css";
 import { DashboardNew } from '../../Component/Dashboard';
+import { AiTwotoneDelete, AiFillEdit } from "react-icons/ai";
 import {apiBaseUrl} from "../../util.js"
 
 const CreateCategory = () => {
@@ -16,7 +17,8 @@ const CreateCategory = () => {
     let [allCategories,setAllCategories] = useState([])
     let [responseMsg,setResponseMsg] = useState({})
     let [haveResponse,setHaveResponse] = useState(false)
-    let [currentMode,setCurrentMode] = useState('List')
+    let [currentMode,setCurrentMode] = useState('List');
+    const [categoryId, setCategoryId] = useState("");
 
     const getCategoryList = async () => {
         let url = `${apiBaseUrl}getcategories`;
@@ -59,11 +61,50 @@ const columns = [
           >
             <BiEdit className='text-black'/>
           </button>
+
+          <button
+            type="button"
+            className="common-category-btn me-2 px-2"
+            onClick={() => deleteCategory(row)}
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <AiTwotoneDelete className="text-white" />
+          </button>
           </>
         )),
         sortable: false,
     },
   ];
+
+
+  const deleteCategory = (data) => {
+    console.log("insdie delete catory", data._id)
+    setCategoryId(data._id);
+  };
+
+
+  const confirmDeleteCategory = async () => {
+    console.log("i am inside confirm delete category", categoryId)
+    let url = `${apiBaseUrl}deleteCategoryById`;
+    try {
+      let response = await axios.post(url, { id: categoryId });
+      if (response) {
+        if (response.data.message) {
+          setCurrentMode("List");
+          getCategoryList();
+        }
+        setHaveResponse(true);
+        setResponseMsg(response.data);
+        setTimeout(() => {
+          setHaveResponse(false);
+          setResponseMsg({});
+        }, 6000);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
   const editUser = (data) =>{
     setUpdatePayload({
@@ -285,6 +326,50 @@ const columns = [
                         highlightOnHover
                         />
                     </div>
+
+                     {/* model */}
+
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                Do you really want to remove this Category?
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  onClick={() => confirmDeleteCategory()}
+                >
+                  Confirm
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* end model */}
                     </>
                     }
                   </div>
