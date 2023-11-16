@@ -3,13 +3,17 @@
     font-size:1rem;
     color:#212529;
 }
+
 .form-control:focus{
     box-shadow: none!important;
 }
 .common-form textarea{
     resize: none;
 }
-
+.btn-check:focus+.btn, .btn:focus {
+    outline: 0;
+    box-shadow: none!important;
+}
 
 .common-form .common-form-btn{
     
