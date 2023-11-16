@@ -18,7 +18,7 @@ import PresentGuest from "../Pages/PresentGuest/presentGuest.js";
 
 const AppRoute = () => {
   let routes = useRoutes([
-    { path: "/", element: <Login /> },
+    { path: "/*", element: <Login /> },
     { path: "/confirmation/:id", element: <Confirmation /> },
     // { path: "/markAttendance/:id", element: <MarkAttendance /> },
     { path: "/markAttendance", element: <MarkAttendance /> },
