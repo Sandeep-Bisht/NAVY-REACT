@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {apiBaseUrl} from "../../util.js"
+import { apiBaseUrl } from "../../util.js";
 
 import { useNavigate } from "react-router-dom";
 import "../../CSS/form.css";
@@ -10,15 +10,23 @@ const AddInvites = () => {
   let [guestInfo, setGuestInfo] = useState({
     invitationStatus: "null",
     availability: "null",
-    reminderStatus : "null",
-    attendentDate : []    
+    reminderStatus: "null",
+    attendentDate: [],
+    guestName: "",
+    guestDesignation: "",
+    guestDepartment: "",
+    guestCategory: "",
+    guestNumber: "",
+    guestOfficeNumber: "",
+    guestEmail: "",
   });
 
   let [allCategories, setAllCategories] = useState([]);
   let [allDepartments, setAllDepartments] = useState([]);
+  let [formErrors, setFormErrors] = useState({});
 
   const getCategoryList = async () => {
-    let url = `${apiBaseUrl}getcategories`
+    let url = `${apiBaseUrl}getcategories`;
 
     try {
       let response = await axios.get(url);
@@ -32,7 +40,7 @@ const AddInvites = () => {
   };
 
   const getDepartmentList = async () => {
-    let url = `${apiBaseUrl}getDepartments`
+    let url = `${apiBaseUrl}getDepartments`;
 
     try {
       let response = await axios.get(url);
@@ -50,6 +58,47 @@ const AddInvites = () => {
     getDepartmentList();
   }, []);
 
+  const navigate = useNavigate();
+
+  const validateForm = () => {
+    const errors = {};
+
+    const phoneRegex = /^[0-9]{10}$/;
+
+    if (!guestInfo.guestName.trim()) {
+      errors.guestName = "Full name is required";
+    }
+    if (!guestInfo.guestDesignation.trim()) {
+      errors.guestDesignation = "Designation is required";
+    }
+    if (!guestInfo.guestDepartment) {
+      errors.guestDepartment = "Please select a Department";
+    }
+
+    if (!guestInfo.guestCategory) {
+      errors.guestCategory = "Guest category is required";
+    }
+
+    if (!guestInfo.guestNumber) {
+      errors.guestNumber = "Mobile no is required";
+    }
+
+    if (guestInfo.guestNumber && !guestInfo.guestNumber.match(phoneRegex)) {
+      errors.guestNumber = "Mobile no is invalid";
+    }
+
+    if (
+      guestInfo.guestOfficeNumber &&
+      !guestInfo.guestOfficeNumber.match(phoneRegex)
+    ) {
+      errors.guestOfficeNumber = "Invalid office phone no format";
+    }
+
+    setFormErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
   const onChangeHandler = (e) => {
     let guestInfoCopy = { ...guestInfo };
     guestInfoCopy[e.target.id] = e.target.value;
@@ -59,20 +108,43 @@ const AddInvites = () => {
   const loginFormSubmit = async (e) => {
     e.preventDefault();
 
-    let url = `${apiBaseUrl}addGuestList`
-    try {
-      let response = await axios.post(url, guestInfo);
-      if (response) {
-        if(response.status == 200){
-          navigate("/dashboard/guestList")
+    const isValid = validateForm();
+    if (isValid) {
+      let url = `${apiBaseUrl}addGuestList`;
+      try {
+        let response = await axios.post(url, guestInfo);
+        if (response) {
+          if (response.status == 200) {
+            navigate("/dashboard/guestList");
+          }
         }
+      } catch (error) {
+        console.log("error", error);
       }
-    } catch (error) {
-      console.log("error", error);
     }
   };
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    setGuestInfo({
+      ...guestInfo,
+      [id]: value,
+    });
+    setFormErrors({
+      ...formErrors,
+      [id]: "",
+    });
+  };
+  const handleBlur = (event) => {
+    const { id, value } = event.target;
+    const errors = { ...formErrors };
 
-  const navigate = useNavigate();
+    if (!value) {
+      errors[id] = `This is required`;
+    }
+    setFormErrors(errors);
+  };
+
+  // const navigate = useNavigate();
 
   return (
     <>
@@ -90,18 +162,17 @@ const AddInvites = () => {
                   className="common-form row"
                   onSubmit={(e) => loginFormSubmit(e)}
                 >
-                <div className="mb-3 col-lg-6">
-                  <label htmlFor="inviteNo" className="form-label">
-                    Invity No
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="inviteNo"
-                    onChange={(e) => onChangeHandler(e)}
-                    required
-                  />
-                </div>
+                  <div className="mb-3 col-lg-6">
+                    <label htmlFor="inviteNo" className="form-label">
+                      Invity No
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="inviteNo"
+                      onChange={(e) => onChangeHandler(e)}
+                    />
+                  </div>
 
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guestName" className="form-label">
@@ -109,12 +180,22 @@ const AddInvites = () => {
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className={`form-control ${
+                        formErrors.guestName ? "is-invalid" : ""
+                      }`}
                       id="guestName"
                       aria-describedby="emailHelp"
-                      onChange={(e) => onChangeHandler(e)}
-                      required
+                      onChange={(e) => {
+                        onChangeHandler(e);
+                        handleInputChange(e);
+                      }}
+                      onBlur={(e) => handleBlur(e)}
                     />
+                    {formErrors.guestName && (
+                      <div className="invalid-feedback">
+                        {formErrors.guestName}
+                      </div>
+                    )}
                   </div>
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guestDesignation" className="form-label">
@@ -122,22 +203,31 @@ const AddInvites = () => {
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className={`form-control ${
+                        formErrors.guestDesignation ? "is-invalid" : ""
+                      }`}
                       id="guestDesignation"
-                      onChange={(e) => onChangeHandler(e)}
-                      
+                      onChange={(e) => {
+                        onChangeHandler(e);
+                        handleInputChange(e);
+                      }}
+                      onBlur={(e) => handleBlur(e)}
                     />
+                    {formErrors.guestDesignation && (
+                      <div className="invalid-feedback">
+                        {formErrors.guestDesignation}
+                      </div>
+                    )}
                   </div>
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guestDepartment" className="form-label">
-                    Department
+                      Department
                     </label>
                     <select
                       className="form-select"
                       id="guestDepartment"
                       onChange={(e) => onChangeHandler(e)}
                       defaultValue=""
-                      required
                     >
                       <option disabled value="">
                         Select Department
@@ -157,15 +247,18 @@ const AddInvites = () => {
                       Guest Category
                     </label>
                     <select
-                      className="form-select"
+                      className={`form-control ${
+                        formErrors.guestCategory ? "is-invalid" : ""
+                      }`}
                       id="guestCategory"
-                      onChange={(e) => onChangeHandler(e)}
+                      onChange={(e) => {
+                        onChangeHandler(e);
+                        handleInputChange(e);
+                      }}
+                      onBlur={(e) => handleBlur(e)}
                       defaultValue=""
-                      required
                     >
-                      <option disabled value="">
-                        Select Category
-                      </option>
+                      <option hidden>Select Category</option>
                       {allCategories.map((item, index) => {
                         return (
                           <option value={item._id} key={index}>
@@ -174,18 +267,33 @@ const AddInvites = () => {
                         );
                       })}
                     </select>
+                    {formErrors.guestCategory && (
+                      <div className="invalid-feedback">
+                        {formErrors.guestCategory}
+                      </div>
+                    )}
                   </div>
                   <div className="mb-3 col-lg-6">
-                    <label htmlFor="guesteNumber" className="form-label">
+                    <label htmlFor="guestNumber" className="form-label">
                       Mobile No <span>{`( used for sending SMS)`}</span>
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className={`form-control ${
+                        formErrors.guestNumber ? "is-invalid" : ""
+                      }`}
                       id="guestNumber"
-                      onChange={(e) => onChangeHandler(e)}
-                      required
+                      onChange={(e) => {
+                        onChangeHandler(e);
+                        handleInputChange(e);
+                      }}
+                      onBlur={(e) => handleBlur(e)}
                     />
+                    {formErrors.guestNumber && (
+                      <div className="invalid-feedback">
+                        {formErrors.guestNumber}
+                      </div>
+                    )}
                   </div>
                   <div className="mb-3 col-lg-6">
                     <label htmlFor="guestOfficeNumber" className="form-label">
@@ -193,10 +301,17 @@ const AddInvites = () => {
                     </label>
                     <input
                       type="text"
-                      className="form-control"
+                      className={`form-control ${
+                        formErrors.guestOfficeNumber ? "is-invalid" : ""
+                      }`}
                       id="guestOfficeNumber"
                       onChange={(e) => onChangeHandler(e)}
                     />
+                    {formErrors.guestOfficeNumber && (
+                      <div className="invalid-feedback">
+                        {formErrors.guestOfficeNumber}
+                      </div>
+                    )}
                   </div>
 
                   <div className="mb-3 col-lg-6">
@@ -210,7 +325,6 @@ const AddInvites = () => {
                       onChange={(e) => onChangeHandler(e)}
                     />
                   </div>
-
                   <div className="mt-4 col-lg-12">
                     <button type="submit" className="btn common-form-btn">
                       Submit

@@ -27,12 +27,34 @@ const CreateCategory = () => {
       !categoryPayload.categoryName ||
       categoryPayload.categoryName.trim() === ""
     ) {
-      errors.categoryName = "Category Name is required";
+      errors.categoryName = "Category name is required";
     }
 
     if (
       !categoryPayload.categoryDescription ||
       categoryPayload.categoryDescription.trim() === ""
+    ) {
+      errors.categoryDescription = "Description is required ";
+    }
+
+    setFormErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
+  const validateUpdateForm = () => {
+    const errors = {};
+
+    if (
+      !updatePayload.categoryName ||
+      updatePayload.categoryName.trim() === ""
+    ) {
+      errors.categoryName = "Category name is required";
+    }
+
+    if (
+      !updatePayload.categoryDescription ||
+      updatePayload.categoryDescription.trim() === ""
     ) {
       errors.categoryDescription = "Description is required ";
     }
@@ -177,24 +199,67 @@ const CreateCategory = () => {
   const updateUser = async (e) => {
     e.preventDefault();
 
-    let url = `${apiBaseUrl}updatecategory`;
-    try {
-      let response = await axios.patch(url, updatePayload);
-      if (response) {
-        if (response.data.message) {
-          setCurrentMode("List");
-          getCategoryList();
+    const isValid = validateUpdateForm();
+    if (isValid) {
+      let url = `${apiBaseUrl}updatecategory`;
+      try {
+        let response = await axios.patch(url, updatePayload);
+        if (response) {
+          if (response.data.message) {
+            setCurrentMode("List");
+            getCategoryList();
+          }
+          setHaveResponse(true);
+          setResponseMsg(response.data);
+          setTimeout(() => {
+            setHaveResponse(false);
+            setResponseMsg({});
+          }, 6000);
         }
-        setHaveResponse(true);
-        setResponseMsg(response.data);
-        setTimeout(() => {
-          setHaveResponse(false);
-          setResponseMsg({});
-        }, 6000);
+      } catch (error) {
+        console.log("error", error);
       }
-    } catch (error) {
-      console.log("error", error);
     }
+  };
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    setCategoryPayload({
+      ...categoryPayload,
+      [id]: value,
+    });
+    setFormErrors({
+      ...formErrors,
+      [id]: "",
+    });
+  };
+  const handleBlur = (event) => {
+    const { id, value } = event.target;
+    const errors = { ...formErrors };
+
+    if (!value) {
+      errors[id] = `This is required`;
+    }
+    setFormErrors(errors);
+  };
+  const handleInputChangeUpdate = (event) => {
+    const { id, value } = event.target;
+    setUpdatePayload({
+      ...updatePayload,
+      [id]: value,
+    });
+    setFormErrors({
+      ...formErrors,
+      [id]: "",
+    });
+  };
+  const handleBlurUpdate = (event) => {
+    const { id, value } = event.target;
+    const errors = { ...formErrors };
+
+    if (!value) {
+      errors[id] = `This is required`;
+    }
+    setFormErrors(errors);
   };
 
   const changeMode = (mode) => {
@@ -258,7 +323,11 @@ const CreateCategory = () => {
                           }`}
                           id="categoryName"
                           value={categoryPayload.categoryName}
-                          onChange={(e) => onChangeHandler(e)}
+                          onChange={(e) => {
+                            onChangeHandler(e);
+                            handleInputChange(e);
+                          }}
+                          onBlur={(e) => handleBlur(e)}
                         />
                         {formErrors.categoryName && (
                           <div className="invalid-feedback">
@@ -279,7 +348,11 @@ const CreateCategory = () => {
                           }`}
                           id="categoryDescription"
                           value={categoryPayload.categoryDescription}
-                          onChange={(e) => onChangeHandler(e)}
+                          onChange={(e) => {
+                            onChangeHandler(e);
+                            handleInputChange(e);
+                          }}
+                          onBlur={(e) => handleBlur(e)}
                         />
                         {formErrors.categoryDescription && (
                           <div className="invalid-feedback">
@@ -330,11 +403,22 @@ const CreateCategory = () => {
                         </label>
                         <input
                           type="text"
-                          className="form-control"
+                          className={`form-control ${
+                            formErrors.categoryName ? "is-invalid" : ""
+                          }`}
                           id="categoryName"
                           value={updatePayload.categoryName}
-                          onChange={(e) => updateChangeHandler(e)}
+                          onChange={(e) => {
+                            updateChangeHandler(e);
+                            handleInputChangeUpdate(e);
+                          }}
+                          onBlur={(e) => handleBlurUpdate(e)}
                         />
+                        {formErrors.categoryName && (
+                          <div className="invalid-feedback">
+                            {formErrors.categoryName}
+                          </div>
+                        )}
                       </div>
                       <div className="mb-3 col-lg-6">
                         <label
@@ -344,11 +428,22 @@ const CreateCategory = () => {
                           Description
                         </label>
                         <textarea
-                          className="form-control"
+                          className={`form-control ${
+                            formErrors.categoryDescription ? "is-invalid" : ""
+                          }`}
                           id="categoryDescription"
                           value={updatePayload.categoryDescription}
-                          onChange={(e) => updateChangeHandler(e)}
+                          onChange={(e) => {
+                            updateChangeHandler(e);
+                            handleInputChangeUpdate(e);
+                          }}
+                          onBlur={(e) => handleBlurUpdate(e)}
                         />
+                        {formErrors.categoryDescription && (
+                          <div className="invalid-feedback">
+                            {formErrors.categoryDescription}
+                          </div>
+                        )}
                       </div>
 
                       <div className="mt-4 col-lg-12">
