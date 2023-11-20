@@ -248,7 +248,36 @@ export function DashboardNew({ children }) {
                     </button>
                   </li> */}
 
-                  <li>
+<li>
+                    <div class="accordion" id="accordionReports">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                          <button
+                            class="custom-accordion-btn sidebar-button my-0"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseReport"
+                            aria-expanded="false"
+                            aria-controls="collapseReport"
+                          >
+                            <div>
+                              <span className="me-2">
+                                <i class="fa-solid fa-users"></i>
+                              </span>
+                              Reports
+                            </div>{" "}
+                            <RiArrowDropDownLine />
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseReport"
+                          class="accordion-collapse collapse"
+                          aria-labelledby="headingOne"
+                          data-bs-parent="#accordionReports"
+                        >
+                          <div class="accordion-body py-0">
+                            <ul className="list-unstyled">                             
+                            <li>
                     <div class="accordion" id="accordionExample2">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
@@ -310,9 +339,9 @@ export function DashboardNew({ children }) {
                     </div>
                   </li>
 
-                  {/* confirm guest date wise list */}
+                    {/* confirm guest date wise list */}
 
-                  <li>
+                    <li>
                     <div class="accordion" id="accordionExample3">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
@@ -374,8 +403,8 @@ export function DashboardNew({ children }) {
                     </div>
                   </li>
 
-                  {/* Reports */}
-                  <li>
+                   {/* Reports */}
+                   <li>
                     <div class="accordion" id="accordionExample5">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive">
@@ -436,6 +465,22 @@ export function DashboardNew({ children }) {
                       </div>
                     </div>
                   </li>
+
+
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  
+
+                 
+
+                
+
+                 
                   {/* <li>
                     <button
                       className="common-blue btn"
