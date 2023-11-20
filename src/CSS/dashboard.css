@@ -3,15 +3,26 @@
 .default-dashboard-view {
     padding-top: 50px;
 }
+
 .default-dashboard-view .conter-card{
     margin-bottom: 20px;
     border-radius: 5px;
     padding: 30px 25px;
     background-color: #fff;
-    display: flex;
+    /* display: flex; */
     box-shadow: 0 0 20px rgb(0 0 0 / 8%);
     justify-content: space-between;
     align-items: center;
+    height: 125px;
+    font-size: 11px;
+    text-transform: capitalize;
+}
+
+.default-dashboard-view .category-store i{
+font-size: 32px!important;
+}
+ .category-icon{
+    display: flex!important;
 }
 .default-dashboard-view .conter-card i{
    font-size: 40px;
@@ -46,7 +57,8 @@
     color: #455a64;
     margin-bottom: 5px;
     font-weight: 600;
-    font-size: 35px;
+    font-size: 20px;
+    margin-left: 32px;
 }
 .default-dashboard-view .conter-card .counter-card-title{
     margin-bottom: 5px;

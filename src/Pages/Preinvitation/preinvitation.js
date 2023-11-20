@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import "../../CSS/navyday.css";
 import Logoright from "../../Images/navydaylogo2.png";
 import Logoleft from "../../Images/navydaylogo1.png";
-import Logomain from "../../Images/navydaymain.png";
+import Logomain from "../../Images/navydaymain1.jpg";
 import Sidepic1 from "../../Images/sidepic1.png";
 import Sidepic2 from "../../Images/sidepic2.png";
 import Sidepic3 from "../../Images/sidepic3.png";
@@ -54,7 +54,7 @@ const PreInvitation = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 text-center px-0">
-              <div className="top-wrapper">
+              {/* <div className="top-wrapper">
                 <div className="one">
                   <img src={Logoleft} className="img-fluid " />
                 </div>
@@ -65,12 +65,12 @@ const PreInvitation = () => {
                 <div className="three">
                   <img src={Logoright} className="img-fluid " />
                 </div>
-              </div>
+              </div> */}
               <div className="navyday-main-pic p-5">
                 <img src={Logomain} className="img-fluid" />
               </div>
             </div>
-            <div className="col-12 px-0">
+            {/* <div className="col-12 px-0">
               <div className="muiltiple-pics ">
                 <div className="single-pic-wrapper d-flex justify-content-center">
                   <div className="single-pic">
@@ -84,7 +84,7 @@ const PreInvitation = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="col-md-10 text-center responsive-default d-none">
               <div className="navyday-main-pic">
                 <img src={Logomain} className="img-fluid " />
@@ -160,8 +160,8 @@ const PreInvitation = () => {
                           " At Home function"
                         </span>{" "}
                         on{" "}
-                        <span className="highlight-one text-nowrap">03 Dec 2022</span> at
-                        3:30 PM
+                        <span className="highlight-one text-nowrap">04 Dec 2023</span> at
+                        4:40 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
@@ -318,7 +318,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1630
+                                  1640
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -418,11 +418,10 @@ const PreInvitation = () => {
                               सूर्यास्त समारोह
                             </p>
                             <p className="navycard-common-title-content">
-                              'इंडियन लिस्ट ऑफ रेडियो सिगनल खण्ड ' पुस्तक का
-                              विमोचन
+                            वेब पेज का विमोचन (भारतीय चेतावनी सूचना और नौचालन सेवाएं)
                             </p>
                             <p className="navycard-common-title-content">
-                              समुद्री सुरक्षा समन्वय केन्द्र का उद्घाटन
+                            समुद्री सूचना चार्ट का उद्घाटन
                             </p>
                             <p className="navycard-common-title-content">
                               प्रदर्शनी का अवलोकन
@@ -455,7 +454,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1630
+                                  1640
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -555,12 +554,11 @@ const PreInvitation = () => {
                               Sunset Ceremony
                             </p>
                             <p className="navycard-common-title-content">
-                              Release of "Indian, List of Radio Signal Vol 1
-                              (Book)
+                            Release of Web Page (Indian Warning Information & Navigation
+                             Services)
                             </p>
                             <p className="navycard-common-title-content">
-                              Inauguration of Maritime Safety Coordination
-                              Center
+                            Inauguration of Maritime Information Chart
                             </p>
                             <p className="navycard-common-title-content">
                               Viewing of Exhibits
