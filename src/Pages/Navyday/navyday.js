@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import "../../CSS/navyday.css";
 import Logoright from "../../Images/navydaylogo2.png";
 import Logoleft from "../../Images/navydaylogo1.png";
-import Logomain from "../../Images/navydaymain.png";
+import Logomain from "../../Images/navydaymain1.jpg";
 import Sidepic1 from "../../Images/sidepic1.png";
 import Sidepic2 from "../../Images/sidepic2.png";
 import Sidepic3 from "../../Images/sidepic3.png";
@@ -55,23 +55,23 @@ const Navyday = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 text-center px-0">
-              <div className="top-wrapper">
-                <div className="one">
+              {/* <div className="top-wrapper">
+                 <div className="one">
                   <img src={Logoleft} className="img-fluid " />
-                </div>
-                <div className="two">
+                </div> 
+                 <div className="two">
                   <h2 className="title f2">Navy day</h2>
-                  <p className="date f2">04 December 2022</p>
-                </div>
-                <div className="three">
+                  <p className="date f2">04 December 2023</p>
+                </div> 
+                 <div className="three">
                   <img src={Logoright} className="img-fluid " />
-                </div>
-              </div>
-              <div className="navyday-main-pic p-5">
+                </div> 
+              </div> */}
+              <div className="navyday-main-pic ">
                 <img src={Logomain} className="img-fluid" />
               </div>
             </div>
-            <div className="col-12 px-0">
+            {/* <div className="col-12 px-0">
               <div className="muiltiple-pics ">
                 <div className="single-pic-wrapper d-flex justify-content-center">
                   <div className="single-pic">
@@ -85,7 +85,7 @@ const Navyday = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="col-md-10 text-center responsive-default d-none">
               <div className="navyday-main-pic">
                 <img src={Logomain} className="img-fluid " />
@@ -141,6 +141,7 @@ const Navyday = () => {
                       <p className="navyday-second-area-card-title f2">
                         requests the pleasure of the company of
                       </p>
+                      <p className="navyday-second-area-card-title">.........................</p>
                       <p className="bordered-line text-nowrap">
                         <b className="guestName">                        
                          {userData.guestName} 
@@ -160,8 +161,8 @@ const Navyday = () => {
                           " At Home function"
                         </span>{" "}
                         on{" "}
-                        <span className="highlight-one text-nowrap ">04 Dec 2022</span> at
-                        4:30 PM
+                        <span className="highlight-one text-nowrap ">04 Dec 2023</span> at
+                        4:40 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
@@ -194,7 +195,9 @@ const Navyday = () => {
                               {/* <p className='general-info'>
                           (to be seated by.........P.M.)
                         </p> */}
+                          
                             </div>
+                            
                             <div className="right-box">
                               <div className="general-info-wrapper">
                                 <div className="left">
@@ -224,8 +227,11 @@ const Navyday = () => {
                                   </p>
                                 </div>
                               </div>
+                              
                             </div>
+                            
                           </div>
+                          <p className="text-request">*Request to take screenshot of QR code at the entrance gate of NHO.</p>
                         </div>
                       </div>
                     </div>
@@ -239,7 +245,7 @@ const Navyday = () => {
 
       </section>
       {/* --------------second card--------------------- */}
-      <section className="navyday-fifth-area common-alternate-bg navyday-common-padding">
+      {/* <section className="navyday-fifth-area common-alternate-bg navyday-common-padding">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
@@ -277,7 +283,7 @@ const Navyday = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="navyday-third-area common-alternate-bg navyday-common-padding">
         <div className="container-fluid">
           <div className="row">
@@ -314,7 +320,7 @@ const Navyday = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1630
+                                  1640
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -414,11 +420,10 @@ const Navyday = () => {
                               सूर्यास्त समारोह
                             </p>
                             <p className="navycard-common-title-content">
-                              'इंडियन लिस्ट ऑफ रेडियो सिगनल खण्ड ' पुस्तक का
-                              विमोचन
+                            वेब पेज का विमोचन (भारतीय चेतावनी सूचना और नौचालन सेवाएं)
                             </p>
                             <p className="navycard-common-title-content">
-                              समुद्री सुरक्षा समन्वय केन्द्र का उद्घाटन
+                            समुद्री सूचना चार्ट का उद्घाटन
                             </p>
                             <p className="navycard-common-title-content">
                               प्रदर्शनी का अवलोकन
@@ -451,7 +456,7 @@ const Navyday = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1630
+                                  1640
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -551,12 +556,11 @@ const Navyday = () => {
                               Sunset Ceremony
                             </p>
                             <p className="navycard-common-title-content">
-                              Release of "Indian, List of Radio Signal Vol 1
-                              (Book)
+                            Release of Web Page (Indian Warning Information & Navigation
+                             Services)
                             </p>
                             <p className="navycard-common-title-content">
-                              Inauguration of Maritime Safety Coordination
-                              Center
+                            Inauguration of Maritime Information Chart
                             </p>
                             <p className="navycard-common-title-content">
                               Viewing of Exhibits
@@ -598,14 +602,58 @@ const Navyday = () => {
                 <img src={Map} className="img-fluid" alt="map" />
               </div>
             </div>
-            <div className='col-md-12 '>
+            {/* <div className='col-md-12 '>
               <span className='copyright text-md-end text-center'>Conceptualised by <span className="text-white">CMDE HA Hardas</span><br/> 
               <span className="footer-hide"> and</span> Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+            </div> */}
+          </div>
+        </div>
+      </section>
+      <section className="navyday-fifth-area common-alternate-bg navyday-common-padding">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="navyday-fifth-area-card flex-column">
+                <div className="entrance-box-wrapper">
+                  <div className="entrance-box">
+                    <p>Kindly show the QR code</p>
+                    <p>at the entrance of NHO</p>
+                    
+                  </div>
+                </div>
+                <div className="entrance-qr text-center">
+                    <div className="one">
+                      
+                    <div className="entrance-qr-code-view"
+                      >
+                        <QRCode
+                          size={256}
+                          style={{
+                            height: "auto",
+                            maxWidth: "100%",
+                            width: "100%",
+                          }}
+                          value={userData && userData.stringToken}
+                          //value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                          viewBox={`0 0 256 256`}
+                        />
+                        
+                      </div>
+                    </div>
+                  </div>
+                  
+              </div> 
+              <div className='col-md-12 '>
+              <span className='copyright text-md-end text-center'>Conceptualised by <span className="text-white">CMDE HA Hardas</span><br/> 
+              <span className="footer-hide"> and</span> Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
+            </div> 
+            </div>
+            <div className='col-md-12 d-none'>
+              <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div>
           </div>
         </div>
       </section>
-     
     </>
   );
 };
