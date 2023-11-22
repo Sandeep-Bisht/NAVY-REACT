@@ -728,7 +728,6 @@
 
 @media only screen and (max-width:430px) {
   .navycard-common-title-content {
-
     height: 26px;
     font-weight: 400;
 }
@@ -736,6 +735,11 @@
   position: relative;
   bottom: 3px;
 }
+.navy-img{
+  height: 90vh!important;
+  width: 100%;
+}
+
   
 }
 

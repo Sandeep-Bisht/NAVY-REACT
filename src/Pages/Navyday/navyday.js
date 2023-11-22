@@ -71,7 +71,7 @@ console.log(userData,"check the userdata");
 
   return (
     <>
-      <section className="navyday ">
+      <section className="navyday">
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 text-center px-0">
@@ -88,7 +88,7 @@ console.log(userData,"check the userdata");
                 </div> 
               </div> */}
               <div className={`${isMobile}?navyday-main-pic:responsive-image`}>
-                <img src={isMobile?backimg:Logomain} className="img-fluid" />
+                <img src={isMobile?backimg:Logomain} className="img-fluid navy-img" />
               </div>
               <div>
       {/* Other content or components */}
@@ -165,13 +165,13 @@ console.log(userData,"check the userdata");
                         requests the pleasure of the company of
                       </p>
                       {/* <p className="navyday-second-area-card-title">.........................</p> */}
-                      <p className="bordered-line text-nowrap mb-0">
-                        <b className="guestName">                        
-                         {/* {userData.guestName}  */}
-                         Mr Sandeep Bisht
+                      <p className="bordered-line text-nowrap mb-3">
+                        <b className="guestName text-uppercase">                        
+                         {userData.guestName} 
+                         
                         </b>
                       </p>
-                      <p className="navyday-second-area-card-title blank-line mb-3">........................................</p>
+                      {/* <p className="navyday-second-area-card-title blank-line mb-3">........................................</p> */}
                     </div>
                     <div className="three">
                       {/* <p className='subheading'>
@@ -200,7 +200,7 @@ console.log(userData,"check the userdata");
                         Hon'ble Governor of Uttarakhand
                       </p>
                       <p className="navyday-second-area-card-title f2">
-                        has Kindly consented to be the Chief Guest
+                        has kindly consented to be the Chief Guest
                       </p>
                     </div>
                     <div className='container custom-container'>

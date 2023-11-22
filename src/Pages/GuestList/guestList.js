@@ -371,6 +371,24 @@ const GuestList = () => {
 
   console.log("guestPayload", guestPayload);
 
+  let downloadGuestData = () => {
+    // try {
+    //    axios({
+    //     url: `${baseUrl}downloadexcel`,
+    //     method: 'GET',
+    //     responseType: 'blob',
+    //   }).then((response) => {
+    //     const url = window.URL.createObjectURL(new Blob([response.data]));
+    //     const link = document.createElement('a');
+    //     link.href = url;
+    //     link.setAttribute('download', 'registreduser.xlsx');
+    //     document.body.appendChild(link);
+    //     link.click();
+    //   });
+    // } catch (error) {
+    // }
+  }
+
   return (
     <>
       <DashboardNew>
@@ -418,6 +436,10 @@ const GuestList = () => {
                     Send
                   </button>
                 </div>
+                <div className="col-md-4">                 
+                  <button className="common-category-btn" onClick={() => downloadGuestData()}  >Download Excel</button>
+                </div>
+                
               </div>
             </form>
             <div className="main-table">
