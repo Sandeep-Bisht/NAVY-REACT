@@ -7,6 +7,7 @@ import "../../CSS/navyday.css";
 import Logoright from "../../Images/navydaylogo2.png";
 import Logoleft from "../../Images/navydaylogo1.png";
 import Logomain from "../../Images/navydaymain1.jpg";
+import backimg from "../../Images/Asset 2@4x-100-02-02-02 (1).jpg"
 import Sidepic1 from "../../Images/sidepic1.png";
 import Sidepic2 from "../../Images/sidepic2.png";
 import Sidepic3 from "../../Images/sidepic3.png";
@@ -17,6 +18,25 @@ import { apiBaseUrl } from "../../util.js";
 const Navyday = () => {
   const location = useLocation();
   const [userData, setUserData] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 430.98); // Set your preferred mobile width
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (location && location.pathname) {
@@ -47,7 +67,7 @@ const Navyday = () => {
       console.log("error", error);
     }
   };
-
+console.log(userData,"check the userdata");
 
   return (
     <>
@@ -67,9 +87,12 @@ const Navyday = () => {
                   <img src={Logoright} className="img-fluid " />
                 </div> 
               </div> */}
-              <div className="navyday-main-pic ">
-                <img src={Logomain} className="img-fluid" />
+              <div className={`${isMobile}?navyday-main-pic:responsive-image`}>
+                <img src={isMobile?backimg:Logomain} className="img-fluid" />
               </div>
+              <div>
+      {/* Other content or components */}
+    </div>
             </div>
             {/* <div className="col-12 px-0">
               <div className="muiltiple-pics ">
@@ -141,12 +164,14 @@ const Navyday = () => {
                       <p className="navyday-second-area-card-title f2">
                         requests the pleasure of the company of
                       </p>
-                      <p className="navyday-second-area-card-title">.........................</p>
-                      <p className="bordered-line text-nowrap">
+                      {/* <p className="navyday-second-area-card-title">.........................</p> */}
+                      <p className="bordered-line text-nowrap mb-0">
                         <b className="guestName">                        
-                         {userData.guestName} 
+                         {/* {userData.guestName}  */}
+                         Mr Sandeep Bisht
                         </b>
                       </p>
+                      <p className="navyday-second-area-card-title blank-line mb-3">........................................</p>
                     </div>
                     <div className="three">
                       {/* <p className='subheading'>
@@ -162,7 +187,7 @@ const Navyday = () => {
                         </span>{" "}
                         on{" "}
                         <span className="highlight-one text-nowrap ">04 Dec 2023</span> at
-                        4:40 PM
+                        4:45 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
@@ -231,7 +256,7 @@ const Navyday = () => {
                             </div>
                             
                           </div>
-                          <p className="text-request">*Request to take screenshot of QR code at the entrance gate of NHO.</p>
+                          {/* <p className="text-request">*Request to take screenshot of QR code at the entrance gate of NHO.</p> */}
                         </div>
                       </div>
                     </div>
@@ -637,14 +662,16 @@ const Navyday = () => {
                           //value={`http://inho.in/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
-                        
                       </div>
+                      
                     </div>
                   </div>
-                  
+                  <div>
+                  <p className="text-request mt-3">*Request to take screenshot of QR code at the entrance gate of NHO.</p>
+                  </div>
               </div> 
               <div className='col-md-12 '>
-              <span className='copyright text-md-end text-center'>Conceptualised by <span className="text-white">CMDE HA Hardas</span><br/> 
+              <span className='copyright text-md-end text-center'>Conceptualised by <span className="text-white">Lt Cdr Mohit Verma</span><br/> 
               <span className="footer-hide"> and</span> Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div> 
             </div>
