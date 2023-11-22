@@ -83,8 +83,8 @@ const Dashboard = () => {
                   <i className="fa-solid fa-users"></i>
                 </div>
                 <div className="right">
-                  <p className="counter-card-number ms-0">{cartCounts.usersCount}</p>
-                  <p className="counter-card-title">Users</p>
+                  <p className="counter-card-number ms-3">{cartCounts.usersCount}</p>
+                  <p className="counter-card-title ms-3">Users</p>
                 </div>
               </div>
             </div>

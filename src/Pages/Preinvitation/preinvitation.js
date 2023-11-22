@@ -161,7 +161,7 @@ const PreInvitation = () => {
                         </span>{" "}
                         on{" "}
                         <span className="highlight-one text-nowrap">04 Dec 2023</span> at
-                        4:40 PM
+                        4:45 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
