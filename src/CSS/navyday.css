@@ -13,6 +13,9 @@
 .guestName {
   font-size: 18px;
 }
+.text-request{
+  color: #cb4755;
+}
 .navyday
 {
   background-color: #151632; 
@@ -51,7 +54,8 @@
   width: 75%;
 }
 .navyday-main-pic img{
-   height: 420px;
+   height: 600px;
+   width: 100%;
 }
 .top-wrapper{
    display: flex;
@@ -222,6 +226,7 @@
 }
 .navycard-common-title-content{
   font-size:14px;
+  height: 36px;
   font-weight: 400;
 }
 .time-duration-wrapper{
@@ -242,6 +247,9 @@
 }
 .navyday-third-area-card-wrapper.second{
   color: #3b3187;
+}
+.navyday-third-area-card-wrapper.second .left{
+      width: 146px;
 }
 
 /* --------------------------navyday-fourth-area------------------------ */

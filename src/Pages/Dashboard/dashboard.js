@@ -77,50 +77,50 @@ const Dashboard = () => {
       <DashboardNew>
         <section className=" default-dashboard-view">
           <div className="row">
-            <div className="col-md-3">
-              <div className="conter-card one">
+            <div className="col-md-3 col-6">
+              <div className="conter-card one d-flex ">
                 <div className="left">
                   <i className="fa-solid fa-users"></i>
                 </div>
                 <div className="right">
-                  <p className="counter-card-number">{cartCounts.usersCount}</p>
+                  <p className="counter-card-number ms-0">{cartCounts.usersCount}</p>
                   <p className="counter-card-title">Users</p>
                 </div>
               </div>
             </div>
-            <div className="col-md-3">
-              <div className="conter-card two">
+            <div className="col-md-3 col-6">
+              <div className="conter-card two d-flex ">
                 <div className="left">
                   <i className="fa-solid fa-user-check"></i>
                 </div>
                 <div className="right">
-                  <p className="counter-card-number">
+                  <p className="counter-card-number ms-0">
                     {cartCounts.sentSmsCount}
                   </p>
                   <p className="counter-card-title">Sent</p>
                 </div>
               </div>
             </div>
-            <div className="col-md-3">
-              <div className="conter-card three">
+            <div className="col-md-3 col-6">
+              <div className="conter-card three d-flex">
                 <div className="left">
                   <i className="fa-solid fa-file-export"></i>
                 </div>
                 <div className="right">
-                  <p className="counter-card-number">
+                  <p className="counter-card-number ms-0">
                     {cartCounts.pendingSmsCount}
                   </p>
                   <p className="counter-card-title">Pending</p>
                 </div>
               </div>
             </div>
-            <div className="col-md-3">
-              <div className="conter-card four">
+            <div className="col-md-3 col-6">
+              <div className="conter-card four d-flex">
                 <div className="left">
                   <i class="fa-solid fa-file-excel"></i>
                 </div>
                 <div className="right">
-                  <p className="counter-card-number">
+                  <p className="counter-card-number ms-0">
                     {cartCounts.failedSmsCount}
                   </p>
                   <p className="counter-card-title">Failed</p>
@@ -128,21 +128,24 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="container">
+          <div className="container p-0 category-store">
             <div className="row ">
               {categoryWiseUser.length > 0 &&
-                categoryCarts(categoryWiseUser, 3).map((item, index) => {
+                categoryWiseUser.map((item, index) => {
                   return (
                     <>
-                      <div className="col-md-4">
+                      <div className="col-md-2 col-6">
                         <div className="conter-card one">
                           <div className="left category-icon">
                             <i class="fa-solid fa-user-shield"></i>
-                          </div>
-                          <div className="right">
                             <p className="counter-card-number">
                               {item.userCount}
                             </p>
+                          </div>
+                          <div className="right">
+                            {/* <p className="counter-card-number">
+                              {item.userCount}
+                            </p> */}
                             <p className="counter-card-title">
                               {item.categoryName}
                             </p>
@@ -160,7 +163,7 @@ const Dashboard = () => {
                   style={{ width: "100%", height: "500px" }}
                 ></div>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4 ">
                 <div className="conter-card catagory">
                   <div className="left category-icon">
                     <i class="fa-solid fa-user-shield"></i>
@@ -177,8 +180,11 @@ const Dashboard = () => {
           </div>
         </section>
       </DashboardNew>
+      
+      
     </>
   );
 };
+
 
 export default Dashboard;

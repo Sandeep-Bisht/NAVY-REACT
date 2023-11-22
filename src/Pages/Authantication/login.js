@@ -5,6 +5,7 @@ import logo from "../../Images/nhoLogo.png";
 import {apiBaseUrl} from "../../util.js"
 import "../../CSS/login.css";
 import "../../CSS/common.css";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
   let [loginPayload, setLoginPayload] = useState({  
@@ -13,6 +14,14 @@ const Login = () => {
 
   const [userInfo, setUserInfo] = useState([]);
   const [errorMsg,setErrorMsg] = useState(null)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset: resetContactForm,
+  } = useForm({
+    mode: "onBlur",
+  });
   
   const onChangeHandler = (e) => {
     let loginPayloadCopy = { ...loginPayload };
@@ -20,12 +29,17 @@ const Login = () => {
     setLoginPayload(loginPayloadCopy);
   };
 
-  const loginFormSubmit = (e) => {
-    e.preventDefault();
-    handleLogin(loginPayload);
+  const loginFormSubmit = (data) => {
+    
+    handleLogin(data);
   };
 
-  const handleLogin = async (payload) => {
+  const handleLogin = async (data) => {
+    console.log(data)
+    const payload=  {
+      useremail:data.email,
+      password:data.password
+    }
     let url = `${apiBaseUrl}getuser`
     try {
       let response = await axios.post(url, payload);
@@ -60,19 +74,31 @@ const Login = () => {
                     </span>
                   </div>
                   <div className="card-body">
-                    <form onSubmit={(e) => loginFormSubmit(e)}>
+                    <form onSubmit={handleSubmit(loginFormSubmit)}>
                       <div className="mb-3">
-                        <label htmlFor="userEmail" className="form-label">
+                        <label htmlFor="email" className="form-label">
                           Email address
                         </label>
                         <input
                           type="email"
                           className="form-control"
-                          id="userEmail"
-                          aria-describedby="emailHelp"
+                          // id="userEmail"
+                          // aria-describedby="emailHelp"
                           onChange={(e) => onChangeHandler(e)}
+                          {...register("email", {
+                            required: true,
+                            pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.com+$/,
+                          })}
                         />
-                        <div id="emailHelp" className="form-text">
+                          {errors && errors.email && errors.email.type === "required" && (
+                          <p className="text-danger fs-0">This field is required</p>
+                        )}
+                        {errors && errors.email && errors.email.type === "pattern" && (
+                          <p className="text-danger fs-0">
+                            Please enter Valid email Address
+                          </p>
+                        )}
+                        <div id="userEmail" className="form-text">
                           We'll never share your email with anyone else.
                         </div>
                       </div>
@@ -85,7 +111,19 @@ const Login = () => {
                           className="form-control"
                           id="userPassword"
                           onChange={(e) => onChangeHandler(e)}
+                          {...register("password", {
+                            required: true,
+                            pattern: /^[@#][A-Z a-z 0-9]{7,13}$/,
+                          })}
                         />
+                        {errors && errors.password && errors.password.type =="required" && (
+                          <p className="text-danger">This field is required</p>
+                        ) }
+                        {errors && errors.password && errors.password.type === "pattern" && (
+                          <p className="text-danger">
+                            Please enter Valid Password
+                          </p>
+                        )}
                       </div>
                       <button type="submit" className="btn">
                         Log In

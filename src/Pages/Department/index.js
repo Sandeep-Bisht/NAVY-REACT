@@ -27,7 +27,7 @@ const Departmenmt = () => {
       !departmentPayload.departmentName ||
       departmentPayload.departmentName.trim() === ""
     ) {
-      errors.departmentName = "Department Name is required";
+      errors.departmentName = "Department name is required";
     }
 
     if (
@@ -39,7 +39,29 @@ const Departmenmt = () => {
 
     setFormErrors(errors);
 
-    return Object.keys(errors).length === 0; // Return true if there are no errors
+    return Object.keys(errors).length === 0;
+  };
+
+  const validateUpdateForm = () => {
+    const errors = {};
+
+    if (
+      !updatePayload.departmentName ||
+      updatePayload.departmentName.trim() === ""
+    ) {
+      errors.departmentName = "Department name is required";
+    }
+
+    if (
+      !updatePayload.departmentDescription ||
+      updatePayload.departmentDescription.trim() === ""
+    ) {
+      errors.departmentDescription = "Description is required";
+    }
+
+    setFormErrors(errors);
+
+    return Object.keys(errors).length === 0;
   };
 
   const getDepartmentList = async () => {
@@ -174,26 +196,71 @@ const Departmenmt = () => {
     }
   };
 
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    setDepartmentPayload({
+      ...departmentPayload,
+      [id]: value,
+    });
+    setFormErrors({
+      ...formErrors,
+      [id]: "",
+    });
+  };
+  const handleBlur = (event) => {
+    const { id, value } = event.target;
+    const errors = { ...formErrors };
+
+    if (!value) {
+      errors[id] = `This is required`;
+    }
+    setFormErrors(errors);
+  };
+
+  const handleInputChangeUpdate = (event) => {
+    const { id, value } = event.target;
+    setUpdatePayload({
+      ...updatePayload,
+      [id]: value,
+    });
+    setFormErrors({
+      ...formErrors,
+      [id]: "",
+    });
+  };
+  const handleBlurUpdate = (event) => {
+    const { id, value } = event.target;
+    const errors = { ...formErrors };
+
+    if (!value) {
+      errors[id] = `This is required`;
+    }
+    setFormErrors(errors);
+  };
+
   const updateUser = async (e) => {
     e.preventDefault();
 
-    let url = `${apiBaseUrl}updateDepartment`;
-    try {
-      let response = await axios.patch(url, updatePayload);
-      if (response) {
-        if (response.data.message) {
-          setCurrentMode("List");
-          getDepartmentList();
+    const isValid = validateUpdateForm();
+    if (isValid) {
+      let url = `${apiBaseUrl}updateDepartment`;
+      try {
+        let response = await axios.patch(url, updatePayload);
+        if (response) {
+          if (response.data.message) {
+            setCurrentMode("List");
+            getDepartmentList();
+          }
+          setHaveResponse(true);
+          setResponseMsg(response.data);
+          setTimeout(() => {
+            setHaveResponse(false);
+            setResponseMsg({});
+          }, 6000);
         }
-        setHaveResponse(true);
-        setResponseMsg(response.data);
-        setTimeout(() => {
-          setHaveResponse(false);
-          setResponseMsg({});
-        }, 6000);
+      } catch (error) {
+        console.log("error", error);
       }
-    } catch (error) {
-      console.log("error", error);
     }
   };
 
@@ -258,7 +325,11 @@ const Departmenmt = () => {
                           }`}
                           id="departmentName"
                           value={departmentPayload.departmentName}
-                          onChange={(e) => onChangeHandler(e)}
+                          onChange={(e) => {
+                            onChangeHandler(e);
+                            handleInputChange(e);
+                          }}
+                          onBlur={(e) => handleBlur(e)}
                         />
                         {formErrors.departmentName && (
                           <div
@@ -282,7 +353,11 @@ const Departmenmt = () => {
                           }`}
                           id="departmentDescription"
                           value={departmentPayload.departmentDescription}
-                          onChange={(e) => onChangeHandler(e)}
+                          onChange={(e) => {
+                            onChangeHandler(e);
+                            handleInputChange(e);
+                          }}
+                          onBlur={(e) => handleBlur(e)}
                         />
                         {formErrors.departmentDescription && (
                           <div
@@ -336,11 +411,25 @@ const Departmenmt = () => {
                         </label>
                         <input
                           type="text"
-                          className="form-control"
+                          className={`form-control ${
+                            formErrors.departmentName ? "is-invalid" : ""
+                          }`}
                           id="departmentName"
                           value={updatePayload.departmentName}
-                          onChange={(e) => updateChangeHandler(e)}
+                          onChange={(e) => {
+                            updateChangeHandler(e);
+                            handleInputChangeUpdate(e);
+                          }}
+                          onBlur={(e) => handleBlurUpdate(e)}
                         />
+                        {formErrors.departmentName && (
+                          <div
+                            className="invalid-feedback"
+                            style={{ display: "block" }}
+                          >
+                            {formErrors.departmentName}
+                          </div>
+                        )}
                       </div>
                       <div className="mb-3 col-lg-6">
                         <label
@@ -350,11 +439,25 @@ const Departmenmt = () => {
                           Description
                         </label>
                         <textarea
-                          className="form-control"
+                          className={`form-control ${
+                            formErrors.departmentDescription ? "is-invalid" : ""
+                          }`}
                           id="departmentDescription"
                           value={updatePayload.departmentDescription}
-                          onChange={(e) => updateChangeHandler(e)}
+                          onChange={(e) => {
+                            updateChangeHandler(e);
+                            handleInputChangeUpdate(e);
+                          }}
+                          onBlur={(e) => handleBlurUpdate(e)}
                         />
+                        {formErrors.departmentDescription && (
+                          <div
+                            className="invalid-feedback"
+                            style={{ display: "block" }}
+                          >
+                            {formErrors.departmentDescription}
+                          </div>
+                        )}
                       </div>
 
                       <div className="mt-4 col-lg-12">

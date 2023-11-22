@@ -55,6 +55,10 @@ export function DashboardNew({ children }) {
     };
   }, [windowSize]);
 
+  const goToHomePage =()=>{
+    navigate("/");
+  }
+
   return (
     <>
       {/* import navbar */}
@@ -62,13 +66,13 @@ export function DashboardNew({ children }) {
       <header className="dashboard-header">
         <nav className="navbar navbar-expand-lg py-0">
           <div className="container-fluid">
-            <a className="navbar-brand d-flex align-items-center" href="#">
+            <a className="navbar-brand d-flex align-items-center">
               <button type="button" className="me-3 btn d-lg-none d-md-block">
                 <GiHamburgerMenu className="text-white" />
               </button>
-              <img src={Logo} className="img-fluid w-75" />
+              <img src={Logo} className="img-fluid w-75" onClick={goToHomePage}/>
               {/* <img src={Logo} alt='logo' className='img-fluid'/> */}
-              <h1 className="dashboard-title ms-2">
+              <h1 className="dashboard-title ms-2" onClick={goToHomePage}>
                 <span></span>NHO
               </h1>
             </a>
@@ -117,7 +121,7 @@ export function DashboardNew({ children }) {
         <div className="container-fluid ">
           <div className="row">
             <div
-              className={`col-md-1 left-part col-lg-2 px-0 ${mobileView ? "d-none" : ""
+              className={`col-md-1 left-part col-lg-2 px-0 ${mobileView ? "" : ""
                 }`}
             >
               <aside>
