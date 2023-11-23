@@ -7,6 +7,8 @@ import "../../CSS/navyday.css";
 import Logoright from "../../Images/navydaylogo2.png";
 import Logoleft from "../../Images/navydaylogo1.png";
 import Logomain from "../../Images/navydaymain1.jpg";
+import backimg from "../../Images/navydaymain2.jpg"
+
 import Sidepic1 from "../../Images/sidepic1.png";
 import Sidepic2 from "../../Images/sidepic2.png";
 import Sidepic3 from "../../Images/sidepic3.png";
@@ -17,6 +19,24 @@ import { apiBaseUrl } from "../../util.js";
 const PreInvitation = () => {
   const location = useLocation();
   const [userData, setUserData] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 430.98); // Set your preferred mobile width
+      };
+  
+      // Initial check on component mount
+      handleResize();
+  
+      // Event listener for window resize
+      window.addEventListener('resize', handleResize);
+  
+      // Clean up the event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
   useEffect(() => {
     if (location && location.pathname) {
@@ -66,9 +86,17 @@ const PreInvitation = () => {
                   <img src={Logoright} className="img-fluid " />
                 </div>
               </div> */}
-              <div className="navyday-main-pic p-5">
-                <img src={Logomain} className="img-fluid" />
+
+<div className={`${isMobile}?navyday-main-pic:responsive-image`}>
+                <img src={isMobile?backimg:Logomain} className="img-fluid navy-img"/>
               </div>
+            
+            
+              
+
+              {/* <div className="navyday-main-pic p-5">
+                <img src={Logomain} className="img-fluid" />
+              </div> */}
             </div>
             {/* <div className="col-12 px-0">
               <div className="muiltiple-pics ">
@@ -130,7 +158,7 @@ const PreInvitation = () => {
                     </div>
                     <div className="two">
                       <p className="navyday-second-area-card-title f2 fw-bold">
-                        Vice Admiral Adhir Arora, NM
+                        Vice Admiral Adhir Arora, AVSM NM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         Chief Hydrographer to the Government of India
@@ -142,7 +170,7 @@ const PreInvitation = () => {
                         requests the pleasure of the company of
                       </p>
                       <p className="bordered-line text-nowrap">
-                        <b className="guestName">                         
+                        <b className="guestName text-uppercase">                         
                          {userData.guestName} 
                         </b>
                       </p>
@@ -235,7 +263,7 @@ const PreInvitation = () => {
         </div>
       </section>
       {/* --------------second card--------------------- */}
-      <section className="navyday-fifth-area common-alternate-bg navyday-common-padding">
+      {/* <section className="navyday-fifth-area common-alternate-bg navyday-common-padding">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
@@ -281,7 +309,7 @@ const PreInvitation = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="navyday-third-area common-alternate-bg navyday-common-padding d-none">
         <div className="container-fluid">
           <div className="row">
@@ -600,10 +628,63 @@ const PreInvitation = () => {
                 <img src={Map} className="img-fluid" alt="map" />
               </div>
             </div>
-            <div className="col-md-12 ">
+            {/* <div className="col-md-12 ">
               <span className="copyright text-md-end text-center">
                 Conceptualised by{" "}
-                <span className="text-white">CMDE HA Hardas</span>
+                <span className="text-white">Lt Cdr Mohit Verma</span>
+                <br />
+                <span className="footer-hide"> and</span> Design And Developed
+                By{" "}
+                <a
+                  href="https://giksindia.com/"
+                  className="copyright-highlight"
+                  target="_blank"
+                >
+                  GIKS INDIA PVT LTD{" "}
+                </a>
+              </span>
+            </div> */}
+          </div>
+        </div>
+      </section>
+      <section className="navyday-fifth-area common-alternate-bg navyday-common-padding">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="navyday-fifth-area-card flex-column">
+                <div className="entrance-box-wrapper">
+                  <div className="entrance-box">
+                    <p>Please Bring this QR code</p>
+                    <p>at the time of entrance</p>
+                  </div>
+                </div>
+                <div className="entrance-qr text-center">
+                  <div className="one">
+                    <div className="entrance-qr-code-view">
+                      <QRCode
+                        size={256}
+                        style={{
+                          height: "auto",
+                          maxWidth: "100%",
+                          width: "100%",
+                        }}
+                        value={userData && userData.stringToken}
+                         //value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                        //value={`http://localhost:3000/markAttendance/${userData.stringToken}`}
+
+                        viewBox={`0 0 256 256`}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  </div>
+                  <p className="text-request mt-3">*Request to take screenshot of QR code to be shown at the NHO gate.</p>
+                  </div>
+                <div className="col-md-12 ">
+              <span className="copyright text-md-end text-center">
+                Conceptualised by{" "}
+                <span className="text-white">Lt Cdr Mohit Verma</span>
                 <br />
                 <span className="footer-hide"> and</span> Design And Developed
                 By{" "}
@@ -616,8 +697,22 @@ const PreInvitation = () => {
                 </a>
               </span>
             </div>
+              </div>
+            </div>
+            <div className="col-md-12 d-none">
+              <span className="copyright">
+                Design And Developed By{" "}
+                <a
+                  href="https://giksindia.com/"
+                  className="copyright-highlight"
+                  target="_blank"
+                >
+                  GIKS INDIA PVT LTD{" "}
+                </a>
+              </span>
+            </div>
           </div>
-        </div>
+        
       </section>
     </>
   );

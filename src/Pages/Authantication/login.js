@@ -87,17 +87,11 @@ const Login = () => {
                           onChange={(e) => onChangeHandler(e)}
                           {...register("email", {
                             required: true,
-                            pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.com+$/,
                           })}
                         />
                           {errors && errors.email && errors.email.type === "required" && (
                           <p className="text-danger fs-0">This field is required</p>
-                        )}
-                        {errors && errors.email && errors.email.type === "pattern" && (
-                          <p className="text-danger fs-0">
-                            Please enter Valid email Address
-                          </p>
-                        )}
+                        )}                        
                         <div id="userEmail" className="form-text">
                           We'll never share your email with anyone else.
                         </div>
@@ -113,17 +107,12 @@ const Login = () => {
                           onChange={(e) => onChangeHandler(e)}
                           {...register("password", {
                             required: true,
-                            pattern: /^[@#][A-Z a-z 0-9]{7,13}$/,
                           })}
                         />
                         {errors && errors.password && errors.password.type =="required" && (
                           <p className="text-danger">This field is required</p>
                         ) }
-                        {errors && errors.password && errors.password.type === "pattern" && (
-                          <p className="text-danger">
-                            Please enter Valid Password
-                          </p>
-                        )}
+                       
                       </div>
                       <button type="submit" className="btn">
                         Log In

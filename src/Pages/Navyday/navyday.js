@@ -7,7 +7,7 @@ import "../../CSS/navyday.css";
 import Logoright from "../../Images/navydaylogo2.png";
 import Logoleft from "../../Images/navydaylogo1.png";
 import Logomain from "../../Images/navydaymain1.jpg";
-import backimg from "../../Images/Asset 2@4x-100-02-02-02 (1).jpg"
+import backimg from "../../Images/navydaymain2.jpg"
 import Sidepic1 from "../../Images/sidepic1.png";
 import Sidepic2 from "../../Images/sidepic2.png";
 import Sidepic3 from "../../Images/sidepic3.png";
@@ -153,7 +153,7 @@ console.log(userData,"check the userdata");
                     </div>
                     <div className='two'>
                       <p className='navyday-second-area-card-title f2 fw-bold'>
-                        Vice Admiral Adhir Arora, NM
+                        Vice Admiral Adhir Arora, AVSM NM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         Chief Hydrographer to the Government of India
@@ -200,7 +200,7 @@ console.log(userData,"check the userdata");
                         Hon'ble Governor of Uttarakhand
                       </p>
                       <p className="navyday-second-area-card-title f2">
-                        has kindly consented to be the Chief Guest
+                        has Kindly consented to be the Chief Guest
                       </p>
                     </div>
                     <div className='container custom-container'>
@@ -667,7 +667,7 @@ console.log(userData,"check the userdata");
                     </div>
                   </div>
                   <div>
-                  <p className="text-request mt-3">*Request to take screenshot of QR code at the entrance gate of NHO.</p>
+                  <p className="text-request mt-3">*Request to take screenshot of QR code to be shown at the NHO gate.</p>
                   </div>
               </div> 
               <div className='col-md-12 '>
