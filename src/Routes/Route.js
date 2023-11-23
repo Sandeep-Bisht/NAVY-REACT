@@ -14,6 +14,8 @@ import MarkAttendance from "../Pages/Attendance/markAttendance.js";
 import ConfirmedGuest from "../Pages/ConfirmedGuest/confirmedGuest.js";
 import Reports from "../Pages/Reports/index.js";
 import PresentGuest from "../Pages/PresentGuest/presentGuest.js";
+import NavydayList from "../Pages/InvitationLists/navyday.js";
+import PrenavydayList from "../Pages/InvitationLists/prenavyday.js";
 //  import Table from "../Pages/Table/table.js";
 
 const AppRoute = () => {
@@ -38,6 +40,8 @@ const AppRoute = () => {
     },
     { path: "/dashboard/createCategory", element: <CreateCategory /> },
     { path: "/dashboard/Department", element: <Departmenmt /> },
+    { path: "/dashboard/navyDayInvitationList", element: <NavydayList /> },
+    { path: "/dashboard/prenavyDayInvitationList", element: <PrenavydayList /> },
     {
       path: "/navyday/:id",
       element: <Navyday />,

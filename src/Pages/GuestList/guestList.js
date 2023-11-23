@@ -96,6 +96,7 @@ const GuestList = () => {
     if (isValid) {
       let url = `${apiBaseUrl}updateGuest`;
       try {
+        // console.log(guestPayload,'guest payload is this')
         let response = await axios.post(url, guestPayload);
         if (response) {
           if (response.data.message) {
@@ -396,7 +397,6 @@ const GuestList = () => {
     data: tableData,
   };
 
-  console.log("guestPayload", guestPayload);
 
   let downloadGuestData = () => {
     // try {
@@ -659,6 +659,29 @@ const GuestList = () => {
                         {formErrors.guestEmail}
                       </div>
                     )}
+                  </div>
+                  <div className="mb-3 col-lg-6">
+                  <input
+                      type="checkbox"
+                      id="invitedForPreNavyDay"
+                      checked = {guestPayload.invitedForPreNavyDay ? true : false}
+                      onChange={() => {setGuestPayload({...guestPayload,invitedForPreNavyDay:guestPayload.invitedForPreNavyDay ? false : true})}}
+                    />
+                    <label htmlFor="invitedForPreNavyDay" className="form-label">
+                      Invited for Pre Navy Day (03 Dec)
+                    </label>
+                  </div>
+
+                  <div className="mb-3 col-lg-6">
+                  <input
+                      type="checkbox"
+                      id="invitedForNavyDay"
+                      checked = {guestPayload.invitedForNavyDay ? true : false}
+                      onChange={() => {setGuestPayload({...guestPayload,invitedForNavyDay:guestPayload.invitedForNavyDay ? false : true})}}
+                    />
+                    <label htmlFor="invitedForNavyDay" className="form-label">
+                      Invited for Navy Day (04 Dec)
+                    </label>
                   </div>
 
                   <div className="mt-4 col-lg-12">
