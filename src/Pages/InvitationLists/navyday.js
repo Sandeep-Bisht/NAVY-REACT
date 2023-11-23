@@ -156,8 +156,8 @@ const NavydayList = () => {
       getCategoryList();
     }, []);
   
-    const sendReminder = async (reminderData) => {
-      let url = `${apiBaseUrl}sendReminder`;
+    const sendReminderForNavyday = async (reminderData) => {
+      let url = `${apiBaseUrl}sendReminderForNavyday`;
   
       try {
         let response = await axios.post(url, reminderData);
@@ -276,12 +276,12 @@ const NavydayList = () => {
         sortable: false,
       },
       {
-        name: "Confirmation",
+        name: "Confirmation 04-Dec",
         selector: (row) => (
           <button
             type="button"
             className="common-category-btn"
-            onClick={() => sendReminder(row)}
+            onClick={() => sendReminderForNavyday(row)}
             // >{ row && row.invitationStatus == "Invitation Sent" ?
           >
             {row && row.reminderStatus == "Reminder Sent" ? "Resend" : "Send"}
@@ -426,9 +426,9 @@ const NavydayList = () => {
                       Send
                     </button>
                   </div>
-                  <div className="col-md-4">                 
+                  {/* <div className="col-md-4">                 
                     <button className="common-category-btn" onClick={() => downloadGuestData()}  >Download Excel</button>
-                  </div>
+                  </div> */}
                   
                 </div>
               </form>

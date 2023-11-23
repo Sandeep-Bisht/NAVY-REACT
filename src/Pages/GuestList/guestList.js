@@ -169,6 +169,19 @@ const GuestList = () => {
     }
   };
 
+  const sendReminderForNavyDay = async (reminderData) => {
+    let url = `${apiBaseUrl}sendReminderForNavyday`;
+
+    try {
+      let response = await axios.post(url, reminderData);
+      if (response) {
+        getGuestList();
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   const sendInvitation = async (inviteData) => {
     let url = `${apiBaseUrl}sendInvitation`;
     try {
@@ -278,7 +291,7 @@ const GuestList = () => {
         <button
           type="button"
           className="common-category-btn"
-          onClick={() => sendInvitation(row)}
+          onClick={() => sendReminderForNavyDay(row)}
         >
           {row && row.navydayInvitation == "Yes" ? "Resend" : "Send"}
         </button>
@@ -286,7 +299,21 @@ const GuestList = () => {
       sortable: false,
     },
     {
-      name: "Confirmation",
+      name: "Confirmation 03-Dec",
+      selector: (row) => (
+        <button
+          type="button"
+          className="common-category-btn"
+          onClick={() => sendReminder(row)}
+          // >{ row && row.invitationStatus == "Invitation Sent" ?
+        >
+          {row && row.reminderStatus == "Reminder Sent" ? "Resend" : "Send"}
+        </button>
+      ),
+      sortable: false,
+    },
+    {
+      name: "Confirmation 04-Dec",
       selector: (row) => (
         <button
           type="button"
@@ -436,9 +463,9 @@ const GuestList = () => {
                     Send
                   </button>
                 </div>
-                <div className="col-md-4">                 
+                {/* <div className="col-md-4">                 
                   <button className="common-category-btn" onClick={() => downloadGuestData()}  >Download Excel</button>
-                </div>
+                </div> */}
                 
               </div>
             </form>
