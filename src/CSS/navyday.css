@@ -658,10 +658,10 @@
   .navyday-second-area .navyday-second-area-card{
     padding: 10px 15px;
   }
-  .navyday-second-area{
+  /* .navyday-second-area{
     
     min-height:100vh;
-  }
+  } */
 
 }
 @media only screen and (max-width : 464px) {
