@@ -679,7 +679,7 @@ const PreInvitation = () => {
                 </div>
                 <div>
                   </div>
-                  <p className="text-request mt-3">*Request to take screenshot of QR code to be shown at the NHO gate.</p>
+                  <p className="text-request mt-3">*Request to kindly take screenshot of QR code to be shown at NHO gate</p>
                   </div>
                 <div className="col-md-12 ">
               <span className="copyright text-md-end text-center">
