@@ -206,31 +206,14 @@ useEffect(()=>{
       selector: "guestNumber",
       sortable: true,
     }, 
-      {
-      name: "Diwali",
-      selector: (row) => (        
-        <button
-          type="button"
-          className="common-category-btn"
-          onClick={() => sendFestivalWishes(row)}
-        >{ row && row.diwali == "yes" ? 
-        (
-          "Resend"
-          ) : 
-          "Send"
-        }
-        </button>
-      ),
-      sortable: false,
-    }, 
-    // {
-    //   name: "Invite 03-Dec",
+    //   {
+    //   name: "Diwali",
     //   selector: (row) => (        
     //     <button
     //       type="button"
     //       className="common-category-btn"
-    //       onClick={() => sendPreInvitation(row)}
-    //     >{ row && row.preInvitation == "yes" ? 
+    //       onClick={() => sendFestivalWishes(row)}
+    //     >{ row && row.diwali == "yes" ? 
     //     (
     //       "Resend"
     //       ) : 
@@ -240,41 +223,58 @@ useEffect(()=>{
     //   ),
     //   sortable: false,
     // }, 
-    // {
-    //   name: "Invite 04-Dec",
-    //   selector: (row) => (        
-    //     <button
-    //       type="button"
-    //       className="common-category-btn"
-    //       onClick={() => sendInvitation(row)}
-    //     >{ row && row.navydayInvitation == "yes" ? 
-    //     (
-    //       "Resend"
-    //       ) : 
-    //       "Send"
-    //     }
-    //     </button>
-    //   ),
-    //   sortable: false,
-    // },  
-    // {
-    //   name: "Confirmation",
-    //   selector: (row) => (        
-    //     <button
-    //       type="button"
-    //       className="common-category-btn"
-    //       onClick={() => sendReminder(row)}
-    //     // >{ row && row.invitationStatus == "Invitation Sent" ? 
-    //     >{ row && row.reminderStatus == "Reminder Sent" ? 
-    //     (
-    //       "Resend"
-    //       ) : 
-    //       "Send"
-    //     }
-    //     </button>
-    //   ),
-    //   sortable: false,
-    // },
+     {
+      name: "Invite 03-Dec",
+      selector: (row) => (        
+        <button
+          type="button"
+          className="common-category-btn"
+          onClick={() => sendPreInvitation(row)}
+        >{ row && row.preInvitation == "yes" ? 
+        (
+          "Resend"
+          ) : 
+          "Send"
+        }
+        </button>
+      ),
+      sortable: false,
+    }, 
+    {
+      name: "Invite 04-Dec",
+      selector: (row) => (        
+        <button
+          type="button"
+          className="common-category-btn"
+          onClick={() => sendInvitation(row)}
+        >{ row && row.navydayInvitation == "yes" ? 
+        (
+          "Resend"
+          ) : 
+          "Send"
+        }
+        </button>
+      ),
+      sortable: false,
+    },  
+    {
+      name: "Confirmation",
+      selector: (row) => (        
+        <button
+          type="button"
+          className="common-category-btn"
+          onClick={() => sendReminder(row)}
+        // >{ row && row.invitationStatus == "Invitation Sent" ? 
+        >{ row && row.reminderStatus == "Reminder Sent" ? 
+        (
+          "Resend"
+          ) : 
+          "Send"
+        }
+        </button>
+      ),
+      sortable: false,
+    },
     {
       name: "Action",
       selector: (row) => (    
