@@ -496,6 +496,29 @@ export function DashboardNew({ children }) {
                       Present Guest
                     </button>
                   </li> */}
+                  
+                  <li>
+                    <button
+                      className="common-blue btn sidebar-button"
+                      onClick={() => navigate("/dashboard/prenavyDayInvitationList")}
+                    >
+                      <span className="me-2">
+                        <i className="fa-solid fa-user-plus"></i>
+                      </span>
+                      Invitation List 03 Dec
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="common-blue btn sidebar-button"
+                      onClick={() => navigate("/dashboard/navyDayInvitationList")}
+                    >
+                      <span className="me-2">
+                        <i className="fa-solid fa-user-plus"></i>
+                      </span>
+                      Invitation List 04 Dec
+                    </button>
+                  </li>
                 </ul>
               </aside>
             </div>
