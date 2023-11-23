@@ -463,9 +463,9 @@ const GuestList = () => {
                     Send
                   </button>
                 </div>
-                <div className="col-md-4">                 
+                {/* <div className="col-md-4">                 
                   <button className="common-category-btn" onClick={() => downloadGuestData()}  >Download Excel</button>
-                </div>
+                </div> */}
                 
               </div>
             </form>
