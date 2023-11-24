@@ -65,5 +65,16 @@ font-size: 32px!important;
     color:#99abb4;
 }
 
+#cell-2-undefined .dtqzBx div:first-child{
+    white-space: wrap!important;
+}
 
+#cell-2-undefined .krVTia div:first-child
+{
+    white-space: wrap!important;
+}
+.dtqzBx div:first-child
+{
+    white-space: inherit!important;
+}
 /* end card css */

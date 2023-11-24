@@ -115,6 +115,8 @@ const PrenavydayList = () => {
         }
       }
     };
+
+    console.log("prenavy day list", tableData)
   
     const handleInputChange = (event) => {
       const { id, value } = event.target;
@@ -241,12 +243,12 @@ const PrenavydayList = () => {
       },
       {
         name: "Invitation",
-        selector: "invitationStatus",
+        selector: "preInvitationStatus",
         sortable: true,
       },
       {
         name: "Availablity",
-        selector: "availability",
+        selector: "preNavydayAvailability",
         sortable: true,
       },
       {
@@ -268,7 +270,7 @@ const PrenavydayList = () => {
             className="common-category-btn"
             onClick={() => sendPreInvitation(row)}
           >
-            {row && row.preInvitation == "Yes" ? "Resend" : "Send"}
+            {row && row.preInvitationStatus == "Invitation Sent" ? "Resend" : "Send"}
           </button>
         ),
         sortable: false,
@@ -282,7 +284,7 @@ const PrenavydayList = () => {
             onClick={() => sendReminder(row)}
             // >{ row && row.invitationStatus == "Invitation Sent" ?
           >
-            {row && row.reminderStatus == "Reminder Sent" ? "Resend" : "Send"}
+            {row && row.preNavidayReminderStatus == "Reminder Sent" ? "Resend" : "Send"}
           </button>
         ),
         sortable: false,

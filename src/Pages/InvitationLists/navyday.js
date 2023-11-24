@@ -272,7 +272,9 @@ const NavydayList = () => {
       {
         name: "Invitation",
         selector: (row) => (
+        
           // inviteLoader ? <Loader />   :
+         
           <button
             type="button"
             className="common-category-btn"
@@ -327,6 +329,8 @@ const NavydayList = () => {
         sortable: false,
       },
     ];
+
+    console.log("inside row", tableData)
   
     const deleteGuest = (data) => {
       setUserId(data._id);
