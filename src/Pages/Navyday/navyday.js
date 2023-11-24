@@ -345,7 +345,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1640
+                                  1645
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -361,7 +361,15 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1715
+                                  1710
+                                </p>
+                              </div>
+                              <div className="time-duration-right"> - </div>
+                            </div>
+                            <div className="time-duration-wrapper">
+                              <div className="time-duration-left">
+                                <p className="navycard-common-title-content">
+                                  1715 
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -377,7 +385,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1721 से 1722
+                                  1721 से 1723
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -385,7 +393,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1722 से 1725
+                                  1724 से 1740
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -393,7 +401,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1725 से 1740
+                                  1740 से 1746
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -401,7 +409,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1740 से 1743
+                                  1746 से 1816
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -409,15 +417,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1743 से 1813
-                                </p>
-                              </div>
-                              <div className="time-duration-right"> - </div>
-                            </div>
-                            <div className="time-duration-wrapper">
-                              <div className="time-duration-left">
-                                <p className="navycard-common-title-content">
-                                  1813 से 1815
+                                  1816 से 1818
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -439,17 +439,18 @@ console.log(userData,"check the userdata");
                               वरिष्ठ गणमान्यों का आगमन
                             </p>
                             <p className="navycard-common-title-content">
+                            माननीय मुख्यमंत्री जी का आगमन
+                            </p>
+                            <p className="navycard-common-title-content">
                               मुख्य अतिथि का आगमन
                             </p>
                             <p className="navycard-common-title-content">
                               सूर्यास्त समारोह
                             </p>
                             <p className="navycard-common-title-content">
-                            वेब पेज का विमोचन (भारतीय चेतावनी सूचना और नौचालन सेवाएं)
+                              द्विभाषी चार्ट का विमोचन
                             </p>
-                            <p className="navycard-common-title-content">
-                            समुद्री सूचना चार्ट का उद्घाटन
-                            </p>
+                            
                             <p className="navycard-common-title-content">
                               प्रदर्शनी का अवलोकन
                             </p>
@@ -513,7 +514,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1721 to 1722
+                                  1721 to 1723
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -521,7 +522,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1722 to 1725
+                                  1724 to 1740
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -529,7 +530,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1725 to 1740
+                                  1740 to 1746
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -537,7 +538,7 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1740 to 1743
+                                  1746 to 1816
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -545,19 +546,19 @@ console.log(userData,"check the userdata");
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1743 to 1813
+                                 1816 to 1818
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
                             </div>
-                            <div className="time-duration-wrapper">
+                            {/* <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1813 to 1815
+                                  1818 to 1815
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
-                            </div>
+                            </div> */}
 
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">--</div>
@@ -581,12 +582,9 @@ console.log(userData,"check the userdata");
                               Sunset Ceremony
                             </p>
                             <p className="navycard-common-title-content">
-                            Release of Web Page (Indian Warning Information & Navigation
-                             Services)
+                            Release of Bilingual Charts
                             </p>
-                            <p className="navycard-common-title-content">
-                            Inauguration of Maritime Information Chart
-                            </p>
+                            
                             <p className="navycard-common-title-content">
                               Viewing of Exhibits
                             </p>
