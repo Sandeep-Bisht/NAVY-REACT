@@ -202,7 +202,7 @@ const PreInvitation = () => {
                         Hon'ble Governor of Uttarakhand
                       </p>
                       <p className="navyday-second-area-card-title f2 d-none">
-                        has Kindly consented to be the Chief Guest
+                        has kindly consented to be the Chief Guest
                       </p>
                     </div>
                     <div className="container custom-container">
@@ -310,7 +310,7 @@ const PreInvitation = () => {
           </div>
         </div>
       </section> */}
-      <section className="navyday-third-area common-alternate-bg navyday-common-padding d-none">
+      <section className="navyday-third-area common-alternate-bg navyday-common-padding">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
@@ -346,7 +346,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1640
+                                  1530
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -354,7 +354,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1655
+                                  1535
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -362,7 +362,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1715
+                                  1535-1540
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -370,7 +370,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1716 से 1720
+                                  1540-1545
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -378,7 +378,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1721 से 1722
+                                  1545-1550
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -386,7 +386,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1722 से 1725
+                                  1550-1605
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -394,7 +394,8 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1725 से 1740
+                                1605-1620
+
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -402,7 +403,8 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1740 से 1743
+                                1620-1630
+
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -410,7 +412,7 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1743 से 1813
+                                1630
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
@@ -418,14 +420,18 @@ const PreInvitation = () => {
                             <div className="time-duration-wrapper">
                               <div className="time-duration-left">
                                 <p className="navycard-common-title-content">
-                                  1813 से 1815
+                                1655
                                 </p>
                               </div>
                               <div className="time-duration-right"> - </div>
                             </div>
 
                             <div className="time-duration-wrapper">
-                              <div className="time-duration-left">--</div>
+                              <div className="time-duration-left">
+                              <p className="navycard-common-title-content">
+                              1700
+                                </p>
+                              </div>
                               <div className="time-duration-right"> - </div>
                             </div>
                           </div>
@@ -434,44 +440,46 @@ const PreInvitation = () => {
                               कार्यक्रम
                             </h2>
                             <p className="navycard-common-title-content">
-                              अतिथियों का आगमन
+                            सभी अतिथि कार्यक्रम स्थल पर पहुंचे
+
                             </p>
                             <p className="navycard-common-title-content">
-                              वरिष्ठ गणमान्यों का आगमन
+                            चीफ हाइड्रोग्राफर का आगमन 
+
                             </p>
                             <p className="navycard-common-title-content">
-                              मुख्य अतिथि का आगमन
+                            स्वागत भाषण
                             </p>
                             <p className="navycard-common-title-content">
-                              सूर्यास्त समारोह
+                            कविता
                             </p>
                             <p className="navycard-common-title-content">
-                            वेब पेज का विमोचन (भारतीय चेतावनी सूचना और नौचालन सेवाएं)
+                            भारतीय नौसेना पर लघु फिल्म और फोटो प्रदर्शन
                             </p>
                             <p className="navycard-common-title-content">
-                            समुद्री सूचना चार्ट का उद्घाटन
+                            देशभक्ति गीत/समूह गीत
                             </p>
                             <p className="navycard-common-title-content">
-                              प्रदर्शनी का अवलोकन
+                            बैंड बजाना
                             </p>
                             <p className="navycard-common-title-content">
-                              नौसेना पर फिल्म (1971 के युध्द पर आधारित)
+                            चीफ हाइड्रोग्राफर का संबोधन
                             </p>
                             <p className="navycard-common-title-content">
-                              जलपान
+                            चाय 
                             </p>
                             <p className="navycard-common-title-content">
-                              स्मृति चिन्ह भेंट
+                            चीफ हाइड्रोग्राफर प्रस्थान
                             </p>
                             <p className="navycard-common-title-content">
-                              मुख्य अतिथि का प्रस्थान (सुविधानुसार)
+                            अतिथि प्रस्थान
                             </p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  {/* <div className="col-md-6">
                     <div className="row">
                       <div className="col-md-12">
                         <div className="navyday-third-area-card-wrapper second">
@@ -607,7 +615,7 @@ const PreInvitation = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -679,7 +687,7 @@ const PreInvitation = () => {
                 </div>
                 <div>
                   </div>
-                  <p className="text-request mt-3">*Request to kindly take screenshot of QR code to be shown at NHO gate</p>
+                  <p className="text-request mt-3">*Request to take screenshot of QR code to be shown at the NHO gate.</p>
                   </div>
                 <div className="col-md-12 ">
               <span className="copyright text-md-end text-center">
