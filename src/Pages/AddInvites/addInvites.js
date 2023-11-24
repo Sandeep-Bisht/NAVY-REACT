@@ -9,6 +9,8 @@ import { DashboardNew } from "../../Component/Dashboard";
 const AddInvites = () => {
   let [guestInfo, setGuestInfo] = useState({
     invitationStatus: "null",
+    preInvitationStatus: "null",
+    preNavydayAvailability:"null",
     availability: "null",
     reminderStatus: "null",
     attendentDate: [],
@@ -325,6 +327,7 @@ const AddInvites = () => {
                       onChange={(e) => onChangeHandler(e)}
                     />
                   </div>
+                  
                   <div className="mt-4 col-lg-12">
                     <button type="submit" className="btn common-form-btn">
                       Submit
