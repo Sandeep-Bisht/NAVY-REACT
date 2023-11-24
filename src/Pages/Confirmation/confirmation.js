@@ -133,7 +133,7 @@ const Confirmation = () => {
           } */}
         </div>
         <div>
-        <span className='copyright  text-center'>Conceptualised by <span className="text-white">CMDE HA Hardas</span><br/> 
+        <span className='copyright  text-center'>Conceptualised by <span className="text-white">Lt Cdr Mohit Verma</span><br/> 
               <span className="footer-hide"> and</span> Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
               </div>
         

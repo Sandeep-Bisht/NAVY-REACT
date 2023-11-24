@@ -8,8 +8,11 @@ import "../../CSS/form.css";
 import { AiTwotoneDelete, AiFillEdit } from "react-icons/ai";
 import { DashboardNew } from "../../Component/Dashboard/index.js";
 import { apiBaseUrl } from "../../util.js";
+import Loader from "../../Component/Dashboard/Loader.js";
 
 const NavydayList = () => {
+  // const [isLoading, setIsLoading] = useState(true)
+  // const [inviteLoader, setInviteLoader] = useState(false)
     const [tableData, setTableData] = useState([]);
     const [inviteeType, setInviteeType] = useState("");
     const [departments, setDepartments] = useState([]);
@@ -162,7 +165,7 @@ const NavydayList = () => {
       try {
         let response = await axios.post(url, reminderData);
         if (response) {
-          getGuestList();
+          getGuestList();          
         }
       } catch (error) {
         console.log("error", error);
@@ -170,11 +173,14 @@ const NavydayList = () => {
     };
   
     const sendInvitation = async (inviteData) => {
+      // setInviteLoader(true)
       let url = `${apiBaseUrl}sendInvitation`;
       try {
         let response = await axios.post(url, inviteData);
         if (response) {
+          // setInviteLoader(false)
           getGuestList();
+          
         }
       } catch (error) {
         console.log("error", error);
@@ -224,6 +230,7 @@ const NavydayList = () => {
             let updatedData = response.data.filter((item) => (item.invitedForNavyDay == true))
             // console.log(response.data,'guest list data');
           setTableData(updatedData);
+          // setIsLoading(false)
         }
       } catch (error) {
         console.log("error", error);
@@ -265,6 +272,7 @@ const NavydayList = () => {
       {
         name: "Invitation",
         selector: (row) => (
+          // inviteLoader ? <Loader />   :
           <button
             type="button"
             className="common-category-btn"
@@ -272,7 +280,11 @@ const NavydayList = () => {
           >
             {row && row.navydayInvitation == "Yes" ? "Resend" : "Send"}
           </button>
+          
+          
+         
         ),
+        
         sortable: false,
       },
       {
@@ -382,6 +394,8 @@ const NavydayList = () => {
     return (
       <>
         <DashboardNew>
+        {/* {isLoading ? <Loader /> : */}
+        <>
           <div className="row">
             <div className="col-md-12">
               <h4 className="fw-bold text-center mb-4">Guest List</h4>
@@ -708,6 +722,8 @@ const NavydayList = () => {
             </div>
           </div>
           {/* end model */}
+          </>
+            {/* } */}
         </DashboardNew>
       </>
     );

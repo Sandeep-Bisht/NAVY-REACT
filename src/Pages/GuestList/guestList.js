@@ -8,8 +8,10 @@ import "../../CSS/form.css";
 import { AiTwotoneDelete, AiFillEdit } from "react-icons/ai";
 import { DashboardNew } from "../../Component/Dashboard/index.js";
 import { apiBaseUrl } from "../../util.js";
+import Loader from "../../Component/Dashboard/Loader.js";
 
 const GuestList = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const [tableData, setTableData] = useState([]);
   const [inviteeType, setInviteeType] = useState("");
   const [departments, setDepartments] = useState([]);
@@ -234,6 +236,7 @@ const GuestList = () => {
       let response = await axios.get(url);
       if (response && response.data) {
         setTableData(response.data);
+        // setIsLoading(false)
       }
     } catch (error) {
       console.log("error", error);
@@ -419,6 +422,9 @@ const GuestList = () => {
   return (
     <>
       <DashboardNew>
+        {/* {isLoading ? <Loader /> : */}
+        {/* <> */}
+      
         <div className="row">
           <div className="col-md-12">
             <h4 className="fw-bold text-center mb-4">Guest List</h4>
@@ -745,6 +751,8 @@ const GuestList = () => {
           </div>
         </div>
         {/* end model */}
+        {/* </>
+} */}
       </DashboardNew>
     </>
   );
