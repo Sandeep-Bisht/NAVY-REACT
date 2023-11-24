@@ -185,25 +185,16 @@ const PreInvitation = () => {
                       <p className="navyday-second-area-card-title f2  text-nowrap">
                         for{" "}
                         <span className="highlight-one">
-                          " At Home function"
+                          " At Home function with Veterans"
                         </span>{" "}
                         on{" "}
-                        <span className="highlight-one text-nowrap">04 Dec 2023</span> at
-                        4:45 PM
+                        <span className="highlight-one text-nowrap">03 Dec 2023</span> at
+                        3:30 PM
                       </p>
                       <p className="navyday-second-area-card-title f2">
                         at National Hydrographic Office, 107-A Rajpur Road,
                         Dehradun
-                      </p>
-                      <p className="highlight-second d-none">
-                        Lt Gen Gurmit Singh, PVSM, UYSM, AVSM, VSM (Retd)
-                      </p>
-                      <p className="navyday-second-area-card-title f2 d-none">
-                        Hon'ble Governor of Uttarakhand
-                      </p>
-                      <p className="navyday-second-area-card-title f2 d-none">
-                        has kindly consented to be the Chief Guest
-                      </p>
+                      </p>                     
                     </div>
                     <div className="container custom-container">
                       <div className="row">
