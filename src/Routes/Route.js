@@ -16,6 +16,7 @@ import Reports from "../Pages/Reports/index.js";
 import PresentGuest from "../Pages/PresentGuest/presentGuest.js";
 import NavydayList from "../Pages/InvitationLists/navyday.js";
 import PrenavydayList from "../Pages/InvitationLists/prenavyday.js";
+import PreNavydayConfirmation from "../Pages/Confirmation/preNavydayConfirmation.js";
 //  import Table from "../Pages/Table/table.js";
 
 const AppRoute = () => {
@@ -23,6 +24,7 @@ const AppRoute = () => {
     { path: "/", element: <Login /> },
     { path: "/*", element:<Login />},
     { path: "/confirmation/:id", element: <Confirmation /> },
+    { path: "/preNavydayConfirmation/:id", element: <PreNavydayConfirmation /> },    
     // { path: "/markAttendance/:id", element: <MarkAttendance /> },
     { path: "/markAttendance", element: <MarkAttendance /> },
     { path: "/dashboard", element: <Dashboard /> },
