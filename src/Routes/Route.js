@@ -24,7 +24,7 @@ const AppRoute = () => {
     { path: "/", element: <Login /> },
     { path: "/*", element:<Login />},
     { path: "/confirmation/:id", element: <Confirmation /> },
-    { path: "/preNavydayConfirmation/:id", element: <PreNavydayConfirmation /> },    
+    { path: "/pndConfirmation/:id", element: <PreNavydayConfirmation /> },    
     // { path: "/markAttendance/:id", element: <MarkAttendance /> },
     { path: "/markAttendance", element: <MarkAttendance /> },
     { path: "/dashboard", element: <Dashboard /> },
