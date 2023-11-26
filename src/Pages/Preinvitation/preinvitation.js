@@ -214,7 +214,7 @@ const PreInvitation = () => {
                                   <p className="general-info">Admit</p>
                                 </div>
                                 <div className="right">
-                                  <p className="general-info">: Two</p>
+                                  <p className="general-info">: One</p>
                                 </div>
                               </div>
                               <div className="general-info-wrapper">
