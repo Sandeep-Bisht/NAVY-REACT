@@ -18,25 +18,37 @@ const MarkAttendance = () => {
   const [guestList, setGuestList] = useState([]);
   const [userName, setUserName] = useState();
   const stringTokenRef = React.useRef(null);
-  const [invitationDate, setInvitationDate] = useState('');
+  const [invitationDate, setInvitationDate] = useState("");
+
+  console.log("locationnnn", location.pathname)
 
   useEffect(() => {
-    getGuestList();  
-    stringTokenRef.current.focus();  
+    getGuestList();
+    stringTokenRef.current.focus();    
   }, []);
 
+  console.log("user data", userData);
 
   const getGuestList = async () => {
     let url = `${apiBaseUrl}getGuestList`;
     try {
       let response = await axios.get(url);
-      if (response && response.data) {
-        setGuestList(response.data);       
+      if (response) {
+        console.log("inide get guest list", response.data);
+        setGuestList(response.data);
+        const string = getString(location.pathname);
+        console.log("stringggggggggggg", string)
       }
     } catch (error) {
       console.log("error", error);
     }
   };
+
+  const getString = (pathname) => {
+    let newArray = pathname.split("/");
+    let stringToken = newArray.pop();
+    return stringToken;
+  }
 
   const getPathName = (pathname) => {
     let newArray = pathname.split("/");
@@ -45,36 +57,37 @@ const MarkAttendance = () => {
   };
 
   const verifyGuest = (stringToken, id) => {
-    let userDataCopy = {...userData}
+    let userDataCopy = { ...userData };
     userDataCopy[id] = stringToken;
 
-    if(guestList && guestList.length > 0) {
-
-      let usersData = guestList.find((item,index) => item.stringToken == stringToken)
-
-      if(usersData){
-        if(usersData.navydayInvitation == 'Yes'){
-          setInvitationDate('04-Dec-2022')
+    if (guestList && guestList.length > 0) {
+      let usersData = guestList.find(
+        (item, index) => item.stringToken == stringToken
+      );
+      console.log("check user data afetr match", userData);
+      if (usersData) {
+        if (usersData.navydayInvitation == "Yes") {
+          setInvitationDate("04-Dec-2022");
         }
 
-        userDataCopy.guestName = usersData.guestName
-        userDataCopy.guestId = usersData._id
-        userDataCopy.inviteNo = usersData.inviteNo
-        userDataCopy.guestDesignation = usersData.guestDesignation
-        userDataCopy.guestNumber = usersData.guestNumber
-        userDataCopy.guestCategory = usersData.guestCategory
-        userDataCopy.guestDepartment = usersData.guestDepartment
+        userDataCopy.guestName = usersData.guestName;
+        userDataCopy.guestId = usersData._id;
+        userDataCopy.inviteNo = usersData.inviteNo;
+        userDataCopy.guestDesignation = usersData.guestDesignation;
+        userDataCopy.guestNumber = usersData.guestNumber;
+        userDataCopy.guestCategory = usersData.guestCategory;
+        userDataCopy.guestDepartment = usersData.guestDepartment;
         // userDataCopy.attendentDate = new Date().toLocaleDateString();
-        userDataCopy.attendentDate = "12/4/2022"
-
-        setUserName(usersData.guestName)
-      }      
+        userDataCopy.attendentDate = "12/4/2022";
+        console.log(userData, "user datat ka  data");
+        setUserName(usersData.guestName);
+      }
     }
 
-    setUserData(userDataCopy)
+    setUserData(userDataCopy);
+  };
 
-  }
-
+  console.log("user name", userName);
 
   const onChangeHandler = (e) => {
     verifyGuest(getPathName(e.target.value), e.target.id);
@@ -84,39 +97,38 @@ const MarkAttendance = () => {
     // console.log(userData, 'user data is this')
     handleAttendance(userData);
   };
-  
 
   const handleAttendance = async (userData) => {
     let url = `${apiBaseUrl}markAttendance`;
     try {
       let response = await axios.post(url, userData);
       // let fields = document.getElementById("stringToken");
-      // fields.innerHTML = ""      
+      // fields.innerHTML = ""
       if (response) {
         document.getElementById("create-course-form").reset();
         stringTokenRef.current.focus();
         if (response.status == 200) {
           let res = response.data;
           setConfirmationMsg(res.message);
-          setErrorMsg(null)
-          setTimeout(()=>{
+          setErrorMsg(null);
+          setTimeout(() => {
             setConfirmationMsg(null);
             setUserName();
-            setInvitationDate('');
-            setUserData(false)
-          }, 2000)
+            setInvitationDate("");
+            setUserData(false);
+          }, 2000);
         }
       }
     } catch (error) {
       // document.getElementById("create-course-form").reset();
       // let fields = document.getElementById("stringToken");
-      // fields.innerHTML = ""    
+      // fields.innerHTML = ""
       console.log("error", error.response.data.message);
       setErrorMsg(error.response.data.message);
       setConfirmationMsg(null);
-      setTimeout(()=>{
+      setTimeout(() => {
         setErrorMsg(null);
-      }, 2000)
+      }, 2000);
     }
   };
 
@@ -145,7 +157,7 @@ const MarkAttendance = () => {
                       userData.navydayInvitation == "Yes" &&
                       "04 December 2022"} */}
 
-                      {invitationDate}
+                    {invitationDate}
                   </p>
                 </div>
                 <div className="three">
@@ -165,7 +177,7 @@ const MarkAttendance = () => {
           <div className="toggle-input-box">
             <div className="left">
               <form
-              id="create-course-form"
+                id="create-course-form"
                 className="justify-content-center aign-items-center"
               >
                 <input
@@ -197,7 +209,7 @@ const MarkAttendance = () => {
                   className="form-control me-2"
                   id="stringToken"
                   ref={stringTokenRef}
-                  // ref={textInput}                  
+                  // ref={textInput}
                   onChange={(e) => onChangeHandler(e)}
                   value={userData.stringToken}
                   //value={}
@@ -207,12 +219,16 @@ const MarkAttendance = () => {
                   type="password"
                   className="form-control me-2"
                   id="adminPassword"
-                  //ref={textInput}                  
+                  //ref={textInput}
                   onChange={(e) => onChangeHandler(e)}
                   placeholder="Enter Code"
                 />
 
-                <button type="button" className="btn common-form-btn" onClick={()=>markAttendanceSubmit()}>
+                <button
+                  type="button"
+                  className="btn common-form-btn"
+                  onClick={() => markAttendanceSubmit()}
+                >
                   <BsArrowRight />
                 </button>
               </form>

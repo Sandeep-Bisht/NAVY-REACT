@@ -656,8 +656,8 @@ console.log(userData,"check the userdata");
                             maxWidth: "100%",
                             width: "100%",
                           }}
-                          value={userData && userData.stringToken}
-                          //value={`http://inho.in/markAttendance/${userData.stringToken}`}
+                          //value={userData && userData.stringToken}
+                          value={`http://inho.in/markAttendance/${userData.stringToken}`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
@@ -673,9 +673,7 @@ console.log(userData,"check the userdata");
               <span className="footer-hide"> and</span> Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
             </div> 
             </div>
-            <div className='col-md-12 d-none'>
-              <span className='copyright'>Design And Developed By <a href='https://giksindia.com/' className='copyright-highlight' target="_blank">GIKS INDIA PVT LTD </a></span>
-            </div>
+           
           </div>
         </div>
       </section>
