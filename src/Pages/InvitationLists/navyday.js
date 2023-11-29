@@ -10,6 +10,8 @@ import { DashboardNew } from "../../Component/Dashboard/index.js";
 import { apiBaseUrl } from "../../util.js";
 import Loader from "../../Component/Dashboard/Loader.js";
 
+import ExcelExportButton from "../../Component/Dashboard/excelExportButton.js";
+
 const NavydayList = () => {
   // const [isLoading, setIsLoading] = useState(true)
   // const [inviteLoader, setInviteLoader] = useState(false)
@@ -31,6 +33,8 @@ const NavydayList = () => {
       guestOfficeNumber: "",
       guestEmail: "",
     });
+
+    
   
     const validateForm = () => {
       const errors = {};
@@ -377,23 +381,23 @@ const NavydayList = () => {
     };
   
   
-    let downloadGuestData = () => {
-      // try {
-      //    axios({
-      //     url: `${baseUrl}downloadexcel`,
-      //     method: 'GET',
-      //     responseType: 'blob',
-      //   }).then((response) => {
-      //     const url = window.URL.createObjectURL(new Blob([response.data]));
-      //     const link = document.createElement('a');
-      //     link.href = url;
-      //     link.setAttribute('download', 'registreduser.xlsx');
-      //     document.body.appendChild(link);
-      //     link.click();
-      //   });
-      // } catch (error) {
-      // }
-    }
+    // let downloadGuestData = () => {
+    //   try {
+    //      axios({
+    //       url: `${apiBaseUrl}downloadGuestData`,
+    //       method: 'GET',
+    //       responseType: 'blob',
+    //     }).then((response) => {
+    //       const url = window.URL.createObjectURL(new Blob([response.data]));
+    //       const link = document.createElement('a');
+    //       link.href = url;
+    //       link.setAttribute('download', 'registreduser.xlsx');
+    //       document.body.appendChild(link);
+    //       link.click();
+    //     });
+    //   } catch (error) {
+    //   }
+    // }
   
     return (
       <>
@@ -421,6 +425,8 @@ const NavydayList = () => {
   
           {currentMode == "List" && (
             <>
+            <div className="row">
+            <div className="col-md-8">
               <form onSubmit={(e) => sendToAll(e)}>
                 <div className="row mb-5">
                   <div className="col-md-4">
@@ -443,13 +449,15 @@ const NavydayList = () => {
                     <button className="common-category-btn" type="submit">
                       Send
                     </button>
-                  </div>
-                  {/* <div className="col-md-4">                 
-                    <button className="common-category-btn" onClick={() => downloadGuestData()}  >Download Excel</button>
-                  </div> */}
+                  </div>                 
                   
                 </div>
               </form>
+              </div>
+              <div className="col-md-4">
+              <ExcelExportButton data={tableData} />
+              </div>
+              </div>
               <div className="main-table">
                 {tableData.length > 0 ? (
                   <DataTableExtensions {...extentionData}>

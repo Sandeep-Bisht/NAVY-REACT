@@ -8,6 +8,7 @@ import "../../CSS/form.css";
 import { AiTwotoneDelete, AiFillEdit } from "react-icons/ai";
 import { DashboardNew } from "../../Component/Dashboard/index.js";
 import { apiBaseUrl } from "../../util.js";
+import ExcelExportButton from "../../Component/Dashboard/excelExportButton.js";
 
 const PrenavydayList = () => {
     const [tableData, setTableData] = useState([]);
@@ -361,24 +362,6 @@ const PrenavydayList = () => {
     };
   
   
-    let downloadGuestData = () => {
-      // try {
-      //    axios({
-      //     url: `${baseUrl}downloadexcel`,
-      //     method: 'GET',
-      //     responseType: 'blob',
-      //   }).then((response) => {
-      //     const url = window.URL.createObjectURL(new Blob([response.data]));
-      //     const link = document.createElement('a');
-      //     link.href = url;
-      //     link.setAttribute('download', 'registreduser.xlsx');
-      //     document.body.appendChild(link);
-      //     link.click();
-      //   });
-      // } catch (error) {
-      // }
-    }
-  
     return (
       <>
         <DashboardNew>
@@ -426,9 +409,9 @@ const PrenavydayList = () => {
                       Send
                     </button>
                   </div>
-                  {/* <div className="col-md-4">                 
-                    <button className="common-category-btn" onClick={() => downloadGuestData()}  >Download Excel</button>
-                  </div> */}
+                  <div className="col-md-4">
+              <ExcelExportButton data={tableData} />
+              </div>
                   
                 </div>
               </form>

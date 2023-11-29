@@ -6,6 +6,7 @@ import "react-data-table-component-extensions/dist/index.css";
 import { apiBaseUrl } from "../../util.js";
 import { useParams } from "react-router-dom";
 import { DashboardNew } from "../../Component/Dashboard";
+import ExcelExportButton from "../../Component/Dashboard/excelExportButton.js";
 
 const ConfirmedGuest = () => {
   const param = useParams();
@@ -28,16 +29,16 @@ const ConfirmedGuest = () => {
         selector: "guestName",
         sortable: true,
       },
-      {
-        name: "Invitation",
-        selector: "invitationStatus",
-        sortable: true,
-      },
-      {
-        name: "Availablity",
-        selector: "availability",
-        sortable: true,
-      },
+      // {
+      //   name: "Invitation",
+      //   selector: "invitationStatus",
+      //   sortable: true,
+      // },
+      // {
+      //   name: "Availablity",
+      //   selector: "availability",
+      //   sortable: true,
+      // },
       {
         name: "Mobile No",
         selector: "guestNumber",
@@ -114,6 +115,9 @@ const ConfirmedGuest = () => {
           <div className="col-md-12">
             <h4 className="fw-bold text-center mb-4">Confirmed Guest List - {totalCount && totalCount}</h4>
           </div>
+          <div className="col-md-4 mb-3">
+              <ExcelExportButton data={tableData} />
+              </div>
         </div>
       <div className="main-table">
         {tableData.length > 0 ? (
