@@ -13,6 +13,8 @@ const ConfirmedGuest = () => {
   const [tableData, setTableData] = useState([]);
   const [totalCount, setTotalCount] = useState()
   const [columns,setColumns] = useState([]);
+  const [filterData, setfilterData] = useState([])
+
 
 
   useEffect(() => {
@@ -96,6 +98,27 @@ const ConfirmedGuest = () => {
       if (response && response.data.guestList) {
         setTableData(response.data.guestList);
         setTotalCount(response.data.guestList.length)
+        console.log("response.data.guestList ", response.data.guestList)
+        const limitedFieldArray = response.data.guestList.map((item, index) => {
+          // Create a new object to store the limited fields
+          let limitedFieldsObj = {};
+
+  limitedFieldsObj.InviteNo = item.inviteNo; 
+  limitedFieldsObj.GuestName = item.guestName; 
+  limitedFieldsObj.GuestNumber = item.guestNumber; 
+  if (item.navydayInvitation == "Yes"){
+    limitedFieldsObj.Availability = item.availability
+  }else{
+    limitedFieldsObj.PreNavydayAvailability = item.preNavydayAvailability
+  }
+
+  
+
+  // Return the new object with limited fields
+  return limitedFieldsObj;
+  
+});
+setfilterData(limitedFieldArray)
       }
     } catch (error) {
       console.log("error", error);
@@ -116,7 +139,7 @@ const ConfirmedGuest = () => {
             <h4 className="fw-bold text-center mb-4">Confirmed Guest List - {totalCount && totalCount}</h4>
           </div>
           <div className="col-md-4 mb-3">
-              <ExcelExportButton data={tableData} />
+              <ExcelExportButton data={filterData} />
               </div>
         </div>
       <div className="main-table">
