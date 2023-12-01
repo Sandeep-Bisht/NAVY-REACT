@@ -16,7 +16,6 @@ const PresentGuest = () => {
 
   useEffect(() => {
     getPresentGuestList(param.date);
-    console.log("paramass", param)
 
     let staticColumns = [
       {

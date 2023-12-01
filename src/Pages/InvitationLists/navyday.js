@@ -103,7 +103,6 @@ const NavydayList = () => {
       if (isValid) {
         let url = `${apiBaseUrl}updateGuest`;
         try {
-          // console.log(guestPayload,'guest payload is this')
           let response = await axios.post(url, guestPayload);
           if (response) {
             if (response.data.message) {
@@ -214,7 +213,6 @@ const NavydayList = () => {
       try {
         let response = await axios.post(url, payload);
         if (response) {
-          console.log("invitation response", response);
         }
       } catch (error) {
         console.log("error", error);
@@ -230,9 +228,7 @@ const NavydayList = () => {
       try {
         let response = await axios.get(url);
         if (response && response.data) {
-            console.log(response.data,'data for navy day')
             let updatedData = response.data.filter((item) => (item.invitedForNavyDay == true))
-            // console.log(response.data,'guest list data');
           setTableData(updatedData);
           // setIsLoading(false)
         }
@@ -258,7 +254,7 @@ const NavydayList = () => {
         sortable: true,
       },
       {
-        name: "Availablity",
+        name: "Confirmation",
         selector: "availability",
         sortable: true,
       },
@@ -334,7 +330,6 @@ const NavydayList = () => {
       },
     ];
 
-    console.log("inside row", tableData)
   
     const deleteGuest = (data) => {
       setUserId(data._id);
@@ -381,23 +376,6 @@ const NavydayList = () => {
     };
   
   
-    // let downloadGuestData = () => {
-    //   try {
-    //      axios({
-    //       url: `${apiBaseUrl}downloadGuestData`,
-    //       method: 'GET',
-    //       responseType: 'blob',
-    //     }).then((response) => {
-    //       const url = window.URL.createObjectURL(new Blob([response.data]));
-    //       const link = document.createElement('a');
-    //       link.href = url;
-    //       link.setAttribute('download', 'registreduser.xlsx');
-    //       document.body.appendChild(link);
-    //       link.click();
-    //     });
-    //   } catch (error) {
-    //   }
-    // }
   
     return (
       <>

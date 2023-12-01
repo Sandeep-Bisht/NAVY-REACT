@@ -35,7 +35,6 @@ const Login = () => {
   };
 
   const handleLogin = async (data) => {
-    console.log(data)
     const payload=  {
       useremail:data.email,
       password:data.password
@@ -45,7 +44,6 @@ const Login = () => {
       let response = await axios.post(url, payload);
       if (response) {
         if(response.status == 200 && response.data.token){
-          console.log(response.data, "response.data response.data")
           localStorage.setItem("token", response.data.token);
           navigate("/dashboard")
         }

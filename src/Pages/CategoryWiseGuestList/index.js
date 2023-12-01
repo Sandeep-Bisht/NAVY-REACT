@@ -151,7 +151,6 @@ useEffect(()=>{
     try {
       let response = await axios.post(url, payload);
       if (response) {
-        // console.log("invitation response", response);
       }
     } catch (error) {
       console.log("error", error);
@@ -307,7 +306,6 @@ useEffect(()=>{
   }
 
   const confirmDeleteGuest = async()=>{
-    // console.log(userId,'confirm')
     
 
     let url = `${apiBaseUrl}deleteGuest`;

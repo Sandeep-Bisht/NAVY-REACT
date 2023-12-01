@@ -20,24 +20,20 @@ const MarkAttendance = () => {
   const stringTokenRef = React.useRef(null);
   const [invitationDate, setInvitationDate] = useState("");
 
-  console.log("locationnnn", location.pathname)
 
   useEffect(() => {
     getGuestList();
     stringTokenRef.current.focus();    
   }, []);
 
-  console.log("user data", userData);
 
   const getGuestList = async () => {
     let url = `${apiBaseUrl}getGuestList`;
     try {
       let response = await axios.get(url);
       if (response) {
-        console.log("inide get guest list", response.data);
         setGuestList(response.data);
         const string = getString(location.pathname);
-        console.log("stringggggggggggg", string)
       }
     } catch (error) {
       console.log("error", error);
@@ -64,10 +60,9 @@ const MarkAttendance = () => {
       let usersData = guestList.find(
         (item, index) => item.stringToken == stringToken
       );
-      console.log("check user data afetr match", userData);
       if (usersData) {
         if (usersData.navydayInvitation == "Yes") {
-          setInvitationDate("04-Dec-2022");
+          setInvitationDate("04-Dec-2023");
         }
 
         userDataCopy.guestName = usersData.guestName;
@@ -78,8 +73,7 @@ const MarkAttendance = () => {
         userDataCopy.guestCategory = usersData.guestCategory;
         userDataCopy.guestDepartment = usersData.guestDepartment;
         // userDataCopy.attendentDate = new Date().toLocaleDateString();
-        userDataCopy.attendentDate = "12/4/2022";
-        console.log(userData, "user datat ka  data");
+        userDataCopy.attendentDate = "12/4/2023";
         setUserName(usersData.guestName);
       }
     }
@@ -87,7 +81,6 @@ const MarkAttendance = () => {
     setUserData(userDataCopy);
   };
 
-  console.log("user name", userName);
 
   const onChangeHandler = (e) => {
     verifyGuest(getPathName(e.target.value), e.target.id);
@@ -152,10 +145,10 @@ const MarkAttendance = () => {
                   <p className="date f2">
                     {/* {userData &&
                       userData.preInvitation == "Yes" &&
-                      "03 December 2022"}
+                      "03 December 2023"}
                     {userData &&
                       userData.navydayInvitation == "Yes" &&
-                      "04 December 2022"} */}
+                      "04 December 2023"} */}
 
                     {invitationDate}
                   </p>

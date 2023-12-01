@@ -122,12 +122,10 @@ const Departmenmt = () => {
   ];
 
   const deleteGuest = (data) => {
-    console.log("insdie delete deleteguest", data._id);
     setDepartment(data._id);
   };
 
   const confirmDeleteGuest = async () => {
-    console.log("inside department", department);
 
     let url = `${apiBaseUrl}deleteDepartmentById`;
     try {

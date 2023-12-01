@@ -98,7 +98,6 @@ const GuestList = () => {
     if (isValid) {
       let url = `${apiBaseUrl}updateGuest`;
       try {
-        // console.log(guestPayload,'guest payload is this')
         let response = await axios.post(url, guestPayload);
         if (response) {
           if (response.data.message) {
@@ -219,7 +218,6 @@ const GuestList = () => {
     try {
       let response = await axios.post(url, payload);
       if (response) {
-        console.log("invitation response", response);
       }
     } catch (error) {
       console.log("error", error);

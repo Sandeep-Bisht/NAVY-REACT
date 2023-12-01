@@ -122,12 +122,10 @@ const CreateCategory = () => {
   ];
 
   const deleteCategory = (data) => {
-    console.log("insdie delete catory", data._id);
     setCategoryId(data._id);
   };
 
   const confirmDeleteCategory = async () => {
-    console.log("i am inside confirm delete category", categoryId);
     let url = `${apiBaseUrl}deleteCategoryById`;
     try {
       let response = await axios.post(url, { id: categoryId });

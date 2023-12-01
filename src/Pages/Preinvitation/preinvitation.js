@@ -80,7 +80,7 @@ const PreInvitation = () => {
                 </div>
                 <div className="two">
                   <h2 className="title f2">Navy day</h2>
-                  <p className="date f2">03 December 2022</p>
+                  <p className="date f2">03 December 2023</p>
                 </div>
                 <div className="three">
                   <img src={Logoright} className="img-fluid " />

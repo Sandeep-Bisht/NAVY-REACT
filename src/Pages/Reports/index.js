@@ -39,7 +39,7 @@ const Reports = () => {
         sortable: true,
       },
       {
-        name: "Availablity",
+        name: "Confirmation",
         selector: "availability",
         sortable: true,
       },

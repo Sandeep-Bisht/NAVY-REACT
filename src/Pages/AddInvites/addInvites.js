@@ -8,10 +8,10 @@ import { DashboardNew } from "../../Component/Dashboard";
 
 const AddInvites = () => {
   let [guestInfo, setGuestInfo] = useState({
-    invitationStatus: "null",
-    preInvitationStatus: "null",
-    preNavydayAvailability:"null",
-    availability: "null",
+    invitationStatus: "Not Sent",
+    preInvitationStatus: "Not Sent",
+    preNavydayAvailability:"Not Responded",
+    availability: "Not Responded",
     reminderStatus: "null",
     attendentDate: [],
     guestName: "",
@@ -116,7 +116,7 @@ const AddInvites = () => {
       try {
         let response = await axios.post(url, guestInfo);
         if (response) {
-          if (response.status == 200) {
+          if (response.status === 200) {
             navigate("/dashboard/guestList");
           }
         }

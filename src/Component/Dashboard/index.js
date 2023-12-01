@@ -146,7 +146,7 @@ export function DashboardNew({ children }) {
                       onClick={() => navigate("/dashboard/Department")}
                     >
                       <span className="me-2">
-                        <i class="fa-solid fa-building-shield"></i>
+                        <i className="fa-solid fa-building-shield"></i>
                       </span>
                       Department
                     </button>
@@ -157,7 +157,7 @@ export function DashboardNew({ children }) {
                       onClick={() => navigate("/dashboard/createCategory")}
                     >
                       <span className="me-2">
-                        <i class="fa-solid fa-user-shield"></i>
+                        <i className="fa-solid fa-user-shield"></i>
                       </span>
                       Category
                     </button>
@@ -174,11 +174,11 @@ export function DashboardNew({ children }) {
                     </button>
                   </li>
                   <li>
-                    <div class="accordion" id="accordionExample">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
+                    <div className="accordion" id="accordionExample">
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingOne">
                           <button
-                            class="custom-accordion-btn sidebar-button my-0"
+                            className="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseOne"
@@ -187,7 +187,7 @@ export function DashboardNew({ children }) {
                           >
                             <div>
                               <span className="me-2">
-                                <i class="fa-solid fa-users"></i>
+                                <i className="fa-solid fa-users"></i>
                               </span>
                               Guests
                             </div>{" "}
@@ -196,11 +196,11 @@ export function DashboardNew({ children }) {
                         </h2>
                         <div
                           id="collapseOne"
-                          class="accordion-collapse collapse"
+                          className="accordion-collapse collapse"
                           aria-labelledby="headingOne"
                           data-bs-parent="#accordionExample"
                         >
-                          <div class="accordion-body py-0">
+                          <div className="accordion-body py-0">
                             <ul className="list-unstyled">
                               <li className="m-0">
                                 <button
@@ -210,7 +210,7 @@ export function DashboardNew({ children }) {
                                   }
                                 >
                                   <span className="me-2">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user"></i>
                                   </span>
                                   All
                                 </button>
@@ -227,7 +227,7 @@ export function DashboardNew({ children }) {
                                       }
                                     >
                                       <span className="me-2">
-                                        <i class="fa-solid fa-user"></i>
+                                        <i className="fa-solid fa-user"></i>
                                       </span>
                                       {item.categoryName}
                                     </button>
@@ -253,11 +253,11 @@ export function DashboardNew({ children }) {
                   </li> */}
 
 <li>
-                    <div class="accordion" id="accordionReports">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
+                    <div className="accordion" id="accordionReports">
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingOne">
                           <button
-                            class="custom-accordion-btn sidebar-button my-0"
+                            className="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseReport"
@@ -266,7 +266,7 @@ export function DashboardNew({ children }) {
                           >
                             <div>
                               <span className="me-2">
-                                <i class="fa-solid fa-users"></i>
+                                <i className="fa-solid fa-users"></i>
                               </span>
                               Reports
                             </div>{" "}
@@ -275,18 +275,18 @@ export function DashboardNew({ children }) {
                         </h2>
                         <div
                           id="collapseReport"
-                          class="accordion-collapse collapse"
+                          className="accordion-collapse collapse"
                           aria-labelledby="headingOne"
                           data-bs-parent="#accordionReports"
                         >
-                          <div class="accordion-body py-0">
+                          <div className="accordion-body py-0">
                             <ul className="list-unstyled">                             
                             <li>
-                    <div class="accordion" id="accordionExample2">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
+                    <div className="accordion" id="accordionExample2">
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingTwo">
                           <button
-                            class="custom-accordion-btn sidebar-button my-0"
+                            className="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo"
@@ -295,7 +295,7 @@ export function DashboardNew({ children }) {
                           >
                             <div>
                               <span className="me-2">
-                                <i class="fa-solid fa-users"></i>
+                                <i className="fa-solid fa-users"></i>
                               </span>
                               Confirmed Guest
                             </div>{" "}
@@ -304,11 +304,11 @@ export function DashboardNew({ children }) {
                         </h2>
                         <div
                           id="collapseTwo"
-                          class="accordion-collapse collapse"
+                          className="accordion-collapse collapse"
                           aria-labelledby="headingTwo"
                           data-bs-parent="#accordionExample2"
                         >
-                          <div class="accordion-body py-0">
+                          <div className="accordion-body py-0">
                             <ul className="list-unstyled">
                               <li className="m-0">
                                 <button
@@ -318,9 +318,9 @@ export function DashboardNew({ children }) {
                                   }
                                 >
                                   <span className="me-2">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user"></i>
                                   </span>
-                                  04-Dec-2022
+                                  04-Dec-2023
                                 </button>
                               </li>
                               <li className="m-0">
@@ -331,9 +331,9 @@ export function DashboardNew({ children }) {
                                   }
                                 >
                                   <span className="me-2">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user"></i>
                                   </span>
-                                  03-Dec-2022
+                                  03-Dec-2023
                                 </button>
                               </li>
                             </ul>
@@ -346,11 +346,11 @@ export function DashboardNew({ children }) {
                     {/* confirm guest date wise list */}
 
                     <li>
-                    <div class="accordion" id="accordionExample3">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
+                    <div className="accordion" id="accordionExample3">
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingThree">
                           <button
-                            class="custom-accordion-btn sidebar-button my-0"
+                            className="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseThree"
@@ -359,7 +359,7 @@ export function DashboardNew({ children }) {
                           >
                             <div>
                               <span className="me-2">
-                                <i class="fa-solid fa-users"></i>
+                                <i className="fa-solid fa-users"></i>
                               </span>
                               Guest Reports
                             </div>{" "}
@@ -368,11 +368,11 @@ export function DashboardNew({ children }) {
                         </h2>
                         <div
                           id="collapseThree"
-                          class="accordion-collapse collapse"
+                          className="accordion-collapse collapse"
                           aria-labelledby="headingThree"
                           data-bs-parent="#accordionExample3"
                         >
-                          <div class="accordion-body py-0">
+                          <div className="accordion-body py-0">
                             <ul className="list-unstyled">
                               <li className="m-0">
                                 <button
@@ -382,9 +382,9 @@ export function DashboardNew({ children }) {
                                   }
                                 >
                                   <span className="me-2">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user"></i>
                                   </span>
-                                  04-Dec-2022
+                                  04-Dec-2023
                                 </button>
                               </li>
                               <li className="m-0">
@@ -395,9 +395,9 @@ export function DashboardNew({ children }) {
                                   }
                                 >
                                   <span className="me-2">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user"></i>
                                   </span>
-                                  03-Dec-2022
+                                  03-Dec-2023
                                 </button>
                               </li>
                             </ul>
@@ -409,11 +409,11 @@ export function DashboardNew({ children }) {
 
                    {/* Reports */}
                    <li>
-                    <div class="accordion" id="accordionExample5">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFive">
+                    <div className="accordion" id="accordionExample5">
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingFive">
                           <button
-                            class="custom-accordion-btn sidebar-button my-0"
+                            className="custom-accordion-btn sidebar-button my-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseFive"
@@ -422,7 +422,7 @@ export function DashboardNew({ children }) {
                           >
                             <div>
                               <span className="me-2">
-                                <i class="fa-solid fa-users"></i>
+                                <i className="fa-solid fa-users"></i>
                               </span>
                               Present Guest 
                             </div>{" "}
@@ -431,11 +431,11 @@ export function DashboardNew({ children }) {
                         </h2>
                         <div
                           id="collapseFive"
-                          class="accordion-collapse collapse"
+                          className="accordion-collapse collapse"
                           aria-labelledby="headingFive"
                           data-bs-parent="#accordionExample5"
                         >
-                          <div class="accordion-body py-0">
+                          <div className="accordion-body py-0">
                             <ul className="list-unstyled">
                               <li className="m-0">
                                 <button
@@ -445,9 +445,9 @@ export function DashboardNew({ children }) {
                                   }
                                 >
                                   <span className="me-2">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user"></i>
                                   </span>
-                                  04-Dec-2022
+                                  04-Dec-2023
                                 </button>
                               </li>
                               <li className="m-0">
@@ -458,9 +458,9 @@ export function DashboardNew({ children }) {
                                   }
                                 >
                                   <span className="me-2">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user"></i>
                                   </span>
-                                  03-Dec-2022
+                                  03-Dec-2023
                                 </button>
                               </li>
                             </ul>
@@ -491,7 +491,7 @@ export function DashboardNew({ children }) {
                       onClick={() => navigate("/dashboard/presentGuest")}
                     >
                       <span className="me-2">
-                        <i class="fa-solid fa-building-shield"></i>
+                        <i className="fa-solid fa-building-shield"></i>
                       </span>
                       Present Guest
                     </button>

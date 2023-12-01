@@ -97,7 +97,6 @@ const PrenavydayList = () => {
       if (isValid) {
         let url = `${apiBaseUrl}updateGuest`;
         try {
-          // console.log(guestPayload,'guest payload is this')
           let response = await axios.post(url, guestPayload);
           if (response) {
             if (response.data.message) {
@@ -117,7 +116,6 @@ const PrenavydayList = () => {
       }
     };
 
-    console.log("prenavy day list", tableData)
   
     const handleInputChange = (event) => {
       const { id, value } = event.target;
@@ -207,7 +205,6 @@ const PrenavydayList = () => {
       try {
         let response = await axios.post(url, payload);
         if (response) {
-          console.log("invitation response", response);
         }
       } catch (error) {
         console.log("error", error);
@@ -248,7 +245,7 @@ const PrenavydayList = () => {
         sortable: true,
       },
       {
-        name: "Availablity",
+        name: "Confirmation",
         selector: "preNavydayAvailability",
         sortable: true,
       },

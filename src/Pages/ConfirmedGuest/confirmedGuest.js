@@ -98,7 +98,6 @@ const ConfirmedGuest = () => {
       if (response && response.data.guestList) {
         setTableData(response.data.guestList);
         setTotalCount(response.data.guestList.length)
-        console.log("response.data.guestList ", response.data.guestList)
         const limitedFieldArray = response.data.guestList.map((item, index) => {
           // Create a new object to store the limited fields
           let limitedFieldsObj = {};

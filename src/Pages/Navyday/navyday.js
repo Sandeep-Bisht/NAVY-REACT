@@ -67,7 +67,6 @@ useEffect(() => {
       console.log("error", error);
     }
   };
-console.log(userData,"check the userdata");
 
   return (
     <>

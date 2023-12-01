@@ -117,7 +117,7 @@ const Dashboard = () => {
             <div className="col-md-3 col-6">
               <div className="conter-card four d-flex">
                 <div className="left">
-                  <i class="fa-solid fa-file-excel"></i>
+                  <i className="fa-solid fa-file-excel"></i>
                 </div>
                 <div className="right">
                   <p className="counter-card-number ms-0">
@@ -133,11 +133,11 @@ const Dashboard = () => {
               {categoryWiseUser.length > 0 &&
                 categoryWiseUser.map((item, index) => {
                   return (
-                    <>
-                      <div className="col-md-2 col-6">
+                   
+                      <div key={index} className="col-md-2 col-6">
                         <div className="conter-card one">
                           <div className="left category-icon">
-                            <i class="fa-solid fa-user-shield"></i>
+                            <i className="fa-solid fa-user-shield"></i>
                             <p className="counter-card-number">
                               {item.userCount}
                             </p>
@@ -152,7 +152,7 @@ const Dashboard = () => {
                           </div>
                         </div>
                       </div>
-                    </>
+                    
                   );
                 })}
             </div>
@@ -166,7 +166,7 @@ const Dashboard = () => {
               <div className="col-md-4 ">
                 <div className="conter-card catagory">
                   <div className="left category-icon">
-                    <i class="fa-solid fa-user-shield"></i>
+                    <i className="fa-solid fa-user-shield"></i>
                   </div>
                   <div className="right">
                     <p className="counter-card-number">

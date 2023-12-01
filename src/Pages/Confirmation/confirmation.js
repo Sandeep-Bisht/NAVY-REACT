@@ -7,7 +7,6 @@ import { apiBaseUrl } from "../../util.js";
 
 const Confirmation = () => {
   const location = useLocation();
-  // console.log(location.pathname, "location")
   const [isDisabled, setIsDisabled] = useState(false);
   const [userData, setUserData] = useState(false);
   const [showResponseMsg, setShowResponseMsg] = useState(false)
