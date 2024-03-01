@@ -61,11 +61,12 @@ const MarkAttendance = () => {
         (item, index) => item.stringToken == stringToken
       );
       if (usersData) {
-        if (usersData.navydayInvitation == "Yes") {
+        if (usersData.invitedForNavyDay) {
           setInvitationDate("04-Dec-2023");
         }
 
         userDataCopy.guestName = usersData.guestName;
+        userDataCopy.adminPassword = "111";
         userDataCopy.guestId = usersData._id;
         userDataCopy.inviteNo = usersData.inviteNo;
         userDataCopy.guestDesignation = usersData.guestDesignation;
@@ -83,11 +84,12 @@ const MarkAttendance = () => {
 
 
   const onChangeHandler = (e) => {
+    console.log(e.target.id,"check value", e.target.value)
     verifyGuest(getPathName(e.target.value), e.target.id);
   };
 
   const markAttendanceSubmit = () => {
-    // console.log(userData, 'user data is this')
+    console.log(userData, 'user data is this')
     handleAttendance(userData);
   };
 
@@ -160,7 +162,7 @@ const MarkAttendance = () => {
             </div>
           </div>
           <div className="welcome-box">
-            <p className="welcome-title">Welcome to NHO</p>
+            <p className="welcome-title">Welcome to National Hydrographic Office</p>
             {/* <p className="welcome-name">{userData && userData.guestName}</p> */}
             <p className="welcome-name">{userName && userName}</p>
           </div>
@@ -207,14 +209,15 @@ const MarkAttendance = () => {
                   value={userData.stringToken}
                   //value={}
                   //placeholder="Enter Code"
+                  autoComplete="off"
                 />
-                <input
+                <input 
                   type="password"
                   className="form-control me-2"
                   id="adminPassword"
-                  //ref={textInput}
                   onChange={(e) => onChangeHandler(e)}
-                  placeholder="Enter Code"
+                  placeholder="Enter Code" 
+                  value="111"               
                 />
 
                 <button
@@ -224,6 +227,7 @@ const MarkAttendance = () => {
                 >
                   <BsArrowRight />
                 </button>
+               
               </form>
             </div>
           </div>

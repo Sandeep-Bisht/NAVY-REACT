@@ -11,7 +11,7 @@ import { apiBaseUrl } from "../../util.js";
 import Loader from "../../Component/Dashboard/Loader.js";
 
 const GuestList = () => {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   const [tableData, setTableData] = useState([]);
   const [inviteeType, setInviteeType] = useState("");
   const [departments, setDepartments] = useState([]);
@@ -207,6 +207,18 @@ const GuestList = () => {
     }
   };
 
+  const sendMsg = async (inviteData) => {
+    let url = `${apiBaseUrl}sendRegularUpdateMsg`;
+    try {
+      let response = await axios.post(url, inviteData);
+      if (response) {
+        getGuestList();
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   const sendToAll = async (e) => {
     e.preventDefault();
     let url = `${apiBaseUrl}sendInvitationToAll`;
@@ -273,60 +285,76 @@ const GuestList = () => {
       selector: "guestNumber",
       sortable: true,
     },
+
     {
-      name: "Invite 03-Dec",
+      name: "Send Msg",
       selector: (row) => (
         <button
           type="button"
           className="common-category-btn"
-          onClick={() => sendPreInvitation(row)}
+          onClick={() => sendMsg(row)}
         >
-          {row && row.preInvitation == "Yes" ? "Resend" : "Send"}
+          {/* {row && row.preInvitation == "Yes" ? "Resend" : "Send"} */}
+          Send
         </button>
       ),
       sortable: false,
     },
-    {
-      name: "Invite 04-Dec",
-      selector: (row) => (
-        <button
-          type="button"
-          className="common-category-btn"
-          onClick={() => sendReminderForNavyDay(row)}
-        >
-          {row && row.navydayInvitation == "Yes" ? "Resend" : "Send"}
-        </button>
-      ),
-      sortable: false,
-    },
-    {
-      name: "Confirmation 03-Dec",
-      selector: (row) => (
-        <button
-          type="button"
-          className="common-category-btn"
-          onClick={() => sendReminder(row)}
-          // >{ row && row.invitationStatus == "Invitation Sent" ?
-        >
-          {row && row.reminderStatus == "Reminder Sent" ? "Resend" : "Send"}
-        </button>
-      ),
-      sortable: false,
-    },
-    {
-      name: "Confirmation 04-Dec",
-      selector: (row) => (
-        <button
-          type="button"
-          className="common-category-btn"
-          onClick={() => sendReminder(row)}
-          // >{ row && row.invitationStatus == "Invitation Sent" ?
-        >
-          {row && row.reminderStatus == "Reminder Sent" ? "Resend" : "Send"}
-        </button>
-      ),
-      sortable: false,
-    },
+    
+    // {
+    //   name: "Invite 03-Dec",
+    //   selector: (row) => (
+    //     <button
+    //       type="button"
+    //       className="common-category-btn"
+    //       onClick={() => sendPreInvitation(row)}
+    //     >
+    //       {row && row.preInvitation == "Yes" ? "Resend" : "Send"}
+    //     </button>
+    //   ),
+    //   sortable: false,
+    // },
+    // {
+    //   name: "Invite 04-Dec",
+    //   selector: (row) => (
+    //     <button
+    //       type="button"
+    //       className="common-category-btn"
+    //       onClick={() => sendReminderForNavyDay(row)}
+    //     >
+    //       {row && row.navydayInvitation == "Yes" ? "Resend" : "Send"}
+    //     </button>
+    //   ),
+    //   sortable: false,
+    // },
+    // {
+    //   name: "Confirmation 03-Dec",
+    //   selector: (row) => (
+    //     <button
+    //       type="button"
+    //       className="common-category-btn"
+    //       onClick={() => sendReminder(row)}
+    //       // >{ row && row.invitationStatus == "Invitation Sent" ?
+    //     >
+    //       {row && row.reminderStatus == "Reminder Sent" ? "Resend" : "Send"}
+    //     </button>
+    //   ),
+    //   sortable: false,
+    // },
+    // {
+    //   name: "Confirmation 04-Dec",
+    //   selector: (row) => (
+    //     <button
+    //       type="button"
+    //       className="common-category-btn"
+    //       onClick={() => sendReminder(row)}
+    //       // >{ row && row.invitationStatus == "Invitation Sent" ?
+    //     >
+    //       {row && row.reminderStatus == "Reminder Sent" ? "Resend" : "Send"}
+    //     </button>
+    //   ),
+    //   sortable: false,
+    // },
     {
       name: "Action",
       selector: (row) => (
@@ -398,7 +426,6 @@ const GuestList = () => {
     data: tableData,
   };
 
-
   let downloadGuestData = () => {
     // try {
     //    axios({
@@ -415,14 +442,14 @@ const GuestList = () => {
     //   });
     // } catch (error) {
     // }
-  }
+  };
 
   return (
     <>
       <DashboardNew>
         {/* {isLoading ? <Loader /> : */}
         {/* <> */}
-      
+
         <div className="row">
           <div className="col-md-12">
             <h4 className="fw-bold text-center mb-4">Guest List</h4>
@@ -470,7 +497,6 @@ const GuestList = () => {
                 {/* <div className="col-md-4">                 
                   <button className="common-category-btn" onClick={() => downloadGuestData()}  >Download Excel</button>
                 </div> */}
-                
               </div>
             </form>
             <div className="main-table">
@@ -665,23 +691,39 @@ const GuestList = () => {
                     )}
                   </div>
                   <div className="mb-3 col-lg-6">
-                  <input
+                    <input
                       type="checkbox"
                       id="invitedForPreNavyDay"
-                      checked = {guestPayload.invitedForPreNavyDay ? true : false}
-                      onChange={() => {setGuestPayload({...guestPayload,invitedForPreNavyDay:guestPayload.invitedForPreNavyDay ? false : true})}}
+                      checked={guestPayload.invitedForPreNavyDay ? true : false}
+                      onChange={() => {
+                        setGuestPayload({
+                          ...guestPayload,
+                          invitedForPreNavyDay:
+                            guestPayload.invitedForPreNavyDay ? false : true,
+                        });
+                      }}
                     />
-                    <label htmlFor="invitedForPreNavyDay" className="form-label">
+                    <label
+                      htmlFor="invitedForPreNavyDay"
+                      className="form-label"
+                    >
                       Invited for Pre Navy Day (03 Dec)
                     </label>
                   </div>
 
                   <div className="mb-3 col-lg-6">
-                  <input
+                    <input
                       type="checkbox"
                       id="invitedForNavyDay"
-                      checked = {guestPayload.invitedForNavyDay ? true : false}
-                      onChange={() => {setGuestPayload({...guestPayload,invitedForNavyDay:guestPayload.invitedForNavyDay ? false : true})}}
+                      checked={guestPayload.invitedForNavyDay ? true : false}
+                      onChange={() => {
+                        setGuestPayload({
+                          ...guestPayload,
+                          invitedForNavyDay: guestPayload.invitedForNavyDay
+                            ? false
+                            : true,
+                        });
+                      }}
                     />
                     <label htmlFor="invitedForNavyDay" className="form-label">
                       Invited for Navy Day (04 Dec)

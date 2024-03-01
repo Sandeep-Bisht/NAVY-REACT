@@ -22,7 +22,7 @@ import PreNavydayConfirmation from "../Pages/Confirmation/preNavydayConfirmation
 const AppRoute = () => {
   let routes = useRoutes([
     { path: "/", element: <Login /> },
-    { path: "/*", element:<Login />},
+    // { path: "/*", element:<Login />},
     { path: "/confirmation/:id", element: <Confirmation /> },
     { path: "/pndConfirmation/:id", element: <PreNavydayConfirmation /> },    
     { path: "/markAttendance/:id", element: <MarkAttendance /> },
